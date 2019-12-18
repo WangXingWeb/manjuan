@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>css计数器 | 漫卷</title>
+<meta name="description" content="躬行不言，默而成事">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576653255234">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576653255234" class="site-logo">
+        <h1 class="site-title">漫卷</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/manjuan/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/manjuan/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/manjuan/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/manjuan/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      躬行不言，默而成事
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://iwangxing.cn" target="_blank">Manjuan</a> | <a class="rss" href="https://iwangxing.cn/manjuan//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">css计数器</h2>
+            <div class="post-date">2019-12-18</div>
+            
+            <div class="post-content">
+              <p>先来看一下这几个属性</p>
+<h3 id="counter-reset-计数器重置">counter-reset 计数器重置</h3>
+<blockquote>
+<p>参数
+1.计数器名称
+2.计数器初始值
+默认值为0，必须为整数，可以为负值，若为非整数则默认为0</p>
+</blockquote>
+<h3 id="counter-increment计数器-递增">counter-increment计数器-递增</h3>
+<blockquote>
+<p>参数
+1.计数器名称
+就是给那个计数器递增值
+2.递增的幅度
+默认值为1，必须为整数，可以为负值</p>
+</blockquote>
+<h3 id="counter">counter</h3>
+<blockquote>
+<p>参数
+name:计数器名称（counter-reset中设置的名称）
+list-style-type计数样式，例如lower-alpha英文小写字母，lower-roman小写罗马数字，upper-roman大写罗马数字，默认为阿拉伯数字。<a href="https://www.w3cschool.cn/cssref/pr-list-style-type.html">如果你不了解这些样式的话到这里查看吧</a></p>
+</blockquote>
+<ul>
+<li>counter只能用在content中</li>
+<li>content只能用在before和after这些伪类里</li>
+</ul>
+<pre><code>.result::before{
+    content:counter(veg);
+}
+</code></pre>
+<p>举个例子</p>
+<h5 id="html">html</h5>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;西红柿&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;黄瓜&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;菠菜&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;西葫芦&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;冬瓜&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;白菜&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;苦瓜&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;茄子&lt;/div&gt;
+    &lt;br&gt;您选择了
+    &lt;div class=&quot;result&quot;&gt;&lt;/div&gt;&amp;nbsp;个
+&lt;/div&gt;
+
+</code></pre>
+<h5 id="css">css</h5>
+<pre><code>.container{
+    padding: 50px;
+    counter-reset: veg 0;
+}
+.item{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    border:1px solid #666666;
+    margin: auto;
+    text-align: center;
+    padding:0 20px;
+    color: #666;
+}
+.item-active{
+    counter-increment: veg 1;
+    background-color:green;
+    color: white;
+    border-color: green;
+}
+.result{
+    display: inline-block;
+}
+.result::before{
+    content: counter(veg,upper-roman);
+    color: red;
+}
+</code></pre>
+<h5 id="js">js</h5>
+<pre><code>//这里的js只负责添加标记的class，具体统计数量由css实现
+var $=function (tag) {
+     return document.querySelectorAll(tag);
+}
+for(var i=0;i&lt;$(&quot;.item&quot;).length;i++) {
+     $(&quot;.item&quot;)[i].addEventListener('click', function () {
+            this.classList.toggle('item-active');
+     });
+}
+</code></pre>
+<h5 id="效果">效果</h5>
+<p><img src="https://upload-images.jianshu.io/upload_images/9260635-95b8fc2f0a6ead4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行效果"></p>
+<h3 id="counters-嵌套计数">counters 嵌套计数</h3>
+<h5 id="html-2">html</h5>
+<pre><code>&lt;div class=&quot;reset&quot;&gt;
+    &lt;div class=&quot;counter&quot;&gt;第一部
+        &lt;div class=&quot;reset&quot;&gt;
+            &lt;div class=&quot;counter&quot;&gt;第一部第一章&lt;/div&gt;
+            &lt;div class=&quot;counter&quot;&gt;第一部第二章
+                &lt;div class=&quot;reset&quot;&gt;
+                    &lt;div class=&quot;counter&quot;&gt;第一部第二章第一节&lt;/div&gt;
+                    &lt;div class=&quot;counter&quot;&gt;第一部第二章第二节&lt;/div&gt;
+                    &lt;div class=&quot;counter&quot;&gt;第一部第二章第三节&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;counter&quot;&gt;第一部第三章&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;counter&quot;&gt;第二部
+        &lt;div class=&quot;reset&quot;&gt;
+            &lt;div class=&quot;counter&quot;&gt;第二部第一章第一节&lt;/div&gt;
+            &lt;div class=&quot;counter&quot;&gt;第二部第一章第二节&lt;/div&gt;
+            &lt;div class=&quot;counter&quot;&gt;第二部第一章第三节&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;counter&quot;&gt;第三部
+        &lt;div class=&quot;reset&quot;&gt;
+            &lt;div class=&quot;counter&quot;&gt;第三部第一章&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h5 id="css-2">css</h5>
+<pre><code>.reset { 
+     padding-left: 30px; 
+     counter-reset: chapters; 
+     line-height: 2; 
+     color: #666; 
+ }
+ .counter:before { 
+     content: counters(chapters, '-') '. ';
+     counter-increment: chapters;  
+ }
+</code></pre>
+<h5 id="效果-2">效果</h5>
+<p><img src="https://upload-images.jianshu.io/upload_images/9260635-38ac80a77a8c82fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="嵌套计数实现目录结构"></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan//post/ru-he-hua-chu-xiao-yu-1px-de-xian">
+                  <h3 class="post-title">
+                    如何画出小于1px的线
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
