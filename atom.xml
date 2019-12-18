@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-18T07:41:49.434Z</updated>
+    <updated>2019-12-18T07:50:46.687Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -10,42 +10,6 @@
     <logo>https://iwangxing.cn/manjuan//images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan//favicon.ico</icon>
     <rights>All rights reserved 2019, 漫卷</rights>
-    <entry>
-        <title type="html"><![CDATA[npm设置淘宝镜像]]></title>
-        <id>https://iwangxing.cn/manjuan//post/npm-she-zhi-tao-bao-jing-xiang</id>
-        <link href="https://iwangxing.cn/manjuan//post/npm-she-zhi-tao-bao-jing-xiang">
-        </link>
-        <updated>2019-12-18T07:33:30.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="解决npm下载慢或者被墙的问题">解决npm下载慢或者被墙的问题</h2>
-<ul>
-<li>安装cnpm</li>
-</ul>
-<pre><code>npm i -g cnpm
-npm install --global cnpm
-</code></pre>
-<p>接下来把所有的npm替换成cnpm即可</p>
-<ul>
-<li>
-<p>关于cnpm
-npm 的服务器在国外，有时候会被墙，下载速度也很慢
-淘宝的开发团队把npm在国内做了一个镜像
-每十分钟更新一次，基本没有时效问题</p>
-</li>
-<li>
-<p>不想安装cnpm又想使用cnpm的资源来下载</p>
-</li>
-</ul>
-<pre><code>npm install jquery --registry=https://registry.npm.taobao.org
-</code></pre>
-<p>但是每次手动加参数很麻烦</p>
-<pre><code>npm config set registry https://registry.npm.taobao.org
-</code></pre>
-<p>执行过上面的命令，以后npm install 下载东西就是从淘宝服务器上下载了</p>
-<pre><code># 查看 npm 配置信息，可以看到对应的registry信息
-npm config list
-</code></pre>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[css中常见的单位]]></title>
         <id>https://iwangxing.cn/manjuan//post/css-zhong-chang-jian-de-dan-wei</id>
@@ -363,6 +327,42 @@ for(var i=0;i&lt;$(&quot;.item&quot;).length;i++) {
         <content type="html"><![CDATA[<h1 id="安装git">安装git</h1>
 <h1 id="申请github账号">申请github账号</h1>
 <h1 id=""></h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[npm设置淘宝镜像]]></title>
+        <id>https://iwangxing.cn/manjuan//post/npm</id>
+        <link href="https://iwangxing.cn/manjuan//post/npm">
+        </link>
+        <updated>2018-12-18T07:49:53.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="解决npm下载慢或者被墙的问题">解决npm下载慢或者被墙的问题</h2>
+<ul>
+<li>安装cnpm</li>
+</ul>
+<pre><code>npm i -g cnpm
+npm install --global cnpm
+</code></pre>
+<p>接下来把所有的npm替换成cnpm即可</p>
+<ul>
+<li>
+<p>关于cnpm
+npm 的服务器在国外，有时候会被墙，下载速度也很慢
+淘宝的开发团队把npm在国内做了一个镜像
+每十分钟更新一次，基本没有时效问题</p>
+</li>
+<li>
+<p>不想安装cnpm又想使用cnpm的资源来下载</p>
+</li>
+</ul>
+<pre><code>npm install jquery --registry=https://registry.npm.taobao.org
+</code></pre>
+<p>但是每次手动加参数很麻烦</p>
+<pre><code>npm config set registry https://registry.npm.taobao.org
+</code></pre>
+<p>执行过上面的命令，以后npm install 下载东西就是从淘宝服务器上下载了</p>
+<pre><code># 查看 npm 配置信息，可以看到对应的registry信息
+npm config list
+</code></pre>
 ]]></content>
     </entry>
 </feed>
