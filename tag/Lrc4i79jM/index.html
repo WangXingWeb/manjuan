@@ -1,142 +1,123 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工具 | 漫卷</title>
-<meta name="description" content="躬行不言，默而成事">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576723300333">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576660795880">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576660795880" class="site-logo">
-        <h1 class="site-title">漫卷</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://iwangxing.cn/manjuan/">
+  <img class="avatar" src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576723300333" alt="">
+  </a>
+  <h1 class="site-title">
+    漫卷
+  </h1>
+  <p class="site-description">
+    躬行不言，默而成事
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/manjuan/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/manjuan/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/manjuan/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/manjuan/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/manjuan/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/manjuan/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/manjuan/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/manjuan/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+        <a href="https://github.com/WangXingWeb" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      躬行不言，默而成事
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://iwangxing.cn" target="_blank">Manjuan</a> | <a class="rss" href="https://iwangxing.cn/manjuan//atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 工具</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan//post/gridea-bo-ke-da-jian">
-                  <h2 class="post-title">Gridea 博客搭建</h2>
-                </a>
-                <div class="post-date">
-                  2019-12-18
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-
-          <div class="pagination-container">
-  
-  
-</div>
-
+        <div class="current-tag-container">
+            <h2 class="title">
+                标签：#工具
+            </h2> 
         </div>
+        <div class="post-container">
+  
+    <article class="post">
+      <a href="https://iwangxing.cn/manjuan//post/gridea">
+        <h2 class="post-title">Gridea 博客搭建</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2019-12-18 ·
+        </time>
+        
+          <a href="https://iwangxing.cn/manjuan//tag/Lrc4i79jM" class="post-tag">
+            # 工具
+          </a>
+        
       </div>
-    </div>
+      
+      <div class="post-abstract">
+        
+      </di>
+    </article>
+  
+</div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <div class="pagination-container">
+  
+  
+</div>
 
-<script type="application/javascript">
+        <div class="site-footer">
+  Powered by <a href="https://iwangxing.cn" target="_blank">Manjuan</a> | 
+  <a class="rss" href="https://iwangxing.cn/manjuan//atom.xml" target="_blank">RSS</a>
+</div>
 
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+<script>
+  hljs.initHighlightingOnLoad()
 </script>
 
-
-
-
+      </div>
+    </div>
   </body>
 </html>

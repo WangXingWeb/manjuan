@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>如何画出小于1px的线 | 漫卷</title>
+<title>Gridea 博客搭建 | 漫卷</title>
 <link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576723300333">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -78,63 +78,40 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              如何画出小于1px的线
+              Gridea 博客搭建
             </h2>
             <div class="post-info">
               <time class="post-time">
                 · 2019-12-18 ·
               </time>
               
-                <a href="https://iwangxing.cn/manjuan//tag/css" class="post-tag">
-                  # css
-                </a>
-              
-                <a href="https://iwangxing.cn/manjuan//tag/kRA19DhNX" class="post-tag">
-                  # 前端
+                <a href="https://iwangxing.cn/manjuan//tag/Lrc4i79jM" class="post-tag">
+                  # 工具
                 </a>
               
             </div>
             
             <div class="post-content">
-              <p>有一天产品经理告诉我App底部tab栏上边框太宽了，赶紧改窄一点。我想这个简单啊，改一下boder的宽度就OK了，结果我一看代码，border-top的宽度已经是1px了，这时如果将border的宽度设置为小于1px的值，浏览器还是当作1px来渲染。不会有任何效果。这时要不要告诉产品需求不合理，无法实现（想想还是算了吧，怕被打）。</p>
-<p>这时只能想办法变通一下，于是我想到了css3中的transform属性，该属性允许我们对元素进行旋转、缩放、移动或倾斜。这里我就想通过缩放来实现绘制小于1px的线条。思路是将一个元素的边框设置为1px，再通过缩放达到将线条变窄的目的。</p>
-<p>看下面的代码，我们给下面的三栏布局加分割线，左边的分割线设置边框为1px,右边线条使用缩放实现变窄的效果。</p>
-<ul>
-<li>html代码</li>
-</ul>
-<pre><code class="language-html">&lt;section class=&quot;layout&quot;&gt;
-    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;middle&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<ul>
-<li>css代码</li>
-</ul>
-<pre><code class="language-css">.layout{
-    display: flex;
-    height: 100%;
-}
-.left,.right,.middle{
-    flex: 1;
-}
-.middle{
-    border-left: 1px solid #000;
-}
-.right:before{
-    content: &quot;&quot;;
-    height: 100%;
-    display: inline-block;
-    background-color: #000;
-    width: 1px;
-    transform: scaleX(0.5);
-}
-</code></pre>
-<ul>
-<li>效果如下
-<img src="http://upload-images.jianshu.io/upload_images/9260635-ba15de918321efbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50" alt="图片发自简书App"></li>
-</ul>
-<p>这里是绘制纵向的线条，所以我们使用X轴方向的缩放scaleX( )，如果你要绘制横向的超窄线条可以使用Y轴方向的缩放scaleY( )。如果你想绘制一条倾斜的超窄线条，要怎么实现呢？实现方式：先缩放绘制出X或Y轴方向上的超窄线条，再通过transform:rotate(angle)旋转一定的角度来达到倾斜的效果。</p>
+              <h1 id="安装git">安装git</h1>
+<p>因为我们是要利用github上搭建个人博客，所以需要git将我们的静态pages提交到github上。
+<a href="https://git-scm.com/">git下载链接</a></p>
+<h1 id="申请github账号">申请github账号</h1>
+<ol>
+<li>申请一个github账号，用于托管我们的静态页面。<a href="https://github.com/">点这里申请github账号</a></li>
+<li>创建一个新仓库 <code>Create a new repository</code></li>
+<li>生成个人访问令牌 <code>Personal access tokens</code>,在<code>setting</code> -&gt; <code>Developer settings</code> -&gt; <code>Personal access tokens</code> 中生成一个个人访问令牌。<img src="https://iwangxing.cn/manjuan//post-images/1576719746966.png" alt="生成个人访问令牌">
+点击 <code>New personal access token</code> 创建个人令牌
+<img src="https://iwangxing.cn/manjuan//post-images/1576720127710.png" alt="生成个人访问令牌">
+<img src="https://iwangxing.cn/manjuan//post-images/1576720689090.png" alt="生成个人访问令牌"></li>
+</ol>
+<h1 id="配置gridea">配置Gridea</h1>
+<p>下载对应你自己的操作系统的Gridea安装文件，下载完成后安装</p>
+<ol>
+<li>最关键的步骤就是配置<code>github pages</code>
+<img src="https://iwangxing.cn/manjuan//post-images/1576722438650.png" alt="配置github pages">
+配置完成后点击 <code>检测远程连接</code> ，说明我们的Gridea已经成功连接上github了，然后点击保存</li>
+<li></li>
+</ol>
 
             </div>
           </article>
@@ -143,9 +120,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://iwangxing.cn/manjuan//post/gridea">
+            <a href="https://iwangxing.cn/manjuan//post/npm">
               <h3 class="post-title">
-                Gridea 博客搭建
+                npm设置淘宝镜像
               </h3>
             </a>
           </div>
