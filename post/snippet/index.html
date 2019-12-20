@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>VScode自定义代码块 | 漫卷</title>
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576832630973">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576833840886">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://iwangxing.cn/manjuan/">
-  <img class="avatar" src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576832630973" alt="">
+  <img class="avatar" src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576833840886" alt="">
   </a>
   <h1 class="site-title">
     漫卷
@@ -116,8 +116,7 @@
 <h1 id="snippet用法">snippet用法</h1>
 <h2 id="制表位tabstops">制表位(Tabstops)</h2>
 <p>制表位在插入代码块后控制光标的位置，方便我们下一步编辑这段代码。使用$1,$2,$3...来指定光标的位置,按<code>Tab</code>键切换贯标位置。数字代表光标的移动的顺序，值得注意的时$0代表光标的最后位置（当所有制表位走完光标会回到$0的位置，记住$0并不是光标的第一个位置）。如果有多个相同的制表位(Tabstops)会在编译器里同时出现多个光标。</p>
-<pre><code class="language-javacript">{
-	&quot;console.log&quot;: {
+<pre><code class="language-{">	&quot;console.log&quot;: {
 		&quot;scope&quot;: &quot;javascript,typescript&quot;,
 		&quot;prefix&quot;: &quot;log&quot;,
 		&quot;body&quot;: [
@@ -126,10 +125,29 @@
 		],
 		&quot;description&quot;: &quot;这是我自定义的console.log&quot;
 	}
-}
+}```
+
+上面的代码在我们插入代码块后光标先到$1的位置，在我们输入完需要console.log的内容后，按`Tab`就可以到$2的位置继续编写下面的代码了。
+
+## 占位符(Placeholders)
+占位符(Placeholders) 是带默认值的制表位(Tabstops),占位符(Placeholders)的文本会被插入到制表位(Tabstops)所在位置并且全选以方便修改。
+
 </code></pre>
-<p>上面的代码在我们插入代码块后光标先到$1的位置，在我们输入完需要console.log的内容后，按<code>Tab</code>就可以到$2的位置继续编写下面的代码了。</p>
-<h2 id=""></h2>
+<p>{
+&quot;function&quot;:{
+&quot;scope&quot;: &quot;javascript,typescript&quot;,
+&quot;prefix&quot;: &quot;fun&quot;,
+&quot;body&quot;: [
+&quot;function <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mn>1</mn><mo>:</mo><mi>f</mi><mi>u</mi><mi>n</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>N</mi><mi>a</mi><mi>m</mi><mi>e</mi></mrow><mo>(</mo></mrow><annotation encoding="application/x-tex">{1:functionName}(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span></span><span class="mopen">(</span></span></span></span>{2:param}){&quot;,
+&quot;    $3&quot;,
+&quot;}&quot;
+],
+&quot;description&quot;: &quot;function&quot;
+}
+}</p>
+<pre><code>
+
+</code></pre>
 
             </div>
           </article>
