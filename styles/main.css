@@ -782,4 +782,5 @@ td {
       .site-description{color:#ffb000 !important;}
 .year{color:#ffb000 !important;}
 .tags-container .tag{background-color:#ffb000 !important;color:#fff;padding:8px 15px;border-radius:5px;}
+.current-tag-container .title{color:#ffb000;font-size:24px;font-weight:700;}
     
