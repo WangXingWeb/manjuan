@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-20T06:07:49.665Z</updated>
+    <updated>2019-12-20T06:13:45.507Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -16,6 +16,10 @@
         <link href="https://iwangxing.cn/manjuan//post/tool">
         </link>
         <updated>2019-12-20T04:05:14.000Z</updated>
+        <summary type="html"><![CDATA[<p>这里推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这里推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[css计数器]]></title>
