@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>npm设置淘宝镜像 | 漫卷</title>
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576809987401">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1576814077201">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://iwangxing.cn/manjuan/">
-  <img class="avatar" src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576809987401" alt="">
+  <img class="avatar" src="https://iwangxing.cn/manjuan//images/avatar.png?v=1576814077201" alt="">
   </a>
   <h1 class="site-title">
     漫卷
@@ -100,14 +100,16 @@
             </div>
             
             <div class="post-content">
-              <h2 id="解决npm下载慢或者被墙的问题">解决npm下载慢或者被墙的问题</h2>
+              <p>平时用npm下载会比较慢
+有时候会有被墙的问题
+为解决这个问题需要cnpm</p>
 <ul>
 <li>安装cnpm</li>
 </ul>
-<pre><code>npm i -g cnpm
+<pre><code class="language-cmd">npm i -g cnpm
 npm install --global cnpm
 </code></pre>
-<p>接下来把所有的npm替换成cnpm即可</p>
+<p>接下来把所有用到npm的命令替换成cnpm即可</p>
 <ul>
 <li>
 <p>关于cnpm
@@ -119,13 +121,13 @@ npm 的服务器在国外，有时候会被墙，下载速度也很慢
 <p>不想安装cnpm又想使用cnpm的资源来下载</p>
 </li>
 </ul>
-<pre><code>npm install jquery --registry=https://registry.npm.taobao.org
+<pre><code class="language-cmd">npm install jquery --registry=https://registry.npm.taobao.org
 </code></pre>
-<p>但是每次手动加参数很麻烦</p>
-<pre><code>npm config set registry https://registry.npm.taobao.org
+<p>但是每次手动加参数很麻烦，下面我们设置永久的npm淘宝镜像</p>
+<pre><code class="language-cmd">npm config set registry https://registry.npm.taobao.org
 </code></pre>
 <p>执行过上面的命令，以后npm install 下载东西就是从淘宝服务器上下载了</p>
-<pre><code># 查看 npm 配置信息，可以看到对应的registry信息
+<pre><code class="language-cmd"># 查看 npm 配置信息，可以看到对应的registry信息
 npm config list
 </code></pre>
 
