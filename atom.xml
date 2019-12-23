@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-23T13:34:28.831Z</updated>
+    <updated>2019-12-23T13:41:14.406Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -12,10 +12,14 @@
     <rights>All rights reserved 2019, 漫卷</rights>
     <entry>
         <title type="html"><![CDATA[VSCode中应该安装的几款插件]]></title>
-        <id>https://iwangxing.cn/manjuan//post/_vmwUIagK</id>
-        <link href="https://iwangxing.cn/manjuan//post/_vmwUIagK">
+        <id>https://iwangxing.cn/manjuan//post/vscode_extend</id>
+        <link href="https://iwangxing.cn/manjuan//post/vscode_extend">
         </link>
         <updated>2019-12-23T12:52:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>VSCode是一款我非常喜欢的IDE，我喜欢他的原因就是它有丰富的扩展插件。VSCode本身并没有提供特别全面和复杂的功能，用户想要使用更丰富的功能只需添加对应的扩展插件即可。这样一来，VSCcode本身就会变得很轻量，避免了一些低频的功能占用太多资源导致IDE非常臃肿。下面是我的VSCode中安装的一下插件。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>VSCode是一款我非常喜欢的IDE，我喜欢他的原因就是它有丰富的扩展插件。VSCode本身并没有提供特别全面和复杂的功能，用户想要使用更丰富的功能只需添加对应的扩展插件即可。这样一来，VSCcode本身就会变得很轻量，避免了一些低频的功能占用太多资源导致IDE非常臃肿。下面是我的VSCode中安装的一下插件。</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[VScode自定义代码块]]></title>
