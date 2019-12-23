@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-23T15:47:57.388Z</updated>
+    <updated>2019-12-23T15:48:28.969Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
-    <subtitle>躬行不言，默而成事</subtitle>
+    <subtitle>躬行不言， 默而成事</subtitle>
     <logo>https://iwangxing.cn/manjuan//images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan//favicon.ico</icon>
     <rights>All rights reserved 2019, 漫卷</rights>
