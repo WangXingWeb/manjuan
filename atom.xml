@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-23T13:41:14.406Z</updated>
+    <updated>2019-12-23T13:55:10.786Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -38,9 +38,9 @@
         <link href="https://iwangxing.cn/manjuan//post/tool">
         </link>
         <updated>2019-12-20T04:05:14.000Z</updated>
-        <summary type="html"><![CDATA[<p>这里推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
+        <summary type="html"><![CDATA[<p>推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>这里推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
+        <content type="html"><![CDATA[<p>推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
 ]]></content>
     </entry>
     <entry>
@@ -63,6 +63,10 @@
         <link href="https://iwangxing.cn/manjuan//post/JqLvO_KCZ">
         </link>
         <updated>2017-09-12T04:39:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>不定期更新，发现好东西就贴到下面。希望对大家有所帮助。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>不定期更新，发现好东西就贴到下面。希望对大家有所帮助。</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[npm设置淘宝镜像]]></title>
