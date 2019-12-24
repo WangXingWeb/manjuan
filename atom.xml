@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-24T11:33:42.742Z</updated>
+    <updated>2019-12-24T15:14:07.909Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -58,15 +58,11 @@
         <updated>2018-10-09T07:13:58.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[前端资源积累]]></title>
-        <id>https://iwangxing.cn/manjuan//post/JqLvO_KCZ</id>
-        <link href="https://iwangxing.cn/manjuan//post/JqLvO_KCZ">
+        <title type="html"><![CDATA[webpack]]></title>
+        <id>https://iwangxing.cn/manjuan//post/webpack</id>
+        <link href="https://iwangxing.cn/manjuan//post/webpack">
         </link>
-        <updated>2017-09-12T04:39:09.000Z</updated>
-        <summary type="html"><![CDATA[<p>不定期更新，发现好东西就贴到下面。希望对大家有所帮助。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>不定期更新，发现好东西就贴到下面。希望对大家有所帮助。</p>
-]]></content>
+        <updated>2018-09-04T13:41:43.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[npm设置淘宝镜像]]></title>

@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>前端资源积累 | 漫卷</title>
+<title>webpack | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577187215964">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577200437977">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577187215964" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577200437977" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,51 +104,57 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">前端资源积累</h2>
-            <div class="post-date">2017-09-12</div>
+            <h2 class="post-title">webpack</h2>
+            <div class="post-date">2018-09-04</div>
             
             <div class="post-content">
-              <p>不定期更新，发现好东西就贴到下面。希望对大家有所帮助。</p>
-<!-- more -->
-<h1 id="原型设计">原型设计</h1>
-<h2 id="figma">Figma</h2>
-<p><a href="https://www.figma.com/">传送门</a></p>
-<h2 id="墨刀">墨刀</h2>
-<h1 id="设计辅助工具">设计辅助工具</h1>
-<h2 id="canva">Canva</h2>
-<p><a href="https://www.canva.cn/">传送门</a></p>
-<h2 id="tingpng图片压缩">tingpng图片压缩</h2>
-<p><a href="https://tinypng.com/">传送门</a></p>
-<p>有着很高的压缩效率而且对图片的清晰度影响很小。图片经过压缩可以节省存储资源，放在网页中也可以提高我们网页的加载速度。当然如果是处理大量图片或者在大型项目中有持续性的图片需要处理还是建议在webpack等打包工具中配置压缩图片。</p>
-<h1 id="设计素材">设计素材</h1>
-<h2 id="iconfont">Iconfont</h2>
-<p><a href="http://iconfont.cn/">传送门</a></p>
-<p>国内功能很强大且图标内容很丰富的矢量图标库,提供矢量图标下载、在线存储、格式转换等功能。阿里巴巴体验团队倾力打造,设计和前端开发的便捷工具</p>
-<h1 id="ui界面设计">UI界面设计</h1>
-<h2 id="dribble">dribble</h2>
-<p><a href="https://dribbble.com/">传送门</a></p>
-<p>Dribbble是一个用于展示用户制作的艺术作品的在线社区，同时也是用于推广平面设计、网页设计、插画、摄影等其他创造性领域的商业社交平台</p>
-<h1 id="免费图片">免费图片</h1>
-<h2 id="pixbay">pixbay</h2>
-<p><a href="https://pixabay.com/">传送门</a></p>
-<p>免费正版高清图片素材库</p>
-<h2 id="unsplash">unsplash</h2>
-<p><a href="https://unsplash.com/">传送门</a></p>
-<p>优秀图片分享的网站</p>
+              <h1 id="webpack40新特性">webpack4.0新特性</h1>
+<p>webpack4.0以后webpack命令需要额外下载webpack-cli</p>
+<pre><code class="language-cmd">npm install webpack,webpack-cli -g 
+</code></pre>
+<ul>
+<li>webpack默认的打包入口文件entry是<code>./src/index.js</code>,如果既没有index.js也没有指定入口会报错找不到入口</li>
+<li>需要在<code>webpack.config.js</code>中配置</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+    mode:&quot;development&quot;  //development开发模式   production生产模式
+}
+</code></pre>
+<ul>
+<li>开发模式<code>development</code>下代码没有被压缩，生产环境<code>production</code>下代码会被压缩<br>
+运行<code>webpack</code>命令后打包生成的文件是<code>dist</code>目录下的<code>main.js</code></li>
+<li><code>webpack4.0</code> 提供了约定大于配置的概念；目的是尽量配置内容</li>
+<li><code>mode</code>为4.0新增的选项也是必须项，可选项为<code>development</code>和<code>production</code></li>
+</ul>
+<h1 id="配置实时打包">配置实时打包</h1>
+<h2 id="配置每次修改代码后自动打包">配置每次修改代码后自动打包</h2>
+<p>依赖<code>webpack-dev-server</code></p>
+<pre><code>npm install webpack-dev-server -D
+</code></pre>
+<p>安装成功后，我们就可以直接使用 <code>webpack-dev-server</code>来打包了，这个打包已经是实时监听代码变化了，如果我们修改了代码，<code>webpack-dev-server</code>会自动重新为我们打包，并且自动刷新浏览器。</p>
+<ul>
+<li>如果要退出实时打包编译按<code>Ctrl+c</code></li>
+<li>这时我们的项目托管到了<code>localhost:8080/</code></li>
+<li>输出的文件路径在根目录下，就是<code>/mian.js</code>,这里需要注意这个<code>main.js</code>不在dist中了，在内存中，没有放到物理磁盘上，方便读取。</li>
+</ul>
+<h2 id="配置编译成功后自动打开浏览器">配置编译成功后自动打开浏览器</h2>
+<pre><code class="language-javascript">webpack-dev-server --open
+</code></pre>
+<p><code>webpack-dev-server</code>可以添加很多参数，</p>
+<ul>
+<li><code>--port</code>指定端口号，如<code>webpack-dev-server --open --port 3000</code></li>
+<li><code>--progress</code>显示进度</li>
+<li><code>--compress</code>压缩</li>
+<li><code>--hot</code>热替换</li>
+<li><code>--host</code>指定域名</li>
+<li><code>--color</code>console色彩</li>
+<li><code>--open firefox</code> 指定打开火狐浏览器，不同的浏览器在对应的系统可能名称不一致，IE浏览器<code>iexplore</code><br>
+这些参数都添加在命令后面就会很长，每次敲这么长一段命令会很痛苦。这里我们去<code>package.json</code>中在<code>script</code>中加一行<pre><code class="language-javascript">  &quot;dev&quot;:&quot;webpack-dev-server --host xingzai --port 3000&quot;
+</code></pre>
+这样我们只需要每次运行<code>npm run dev</code>就可以执行这一长串代码了。</li>
+</ul>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://iwangxing.cn/manjuan//tag/desgin" class="tag">
-                    设计
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan//tag/kRA19DhNX" class="tag">
-                    前端
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
