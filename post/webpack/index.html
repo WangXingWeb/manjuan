@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>webpack | 漫卷</title>
+<title>webpack笔记 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577200499206">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577200842900">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577200499206" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577200842900" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,7 +104,7 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">webpack</h2>
+            <h2 class="post-title">webpack笔记</h2>
             <div class="post-date">2017-09-04</div>
             
             <div class="post-content">
@@ -148,11 +148,12 @@
 <li><code>--hot</code>热替换</li>
 <li><code>--host</code>指定域名</li>
 <li><code>--color</code>console色彩</li>
-<li><code>--open firefox</code> 指定打开火狐浏览器，不同的浏览器在对应的系统可能名称不一致，IE浏览器<code>iexplore</code><br>
-这些参数都添加在命令后面就会很长，每次敲这么长一段命令会很痛苦。这里我们去<code>package.json</code>中在<code>script</code>中加一行<pre><code class="language-javascript">  &quot;dev&quot;:&quot;webpack-dev-server --host xingzai --port 3000&quot;
-</code></pre>
-这样我们只需要每次运行<code>npm run dev</code>就可以执行这一长串代码了。</li>
+<li><code>--open firefox</code> 指定打开火狐浏览器，不同的浏览器在对应的系统可能名称不一致，IE浏览器<code>iexplore</code></li>
 </ul>
+<p>这些参数都添加在命令后面就会很长，每次敲这么长一段命令会很痛苦。这里我们去<code>package.json</code>中在<code>script</code>中加一行</p>
+<pre><code class="language-javascript">    &quot;dev&quot;:&quot;webpack-dev-server --host xingzai --port 3000&quot;
+</code></pre>
+<p>这样我们只需要每次运行<code>npm run dev</code>就可以执行这一长串代码了。</p>
 
             </div>
             
