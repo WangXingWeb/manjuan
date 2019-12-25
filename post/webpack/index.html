@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577200842900">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577284644444">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577200842900" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577284644444" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -117,14 +117,14 @@
 <li>需要在<code>webpack.config.js</code>中配置</li>
 </ul>
 <pre><code class="language-javascript">module.exports = {
-    mode:&quot;development&quot;  //development开发模式   production生产模式
+    mode:&quot;development&quot; 
 }
 </code></pre>
 <ul>
+<li><code>mode</code>为4.0新增的选项也是必须项，可选项为<code>development</code>和<code>production</code></li>
 <li>开发模式<code>development</code>下代码没有被压缩，生产环境<code>production</code>下代码会被压缩<br>
 运行<code>webpack</code>命令后打包生成的文件是<code>dist</code>目录下的<code>main.js</code></li>
-<li><code>webpack4.0</code> 提供了约定大于配置的概念；目的是尽量配置内容</li>
-<li><code>mode</code>为4.0新增的选项也是必须项，可选项为<code>development</code>和<code>production</code></li>
+<li><code>webpack4.0</code> 提供了约定大于配置的概念；目的是尽量减少配置内容</li>
 </ul>
 <h1 id="配置实时打包">配置实时打包</h1>
 <h2 id="配置每次修改代码后自动打包">配置每次修改代码后自动打包</h2>
@@ -154,6 +154,24 @@
 <pre><code class="language-javascript">    &quot;dev&quot;:&quot;webpack-dev-server --host xingzai --port 3000&quot;
 </code></pre>
 <p>这样我们只需要每次运行<code>npm run dev</code>就可以执行这一长串代码了。</p>
+<h2 id="html-webpack-plugin">html-webpack-plugin</h2>
+<p>将html页面编译结果存放到内存中，省去频繁的读取磁盘上的文件。速度也更快。</p>
+<pre><code class="language-cmd">npm i html-webpack-plugin -D
+</code></pre>
+<pre><code class="language-javascript">//创建插件实例对象
+const htmlPlugin= new HtmlWebpackPlugin({
+    template:path.join(__dirname,'./src/index.html'),
+    filename:'index.html'
+})
+//向外暴露一个打包配置对象
+module.exports = {
+    mode:&quot;development&quot;,
+    plugins:[
+        htmlPlugin
+    ]
+}
+</code></pre>
+<p>这个组件会自动把打包编译好的main.js引入到生成的html中</p>
 
             </div>
             
