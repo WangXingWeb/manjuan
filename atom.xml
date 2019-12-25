@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-25T15:21:10.724Z</updated>
+    <updated>2019-12-25T15:44:10.176Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -10,6 +10,48 @@
     <logo>https://iwangxing.cn/manjuan//images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan//favicon.ico</icon>
     <rights>All rights reserved 2019, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[vuex笔记]]></title>
+        <id>https://iwangxing.cn/manjuan//post/lCdVJXQgG</id>
+        <link href="https://iwangxing.cn/manjuan//post/lCdVJXQgG">
+        </link>
+        <updated>2019-12-25T15:42:47.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[vue-router笔记]]></title>
+        <id>https://iwangxing.cn/manjuan//post/a-hRdTZRZ</id>
+        <link href="https://iwangxing.cn/manjuan//post/a-hRdTZRZ">
+        </link>
+        <updated>2019-12-25T15:42:17.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[微信小程序笔记]]></title>
+        <id>https://iwangxing.cn/manjuan//post/Ngye_ab-Z</id>
+        <link href="https://iwangxing.cn/manjuan//post/Ngye_ab-Z">
+        </link>
+        <updated>2019-12-25T15:39:18.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[express笔记]]></title>
+        <id>https://iwangxing.cn/manjuan//post/BbThVT0Vg</id>
+        <link href="https://iwangxing.cn/manjuan//post/BbThVT0Vg">
+        </link>
+        <updated>2019-12-25T15:38:08.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Node.js笔记]]></title>
+        <id>https://iwangxing.cn/manjuan//post/w7wtXxYlX</id>
+        <link href="https://iwangxing.cn/manjuan//post/w7wtXxYlX">
+        </link>
+        <updated>2019-12-25T15:37:16.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[js中两个数组相减]]></title>
+        <id>https://iwangxing.cn/manjuan//post/-Ros_owDR</id>
+        <link href="https://iwangxing.cn/manjuan//post/-Ros_owDR">
+        </link>
+        <updated>2019-12-25T15:34:25.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[vue笔记]]></title>
         <id>https://iwangxing.cn/manjuan//post/s2PY1haqF</id>
@@ -45,51 +87,5 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>熟练使用自定义代码块，可以提升我们的开发效率。这里向大家介绍如何在vscode中添加自定义代码块。</p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[前端工具推荐]]></title>
-        <id>https://iwangxing.cn/manjuan//post/tool</id>
-        <link href="https://iwangxing.cn/manjuan//post/tool">
-        </link>
-        <updated>2019-12-20T04:05:14.000Z</updated>
-        <summary type="html"><![CDATA[<p>推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>推荐几个在前端开发中非常有用的工具，提升你的开发效率。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[css计数器]]></title>
-        <id>https://iwangxing.cn/manjuan//post/css_counter</id>
-        <link href="https://iwangxing.cn/manjuan//post/css_counter">
-        </link>
-        <updated>2018-10-09T07:12:57.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[css中常见的单位]]></title>
-        <id>https://iwangxing.cn/manjuan//post/css-zhong-chang-jian-de-dan-wei</id>
-        <link href="https://iwangxing.cn/manjuan//post/css-zhong-chang-jian-de-dan-wei">
-        </link>
-        <updated>2018-10-02T07:13:58.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[React笔记]]></title>
-        <id>https://iwangxing.cn/manjuan//post/react_note</id>
-        <link href="https://iwangxing.cn/manjuan//post/react_note">
-        </link>
-        <updated>2017-10-18T14:39:12.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[webpack笔记]]></title>
-        <id>https://iwangxing.cn/manjuan//post/webpack</id>
-        <link href="https://iwangxing.cn/manjuan//post/webpack">
-        </link>
-        <updated>2017-09-04T13:41:43.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[npm设置淘宝镜像]]></title>
-        <id>https://iwangxing.cn/manjuan//post/npm</id>
-        <link href="https://iwangxing.cn/manjuan//post/npm">
-        </link>
-        <updated>2017-05-18T07:49:53.000Z</updated>
     </entry>
 </feed>
