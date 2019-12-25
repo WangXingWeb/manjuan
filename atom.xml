@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2019-12-25T15:16:39.644Z</updated>
+    <updated>2019-12-25T15:21:10.724Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan//atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://iwangxing.cn/manjuan//images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan//favicon.ico</icon>
     <rights>All rights reserved 2019, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[vue笔记]]></title>
+        <id>https://iwangxing.cn/manjuan//post/s2PY1haqF</id>
+        <link href="https://iwangxing.cn/manjuan//post/s2PY1haqF">
+        </link>
+        <updated>2019-12-25T15:20:42.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[sass和less]]></title>
+        <id>https://iwangxing.cn/manjuan//post/u-GoByq9S</id>
+        <link href="https://iwangxing.cn/manjuan//post/u-GoByq9S">
+        </link>
+        <updated>2019-12-25T15:19:59.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[VSCode中应该安装的几款插件]]></title>
         <id>https://iwangxing.cn/manjuan//post/vscode_extend</id>
@@ -77,19 +91,5 @@
         <link href="https://iwangxing.cn/manjuan//post/npm">
         </link>
         <updated>2017-05-18T07:49:53.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Gridea 博客搭建]]></title>
-        <id>https://iwangxing.cn/manjuan//post/gridea</id>
-        <link href="https://iwangxing.cn/manjuan//post/gridea">
-        </link>
-        <updated>2016-12-18T03:36:24.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[如何画出小于1px的线]]></title>
-        <id>https://iwangxing.cn/manjuan//post/ru-he-hua-chu-xiao-yu-1px-de-xian</id>
-        <link href="https://iwangxing.cn/manjuan//post/ru-he-hua-chu-xiao-yu-1px-de-xian">
-        </link>
-        <updated>2016-08-11T00:52:02.000Z</updated>
     </entry>
 </feed>
