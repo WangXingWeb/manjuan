@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>React笔记 | 漫卷</title>
+<title>js中两个数组相减 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,40 +104,89 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">React笔记</h2>
-            <div class="post-date">2017-10-18</div>
+            <h2 class="post-title">js中两个数组相减</h2>
+            <div class="post-date">2019-12-25</div>
             
             <div class="post-content">
-              <h2 id="依赖">依赖</h2>
-<p>需要安装react和react-dom两个包</p>
+              <h2 id="方法一从arra中循环删除arrb中的元素">方法一：从arrA中循环删除arrB中的元素</h2>
+<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
+function subtractArr(arrA,arrB){
+    for (var i = 0, len = arrB.length; i &lt; len; i++) {
+        for (var j = 0, jen = arrA.length; j &lt; jen; j++) {
+            if (arrA[j] === arrB[i]) {
+                arrA.splice(j, 1)
+                j--
+            }
+        }
+    }
+    return arrA
+}
+</code></pre>
+<blockquote>
+<p>需要注意的是：在每次在<code>arrA</code>中删除一个元素时，要做<code>j--</code>操作,调整循环位置，这一步非常关键。比如本次循环删除了<code>arrA</code>中的第n项，导致这个数组内元素都往前了一位，那我们不做<code>j--</code>的话，下一次操作的其实已经是当前项的后两位了，就是未删除n时的第n+2项了，也就是n+1被我们忽略掉了。举个例子：就像宋朝朝廷说要捉拿梁山好汉的number1，当晁盖死了以后，朝廷说number1死了，现在的number2是谁啊？下面的人说number2时卢俊义，所以朝廷下令捉拿卢俊义，这时宋公明偷偷的笑了。</p>
+</blockquote>
+<p>现在我们换个思路，从arrA的末尾开始循环删除，这时就不用调整循环位置了。</p>
+<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
+function subtractArr(arrA,arrB){
+    for (var i = 0; i &lt; arrB.length; i++) {
+        for (var j = (arrA.length-1); j &gt;= 0;j--) {
+            if (arrA[j] === arrB[i]) {
+                arrA.splice(j, 1)
+            }
+        }
+    }
+    return arrA
+}
+</code></pre>
+<h2 id="方法二将需要保留的元素添加到一个新数组">方法二：将需要保留的元素添加到一个新数组</h2>
+<pre><code class="language-javascript">/从arrA数组中删除arrB的元素
+function subtractArr(arrA,arrB){
+    var arrC = []
+    for (var i = 0; i &lt; arrA.length; i++) {
+        var isFind = false
+        for (var j = 0; j &lt; arrB.length; j++) {
+            if (arrA[i] === arrB[j]) {
+                isFind = true
+            }
+        }
+        if(!isFind){      //循环arrB后还没有找到，说明arrA[i]是ArrB中没有的
+            arrC.push(arrA[i])
+        }
+    }
+    return arrC
+}
+</code></pre>
+<h2 id="方法三使用es6语法">方法三：使用es6语法</h2>
+<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
+function subtractArr(arrA,arrB){
+    return arrA.filter(item =&gt; arrB.indexOf(item)&lt;0)
+}
+</code></pre>
+<p>这个方法会很逻辑很清晰，实现也很优雅。但是也有几个问题</p>
 <ul>
-<li>react 专门用于创建组件和虚拟DOM的，同时组件的生命周期都在这个包</li>
-<li>react-dom 专门进行DOM操作的,将虚拟dom渲染出来，最主要的应用场景就是<code>ReactDOM.render()</code></li>
+<li>依赖es6环境，需要babel编译后才能在浏览器上运行</li>
+<li>数组的元素只能是基本类型，不能是引用类型</li>
 </ul>
-<pre><code>npm i react react-dom -S
+<h2 id="方法四用map的思想来解决">方法四：用map的思想来解决</h2>
+<p>思路：将第一个数组存入一个对象（这里会去重）；再把第二个数组中的元素当作key从对象中删除。</p>
+<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
+function subtractArr(arrA,arrB){
+    var obj = {}
+    arrA.forEach(function(a){obj[a]=a;})
+    arrB.forEach(function(b){delete obj[b];})
+    return Object.keys(obj)
+}
 </code></pre>
-<p>下面是基础react例子</p>
-<pre><code class="language-javascript">import React from 'react'
-import ReactDOM from 'react-dom'
-
-//创建虚拟dom
-const myh1 = React.createElement('h1',{id:'myh1'},'this is h1')
-
-//用react-dom把虚拟dom渲染的页面上
-ReactDOM.render(myh1,document.getElementById(&quot;app&quot;))
-</code></pre>
-<p>在index.html中放容器</p>
-<pre><code class="language-html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
-</code></pre>
+<p>和方法三一样要求数组的元素只能是基本类型，不能是引用类型。</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan//post/webpack">
+                <a href="https://iwangxing.cn/manjuan//post/u-GoByq9S">
                   <h3 class="post-title">
-                    webpack笔记
+                    sass和less
                   </h3>
                 </a>
               </div>
