@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577366922507">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577451921728">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577366922507" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577451921728" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -128,6 +128,23 @@ ReactDOM.render(myh1,document.getElementById(&quot;app&quot;))
 </code></pre>
 <p>在index.html中放容器</p>
 <pre><code class="language-html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>下面我们用一个div包裹上面的h1</p>
+<pre><code class="language-javascript">//创建虚拟dom
+const myh1 = React.createElement('h1',{id:'myh1'},'this is h1')
+//在创建一个虚拟dom，将myh1当成创建这个虚拟dom的第四个参数
+const mydiv = React.createElement('div',null,'div元素',myh1)
+
+//渲染时，只需要徐然mydiv就可以了
+ReactDOM.render(mydiv,document.getElementById(&quot;app&quot;))
+</code></pre>
+<p>我们一般一个网页上都有几十个甚至几百个节点元素，如果一个一个这样嵌套就太麻烦了。那React是怎么解决这个问题呢？</p>
+<h2 id="jsx">jsx</h2>
+<p>jsx并不是真正的html代码，jxs代码要经过babel转化React.createElement这样的代码再去渲染。</p>
+<p>需要安装</p>
+<pre><code class="language-cmd">npm i babel-core babel-loader babel-plugin-transform-runtime -D
+npm i babel-preset-env babel-preset-stage-0 -D
+npm i babel-preset-react -D
 </code></pre>
 
             </div>
