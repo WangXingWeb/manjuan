@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>React笔记 | 漫卷</title>
+<title>js要不要加分号 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,91 +104,48 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">React笔记</h2>
-            <div class="post-date">2017-10-18</div>
+            <h2 class="post-title">js要不要加分号</h2>
+            <div class="post-date">2019-12-29</div>
             
             <div class="post-content">
-              <h2 id="依赖">依赖</h2>
-<p>需要安装react和react-dom两个包</p>
-<ul>
-<li>react 专门用于创建组件和虚拟DOM的，同时组件的生命周期都在这个包</li>
-<li>react-dom 专门进行DOM操作的,将虚拟dom渲染出来，最主要的应用场景就是<code>ReactDOM.render()</code></li>
-</ul>
-<pre><code>npm i react react-dom -S
+              <p>这个问题曾经让很多程序员吵得不可开交（程序员真是一群特别喜欢撕逼的人，这么点小问题都能分成两派撕起来😂）</p>
+<!-- more -->
+<p>首先说一下那些情况下必须加分号：行首是： <code>[</code> <code>(</code> <code>+</code> <code>-</code> / 之一的情况下，上一行结尾必须加分号。<br>
+实际情况中用<code>/</code>、<code>+</code>、<code>-</code>作为行首非常少见，我目前没有见到过这种情况。<br>
+一行开头是<code>(</code>或者<code>[</code>的代码倒是有。比如下面的代码：</p>
+<pre><code class="language-javascript">a = b
+(function(){
+...
+})()
 </code></pre>
-<p>下面是基础react例子</p>
-<pre><code class="language-javascript">import React from 'react'
-import ReactDOM from 'react-dom'
-
-//创建虚拟dom
-const myh1 = React.createElement('h1',{id:'myh1'},'this is h1')
-
-//用react-dom把虚拟dom渲染的页面上
-ReactDOM.render(myh1,document.getElementById(&quot;app&quot;))
-</code></pre>
-<p>在index.html中放容器</p>
-<pre><code class="language-html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>下面我们用一个div包裹上面的h1</p>
-<pre><code class="language-javascript">//创建虚拟dom
-const myh1 = React.createElement('h1',{id:'myh1'},'this is h1')
-//在创建一个虚拟dom，将myh1当成创建这个虚拟dom的第四个参数
-const mydiv = React.createElement('div',null,'div元素',myh1)
-
-//渲染时，只需要徐然mydiv就可以了
-ReactDOM.render(mydiv,document.getElementById(&quot;app&quot;))
-</code></pre>
-<p>我们一般一个网页上都有几十个甚至几百个节点元素，如果一个一个这样嵌套就太麻烦了。那React是怎么解决这个问题呢？</p>
-<h2 id="jsx">jsx</h2>
-<p>jsx并不是真正的html代码，jxs代码要经过babel转化React.createElement这样的代码再去渲染。</p>
-<p>需要安装</p>
-<pre><code class="language-cmd">npm i babel-core babel-loader babel-plugin-transform-runtime -D
-npm i babel-preset-env babel-preset-stage-0 -D
-npm i babel-preset-react -D
-</code></pre>
-<p>webpack.config.js配置</p>
-<pre><code class="language-javascript">const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-//创建插件实例对象
-const htmlPlugin= new HtmlWebpackPlugin({
-    template:path.join(__dirname,'./src/index.html'),
-    filename:'index.html'
+<pre><code class="language-javascript">a = b
+[1,2,3].forEach(function(e){
+    console.log(e)
 })
-//向外暴露一个打包配置对象
-module.exports = {
-    mode:&quot;development&quot;,
-    plugins:[
-        htmlPlugin
-    ],
-    module:{
-        rules:[
-            {
-                test:/\.js|jsx$/,
-                use:'babel-loader',
-                exclude:/node_modules/
-            }
-        ]
-    }
-}
 </code></pre>
-<p>在根目录下创建<code>.babelrc</code>文件</p>
-<pre><code class="language-javascript">{
-  &quot;presets&quot;: [&quot;env&quot;, &quot;stage-0&quot;, &quot;react&quot;],
-  &quot;plugins&quot;: [&quot;transform-runtime&quot;]
-}
+<p>上面的代码不加分号是会报错的。报错其实还好，就怕那种还能语句还能运行，那这种bug就很隐蔽了，调试起来会很头痛。所以遇到以<code>(</code> <code>[</code>开头的情况，在前面加<code>;</code>就可以了。</p>
+<pre><code class="language-javascript">a = b
+;(function(){
+...
+})()
 </code></pre>
-<h2 id="jsx语法">jsx语法</h2>
-<p>jsx 用的是xml语法，比html严格<br>
-js代码要放到{}中</p>
+<pre><code class="language-javascript">a = b
+;[1,2,3].forEach(function(e){
+    console.log(e)
+})
+</code></pre>
+<p>如果你看着<code>;</code>不爽，加<code>void</code>也可以，让这行不是<code>(``[</code>开头就可以了。</p>
+<p>到这里我们发现，需要加的情况真的很少，所以驾驭不加纯属个人书写风格的问题。并无好坏区别。我最早是加分号的，因为我的领导是做java出身，不加分号令他很没有安全感，他提过这个问题所以为了照顾大家的代码习惯，我是一律末尾加分好的。后来看了很多js规范里面都是推荐不加分号的，为了更靠近主流风格也为了每行少敲一次键盘😅，就同一不加了。<br>
+另外，这个问题还可以通过工具解决，比如<code>eslint</code>,<code>prettier</code>都可以帮助你添加或者删除分号了。只需要稍微做一下配置就可以让你的代码匹配团队要求的风格了。</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan//post/webpack">
+                <a href="https://iwangxing.cn/manjuan//post/QVn7u_ebP">
                   <h3 class="post-title">
-                    webpack笔记
+                    前端资源积累
                   </h3>
                 </a>
               </div>
