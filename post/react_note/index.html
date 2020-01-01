@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577873958264">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577888607928">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577873958264" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577888607928" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -238,7 +238,49 @@ ReactDOM.render(
   document.getElementById(&quot;app&quot;)
 )
 </code></pre>
-<h2 id=""></h2>
+<h3 id="使用jsx文件创建组件">使用jsx文件创建组件</h3>
+<p>创建Hello.jsx文件</p>
+<pre><code class="language-javascript">import React from &quot;react&quot;
+export default function Hello(props) {
+  return (
+    &lt;div&gt;
+      《{props.name}》,{props.price}元，{props.publicDate}出版
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+<p>在使用的时候导入</p>
+<pre><code class="language-javascript">import Hello from &quot;./components/Hello.jsx&quot;
+const book = {
+  name: &quot;js指南&quot;,
+  price: 80,
+  publicDate: &quot;2016.4.23&quot;
+}
+ReactDOM.render(
+  &lt;div&gt;
+    &lt;Hello {...book}&gt;&lt;/Hello&gt;
+  &lt;/div&gt;,
+  document.getElementById(&quot;app&quot;)
+)
+</code></pre>
+<p>这里导入的时候如果想省略后缀名<code>.jsx</code>，需要在<code>webpack</code>中配置<code>resolve</code>-&gt;<code>extensions</code></p>
+<pre><code class="language-javascript">resolve: {
+    extensions: [&quot;.js&quot;, &quot;.jsx&quot;, &quot;.json&quot;]
+  }
+</code></pre>
+<p><code>webpack</code>帮我们自动补全后缀名，先找<code>Hello.js</code>,找不到，继续找<code>Hello.jsx</code>,找到后导入<code>Hello.jsx</code></p>
+<p>说完<code>extensions</code>再看一下<code>alias</code>别名，在<code>webpack</code>中配置这个别名可以让我们导入文件时省去写很长的路径。比如：</p>
+<pre><code class="language-javascript">resolve: {
+    alias: {
+      &quot;@&quot;: path.join(__dirname, &quot;./src&quot;)
+    }
+}
+</code></pre>
+<p>上面的配置表示我们用<code>@</code>代表当前根目录中的<code>src</code>目录。<br>
+在导入文件时就可以</p>
+<pre><code class="language-javascript">import Hello from &quot;@/components/Hello&quot;
+</code></pre>
+<h2 id="使用class关键字创建组件">使用Class关键字创建组件</h2>
 
             </div>
             
