@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577888607928">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1577892242850">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577888607928" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1577892242850" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -281,6 +281,43 @@ ReactDOM.render(
 <pre><code class="language-javascript">import Hello from &quot;@/components/Hello&quot;
 </code></pre>
 <h2 id="使用class关键字创建组件">使用Class关键字创建组件</h2>
+<p>最基础的组件结构</p>
+<pre><code class="language-javascript">import React from &quot;react&quot;
+class Hello extends React.Component {
+  render() {
+    return &lt;div&gt;hello&lt;/div&gt;
+  }
+}
+export default Hello
+</code></pre>
+<h3 id="class组件传参">Class组件传参</h3>
+<pre><code class="language-javascript">import Book from &quot;@/components/book&quot;
+const book = {
+  name: &quot;js指南&quot;,
+  price: 80,
+  publicDate: &quot;2016.4.23&quot;
+}
+ReactDOM.render(
+  &lt;div&gt;
+    &lt;Book {...book}&gt;&lt;/Book&gt;
+  &lt;/div&gt;,
+  document.getElementById(&quot;app&quot;)
+)
+</code></pre>
+<pre><code class="language-javascript">import React from &quot;react&quot;
+class Book extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;
+        《{this.props.name}》价格{this.props.price},发表于
+        {this.props.publicDate}
+      &lt;/div&gt;
+    )
+  }
+}
+export default Book
+</code></pre>
+<p>使用<code>this.props.key</code>的方式取参数</p>
 
             </div>
             
