@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>js中两个数组相减 | 漫卷</title>
+<title>vue中watch某个对象的属性 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,89 +104,43 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">js中两个数组相减</h2>
-            <div class="post-date">2019-06-22</div>
+            <h2 class="post-title">vue中watch某个对象的属性</h2>
+            <div class="post-date">2018-05-18</div>
             
             <div class="post-content">
-              <h2 id="方法一从arra中循环删除arrb中的元素">方法一：从arrA中循环删除arrB中的元素</h2>
-<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
-function subtractArr(arrA,arrB){
-    for (var i = 0, len = arrB.length; i &lt; len; i++) {
-        for (var j = 0, jen = arrA.length; j &lt; jen; j++) {
-            if (arrA[j] === arrB[i]) {
-                arrA.splice(j, 1)
-                j--
-            }
-        }
+              <pre><code class="language-javascript">data:{
+	userInfo：{
+		name:'',
+		age:'',
+		...
+	}
+}
+</code></pre>
+<p>如果我们要监听<code>userInfo</code>中的<code>name</code>,如果我们监听整个<code>userInfo</code>当<code>userInfo</code>中数据很多时，占用很多资源，影响程序的性能。</p>
+<pre><code class="language-javascript">watch:{
+    userInfo(val,oldVal){
+        //do something about val.name
     }
-    return arrA
 }
 </code></pre>
-<blockquote>
-<p>需要注意的是：在每次在<code>arrA</code>中删除一个元素时，要做<code>j--</code>操作,调整循环位置，这一步非常关键。比如本次循环删除了<code>arrA</code>中的第n项，导致这个数组内元素都往前了一位，那我们不做<code>j--</code>的话，下一次操作的其实已经是当前项的后两位了，就是未删除n时的第n+2项了，也就是n+1被我们忽略掉了。举个例子：就像宋朝朝廷说要捉拿梁山好汉的number1，当晁盖死了以后，朝廷说number1死了，现在的number2是谁啊？下面的人说number2时卢俊义，所以朝廷下令捉拿卢俊义，这时宋公明偷偷的笑了。</p>
-</blockquote>
-<p>现在我们换个思路，从arrA的末尾开始循环删除，这时就不用调整循环位置了。</p>
-<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
-function subtractArr(arrA,arrB){
-    for (var i = 0; i &lt; arrB.length; i++) {
-        for (var j = (arrA.length-1); j &gt;= 0;j--) {
-            if (arrA[j] === arrB[i]) {
-                arrA.splice(j, 1)
-            }
-        }
+<p>上面的代码不论<code>userInfo</code>中的那个属性发生变化，都会执行这段代码。而本质上我们只想监听<code>userInfo</code>中的<code>name</code>,其它属性改变比如<code>age</code>是我们不关心的。这样就造成了额外开销。</p>
+<p>其实<code>vue</code>给我们提供了单独监听某个对象的某个属性的方法</p>
+<pre><code class="language-javascript">watch:{
+    &quot;userInfo.name&quot;(val){
+        //do something about val
     }
-    return arrA
 }
 </code></pre>
-<h2 id="方法二将需要保留的元素添加到一个新数组">方法二：将需要保留的元素添加到一个新数组</h2>
-<pre><code class="language-javascript">/从arrA数组中删除arrB的元素
-function subtractArr(arrA,arrB){
-    var arrC = []
-    for (var i = 0; i &lt; arrA.length; i++) {
-        var isFind = false
-        for (var j = 0; j &lt; arrB.length; j++) {
-            if (arrA[i] === arrB[j]) {
-                isFind = true
-            }
-        }
-        if(!isFind){      //循环arrB后还没有找到，说明arrA[i]是ArrB中没有的
-            arrC.push(arrA[i])
-        }
-    }
-    return arrC
-}
-</code></pre>
-<h2 id="方法三使用es6语法">方法三：使用es6语法</h2>
-<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
-function subtractArr(arrA,arrB){
-    return arrA.filter(item =&gt; arrB.indexOf(item)&lt;0)
-}
-</code></pre>
-<p>这个方法会很逻辑很清晰，实现也很优雅。但是也有几个问题</p>
-<ul>
-<li>依赖es6环境，需要babel编译后才能在浏览器上运行</li>
-<li>数组的元素只能是基本类型，不能是引用类型</li>
-</ul>
-<h2 id="方法四用map的思想来解决">方法四：用map的思想来解决</h2>
-<p>思路：将第一个数组存入一个对象（这里会去重）；再把第二个数组中的元素当作key从对象中删除。</p>
-<pre><code class="language-javascript">//从arrA数组中删除arrB的元素
-function subtractArr(arrA,arrB){
-    var obj = {}
-    arrA.forEach(function(a){obj[a]=a;})
-    arrB.forEach(function(b){delete obj[b];})
-    return Object.keys(obj)
-}
-</code></pre>
-<p>和方法三一样要求数组的元素只能是基本类型，不能是引用类型。</p>
+<p>这样我们单独监听<code>userInfo</code>的<code>name</code>属性了</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/sass_less">
+                <a href="https://iwangxing.cn/manjuan/post/vuex_note">
                   <h3 class="post-title">
-                    sass和less
+                    vuex笔记
                   </h3>
                 </a>
               </div>
