@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1578407501782">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1578412389384">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1578407501782" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1578412389384" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -350,6 +350,80 @@ export default Book;
 <li><code>props</code>中的数据是只读的。</li>
 <li><code>state/data</code>中的数据是可读可写的。</li>
 </ul>
+<h2 id="父组件给自组件传参">父组件给自组件传参</h2>
+<p>下面是一个书单组件，其中么一本书是一个自组件<br>
+Book组件Book.jsx</p>
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+//Book组件不需要state所以我们使用无状态组件
+export default function Book(props) {
+  return (
+    &lt;div&gt;
+      《{props.name}》--- 作者:{props.author}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>Booklist组件Booklist.jsx</p>
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+import Book from &quot;./Book&quot;;
+//定义父组件
+export default class Booklist extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      bookList: [
+        {
+          name: &quot;平凡的世界&quot;,
+          author: &quot;路遥&quot;
+        },
+        {
+          name: &quot;三体&quot;,
+          author: &quot;刘慈欣&quot;
+        },
+        {
+          name: &quot;四世同堂&quot;,
+          author: &quot;老舍&quot;
+        },
+        {
+          name: &quot;呼兰河传&quot;,
+          author: &quot;萧红&quot;
+        },
+        {
+          name: &quot;阿Q正传&quot;,
+          author: &quot;鲁迅&quot;
+        },
+        {
+          name: &quot;白鹿原&quot;,
+          author: &quot;陈忠实&quot;
+        }
+      ]
+    };
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;我的书单&lt;/h1&gt;
+        {this.state.bookList.map(item =&gt; (
+          &lt;Book {...item} key={item.name}&gt;&lt;/Book&gt;
+        ))}
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+import ReactDOM from &quot;react-dom&quot;;
+
+import Booklist from &quot;@/components/Booklist&quot;;
+
+ReactDOM.render(
+  &lt;div&gt;
+    &lt;Booklist&gt;&lt;/Booklist&gt;
+  &lt;/div&gt;,
+  document.getElementById(&quot;app&quot;)
+);
+</code></pre>
 
             </div>
             
