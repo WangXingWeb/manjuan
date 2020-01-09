@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1578412610106">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1578583143907">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1578412610106" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1578583143907" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -424,6 +424,98 @@ ReactDOM.render(
   document.getElementById(&quot;app&quot;)
 );
 </code></pre>
+<h2 id="react样式">react样式</h2>
+<h3 id="内联样式">内联样式</h3>
+<pre><code class="language-html">&lt;h1  style={{ color: &quot;red&quot;, fontSize: &quot;18px&quot; }}&gt;
+</code></pre>
+<ul>
+<li>用双花括号包裹样式</li>
+<li>各样式之间用逗号隔开</li>
+<li>样式值加引号，纯数字的除外，例如<code>index：1</code>,<code>fontWeight:700</code></li>
+<li>样式名称使用类似驼峰命名的方式</li>
+</ul>
+<p>也可以将样式单独封装成对象</p>
+<pre><code class="language-javascript">const styleH = { color: &quot;red&quot;, fontSize: &quot;18px&quot;, textAlign: &quot;center&quot; };
+
+</code></pre>
+<pre><code class="language-html">&lt;h1 style={styleH}&gt;我的书单&lt;/h1&gt;
+</code></pre>
+<h3 id="使用css样式表">使用.css样式表</h3>
+<p>需要在webpack中配置<code>style-loader</code>,<code>css-loader</code><br>
+在webpack.json文件中module -&gt; rules 中加一项配置</p>
+<pre><code class="language-javascript">module: {
+    rules: [
+      {
+        test: /\.js|jsx$/,
+        use: &quot;babel-loader&quot;,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [&quot;style-loader&quot;, &quot;css-loader&quot;],
+        exclude: /node_modules/
+      }
+    ]
+  },
+</code></pre>
+<p>在需要使用css样式的地方引入</p>
+<pre><code class="language-javascript">import '@/css/boolList.css'
+</code></pre>
+<h3 id="react如何解决css冲突css作用域">react如何解决css冲突（css作用域）</h3>
+<p>通过给css-loader添加参数启用css模块化</p>
+<pre><code class="language-javascript">module: {
+    rules: [
+      {
+        test: /\.js|jsx$/,
+        use: &quot;babel-loader&quot;,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [&quot;style-loader&quot;, &quot;css-loader?modules&quot;],
+        exclude: /node_modules/
+      }
+    ]
+  },
+</code></pre>
+<p>启用模块化后会有什么作用呢<br>
+css源码</p>
+<pre><code class="language-css">.title {
+  color: red;
+  font-size: 18px;
+  font-weight: 700;
+}
+h1 {
+  font-style: initial;
+}
+</code></pre>
+<p>启用模块话生成的代码</p>
+<pre><code class="language-css">._2PF9r66I0QdaV7jPc0WqGK {
+  color: red;
+  font-size: 18px;
+  font-weight: 700;
+}
+h1 {
+  font-style: initial;
+}
+</code></pre>
+<blockquote>
+<p>上面的代码说明css-loader的模块化只能处理class选择器和id选择器的样式，对于标签样式不能处理。</p>
+</blockquote>
+<p>那么如何使用模块化后生成的css样式呢？<br>
+在导入css样式时，如果启用了模块化会返回一个对象，我们可以从中找到模块化处理后对应的class后者id值。</p>
+<pre><code class="language-js">import BookListCss from &quot;@/css/booklist.css&quot;;
+</code></pre>
+<p>没有模块化处理时，BookListCss是一个控对象。<br>
+经过模块化处理导入时，BookLIstCss是如下的一个对象。</p>
+<pre><code class="language-js">{
+    title: &quot;_2PF9r66I0QdaV7jPc0WqGK&quot;
+}
+</code></pre>
+<p>在使用时我们使用<code>BookListCss.title</code>就能拿到处理后的class类名。</p>
+<pre><code class="language-html">&lt;h1 className={BookListCss.title}&gt;我的书单&lt;/h1&gt;
+</code></pre>
+<p>BookListCss只属于当前这个组件，所以只有当前这个组件才能拿到<code>BookListCss.title</code>的类名，这样就实现了，css样式的模块化作用域。</p>
 
             </div>
             
