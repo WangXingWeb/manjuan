@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1578583143907">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1578587209078">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1578583143907" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1578587209078" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -516,6 +516,52 @@ h1 {
 <pre><code class="language-html">&lt;h1 className={BookListCss.title}&gt;我的书单&lt;/h1&gt;
 </code></pre>
 <p>BookListCss只属于当前这个组件，所以只有当前这个组件才能拿到<code>BookListCss.title</code>的类名，这样就实现了，css样式的模块化作用域。</p>
+<h3 id="使用localidentname自定义生成的类名格式">使用<code>localIdentName</code>自定义生成的类名格式</h3>
+<p>生命生成的类名都很奇怪，我们看不出它代表的意义了，接下来我们给css-loader设定参数自定义生成的类名<br>
+可选的参数有</p>
+<ul>
+<li>[path] 表示样式表相对项目跟路径所在的路径</li>
+<li>[name] 表示样式表文件名称</li>
+<li>[local] 表示样式的类名定义名称</li>
+<li>[hash:length] 表示32位的hash值<br>
+例如</li>
+</ul>
+<pre><code class="language-js">{
+    test: /\.css$/,
+    use: [
+        { loader: &quot;style-loader&quot; },
+        {
+        loader: &quot;css-loader&quot;,
+        options: {
+            modules: {
+            localIdentName: &quot;[path][name]-[local]-[hash:base64:6]&quot;
+            }
+        }
+        }
+    ]
+    }
+</code></pre>
+<p>要实现这一步依赖</p>
+<pre><code class="language-js">&quot;dependencies&quot;: {
+    &quot;react&quot;: &quot;^16.12.0&quot;,
+    &quot;react-dom&quot;: &quot;^16.12.0&quot;,
+    &quot;webpack&quot;: &quot;^4.41.2&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;@babel/core&quot;: &quot;^7.5.5&quot;,
+    &quot;babel-core&quot;: &quot;^6.26.3&quot;,
+    &quot;babel-loader&quot;: &quot;^7.0.0&quot;,
+    &quot;babel-plugin-transform-runtime&quot;: &quot;^6.23.0&quot;,
+    &quot;babel-preset-env&quot;: &quot;^1.7.0&quot;,
+    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,
+    &quot;babel-preset-stage-0&quot;: &quot;^6.24.1&quot;,
+    &quot;css-loader&quot;: &quot;^3.4.1&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,
+    &quot;style-loader&quot;: &quot;^1.1.2&quot;,
+    &quot;webpack-cli&quot;: &quot;^3.3.10&quot;,
+    &quot;webpack-dev-server&quot;: &quot;^3.9.0&quot;
+  }
+</code></pre>
 
             </div>
             
