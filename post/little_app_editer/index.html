@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea 博客搭建 | 漫卷</title>
+<title>微信小程序富文本 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,51 +104,35 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Gridea 博客搭建</h2>
-            <div class="post-date">2016-12-18</div>
+            <h2 class="post-title">微信小程序富文本</h2>
+            <div class="post-date">2017-08-09</div>
             
             <div class="post-content">
-              <h1 id="安装git">安装git</h1>
-<p>因为我们是要利用github上搭建个人博客，所以需要git将我们的静态pages提交到github上。<br>
-<a href="https://git-scm.com/">git下载链接</a></p>
-<h1 id="申请github账号">申请github账号</h1>
-<ol>
-<li>申请一个github账号，用于托管我们的静态页面。<a href="https://github.com/">点这里申请github账号</a></li>
-<li>创建一个新仓库 <code>Create a new repository</code><br>
-如果你是新用户建议你的仓库名命名为 <code>你的账户名.github.io</code></li>
-<li>生成个人访问令牌 <code>Personal access tokens</code>,在<code>setting</code> -&gt; <code>Developer settings</code> -&gt; <code>Personal access tokens</code> 中生成一个个人访问令牌。<img src="https://iwangxing.cn/manjuan//post-images/1576719746966.png" alt="生成个人访问令牌" loading="lazy"><br>
-点击 <code>New personal access token</code> 创建个人令牌<br>
-<img src="https://iwangxing.cn/manjuan//post-images/1576720127710.png" alt="生成个人访问令牌" loading="lazy"><br>
-<img src="https://iwangxing.cn/manjuan//post-images/1576720689090.png" alt="生成个人访问令牌" loading="lazy"></li>
-</ol>
-<h1 id="配置gridea">配置Gridea</h1>
-<p>下载对应你自己的操作系统的Gridea安装文件，下载完成后安装</p>
-<ol>
-<li>最关键的步骤就是配置<code>github pages</code><br>
-<img src="https://iwangxing.cn/manjuan//post-images/1576722438650.png" alt="配置github pages" loading="lazy"><br>
-配置完成后点击 <code>检测远程连接</code> ，说明我们的Gridea已经成功连接上github了，然后点击保存</li>
-<li>这里点击左侧的 <code>同步</code> 按钮就可以同步到github上了，这时访问你的链接地址就可以看到博客内容了<br>
-这里有一点需要注意在设置菜单栏<br>
-<img src="https://iwangxing.cn/manjuan//post-images/1576723762600.png" alt="" loading="lazy"><br>
-默认的设置路径是没有加入我画红线的部分的，因为我这里使用的仓库不是我github默认的仓库，所以的仓库地址是<code>https://WangXingWeb.github.io/manjuan/</code>，如果你是用的是你的默认仓库就不用设置了</li>
-</ol>
+              <p>微信小程序如何渲染富文本<br>
+如何将富文本编辑器编辑好的内容渲染到页面当中</p>
+<p>最先想到的方法是使用微信小程序原生提供的标签</p>
+<h2 id="使用rich-text标签">使用rich-text标签</h2>
+<pre><code class="language-html">&lt;richtext nodes=&quot;{{html}}&quot;&gt;&lt;/rich-text&gt;
+</code></pre>
+<p>这个类似有vue当中的v-html</p>
+<p>这个标签有个很大的缺点就是不支持video和audio。<br>
+我们的业务中要在富文本中插入视频和音频，用过这个方法，结论是不可行。<br>
+在官方文档里写明支持的标签确实也没有video和audio。</p>
+<h2 id="使用富文本插件">使用富文本插件</h2>
+<p>我用的是Parser，这个目前还不是很流行。<br>
+另外一个很火的是wxParse，Parser就是基于wxParser二次开发的。<br>
+至于使用的方法嘛，很简单这里就不在赘述了。直接看文档吧。</p>
+<p><a href="https://jin-yufeng.github.io/Parser/#/">Parser</a><br>
+<a href="https://github.com/icindy/wxParse">wxParse</a></p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM" class="tag">
-                    工具
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/ru-he-hua-chu-xiao-yu-1px-de-xian">
+                <a href="https://iwangxing.cn/manjuan/post/program">
                   <h3 class="post-title">
-                    如何画出小于1px的线
+                    微信小程序笔记
                   </h3>
                 </a>
               </div>
