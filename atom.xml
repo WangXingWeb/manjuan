@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-01-21T14:50:57.471Z</updated>
+    <updated>2020-01-21T14:59:43.256Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://iwangxing.cn/manjuan/images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan/favicon.ico</icon>
     <rights>All rights reserved 2020, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[js中的for in和for of]]></title>
+        <id>https://iwangxing.cn/manjuan/post/syDRl9UIG</id>
+        <link href="https://iwangxing.cn/manjuan/post/syDRl9UIG">
+        </link>
+        <updated>2020-01-21T14:58:14.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[UEditor上传音频]]></title>
         <id>https://iwangxing.cn/manjuan/post/2vR9xTtVm</id>
@@ -83,17 +90,6 @@
         <summary type="html"><![CDATA[<p>VSCode是一款我非常喜欢的IDE，我喜欢他的原因就是它有丰富的扩展插件。VSCode本身并没有提供特别全面和复杂的功能，用户想要使用更丰富的功能只需添加对应的扩展插件即可。这样一来，VSCcode本身就会变得很轻量，避免了一些低频的功能占用太多资源导致IDE非常臃肿。下面是我的VSCode中安装的一下插件。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>VSCode是一款我非常喜欢的IDE，我喜欢他的原因就是它有丰富的扩展插件。VSCode本身并没有提供特别全面和复杂的功能，用户想要使用更丰富的功能只需添加对应的扩展插件即可。这样一来，VSCcode本身就会变得很轻量，避免了一些低频的功能占用太多资源导致IDE非常臃肿。下面是我的VSCode中安装的一下插件。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[VScode自定义代码块]]></title>
-        <id>https://iwangxing.cn/manjuan/post/snippet</id>
-        <link href="https://iwangxing.cn/manjuan/post/snippet">
-        </link>
-        <updated>2019-03-14T06:40:49.000Z</updated>
-        <summary type="html"><![CDATA[<p>熟练使用自定义代码块，可以提升我们的开发效率。这里向大家介绍如何在vscode中添加自定义代码块。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>熟练使用自定义代码块，可以提升我们的开发效率。这里向大家介绍如何在vscode中添加自定义代码块。</p>
 ]]></content>
     </entry>
 </feed>

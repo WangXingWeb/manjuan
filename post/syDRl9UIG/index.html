@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>UEditor上传音频 | 漫卷</title>
+<title>js中的for in和for of | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,20 +104,33 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">UEditor上传音频</h2>
-            <div class="post-date">2020-01-13</div>
+            <h2 class="post-title">js中的for in和for of</h2>
+            <div class="post-date">2020-01-21</div>
             
             <div class="post-content">
-              <p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
+              <p>for in 和for of 这两个方法很容易弄混。</p>
+<h1 id="for-in">for in</h1>
+<pre><code class="language-javascript">for(let item of arr){
+    console.log(item)  //item是数组下标或者对象key
+    console.log(arr[item]) //使用下标取出数组元素
+}
+</code></pre>
+<p>for in是<code>es5</code>语法,可以用来遍历数组和对象，取出key</p>
+<h1 id="for-of">for of</h1>
+<p>for of是<code>es6</code>语法，只能用来遍历数组，取出的是数组元素</p>
+<pre><code class="language-javascript">for(let item of arr){
+    console.log(item) //数组元素
+}
+</code></pre>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/FFr974k7U">
+                <a href="https://iwangxing.cn/manjuan/post/2vR9xTtVm">
                   <h3 class="post-title">
-                    快捷键记录
+                    UEditor上传音频
                   </h3>
                 </a>
               </div>
