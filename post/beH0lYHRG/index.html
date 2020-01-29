@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>ES6笔记 | 漫卷</title>
+<title>箭头函数中的this | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,67 +104,66 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">ES6笔记</h2>
-            <div class="post-date">2017-02-02</div>
+            <h2 class="post-title">箭头函数中的this</h2>
+            <div class="post-date">2020-01-29</div>
             
             <div class="post-content">
-              <h1 id="class">class</h1>
-<ul>
-<li><code>class</code>只是一个语法糖，本质还是用构造函数和原型链实现的</li>
-<li>每个<code>class</code>类中都有一个构造器，每当<code>new</code>这个类时，必须先执行这个构造器函数。</li>
-<li>如果没有指定构造器函数会执行默认的构造器函数</li>
-<li>实例属性：通过实例访问的属性</li>
-<li>静态属性：通过<code>Class</code>类名直接访问的属性<br>
-通过<code>static</code>关键字指定</li>
-</ul>
-<pre><code class="language-javascript">class Animal {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-  sayHi() {
-    console.log(&quot;hello,I am&quot; + this.name)
-  }
-  static info = &quot;animal&quot;
-}
+              <p>箭头函数看起来像一个匿名函数，但是也有一点和匿名函数很不哟样，就是箭头函数中的this并不指向函数的调用者，而是指向函数外部的this。</p>
+<!-- more -->
+<pre><code class="language-javascript">onload = function() {
+    var btn = document.getElementById(&quot;btn&quot;);
+
+    btn.onclick = function() {
+        this.style.backgroundColor = &quot;red&quot;;
+    };
+};
 </code></pre>
-<h1 id="extends">extends</h1>
-<pre><code class="language-javascript">class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-}
-class Chinese extends Person {}
-const a1 = new Chinese(&quot;张三&quot;, 22)
-console.log(a1)
+<p>现在我们把绑定的函数换成箭头函数</p>
+<pre><code class="language-javascript">onload = function() {
+    var btn = document.getElementById(&quot;btn&quot;);
+
+    btn.onclick = () =&gt; {
+        this.style.backgroundColor = &quot;red&quot;;
+    };
+};
 </code></pre>
-<h1 id="super">super</h1>
-<p>子类通过<code>extends</code>继承了父类，那么子类的<code>constructor</code>中必须先调用<code>super()</code>(父类构造器的引用)</p>
-<pre><code class="language-javascript">class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-}
-class Chinese extends Person {
-  constructor(name, age, nationality) {
-    super(name, age)
-    this.nationality = nationality
-  }
-}
-const a1 = new Chinese(&quot;张三&quot;, 22, &quot;蒙古族&quot;)
-console.log(a1)
+<p>你会发现报错了。this指向出错了。<br>
+这里的this其实是箭头函数外部的this了，也就是window</p>
+<p>再比如我们的需求是点击后一秒在变红</p>
+<pre><code class="language-javascript">onload = function() {
+      var btn = document.getElementById(&quot;btn&quot;);
+
+      btn.onclick = function() {
+        setTimeout(function() {
+          this.style.backgroundColor = &quot;red&quot;;
+        }, 1000);
+      };
+    };
 </code></pre>
+<p>上面的代码又会报this指向的错误。<br>
+因为setTimeout的this是指向window的。<br>
+这是我们setTimeout中的方法换成箭头函数</p>
+<pre><code class="language-javascript">onload = function() {
+      var btn = document.getElementById(&quot;btn&quot;);
+
+      btn.onclick = function() {
+        setTimeout(() =&gt; {
+          this.style.backgroundColor = &quot;red&quot;;
+        }, 1000);
+      };
+    };
+</code></pre>
+<p>这里却实现了我们的效果了。<br>
+因为这里的this是箭头函数外部的this，也就是btn所以this指向正确了。</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/gridea">
+                <a href="https://iwangxing.cn/manjuan/post/syDRl9UIG">
                   <h3 class="post-title">
-                    Gridea 博客搭建
+                    js中的for in和for of
                   </h3>
                 </a>
               </div>

@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>UEditor上传音频 | 漫卷</title>
+<title>修改UEditor源码支持上传音频 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1579618777686">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580311799077">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1579618777686" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580311799077" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,13 +104,51 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">UEditor上传音频</h2>
+            <h2 class="post-title">修改UEditor源码支持上传音频</h2>
             <div class="post-date">2020-01-13</div>
             
             <div class="post-content">
               <p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
+<p>上传视频时是可以选择MP3这类的音频文件的，只不过这里上传后会生成video标签而不是audio标签。这样渲染后得到的是一个视频播放框，能播放音频但是有一个大黑框，不复合我们的要求。</p>
+<!-- more -->
+<p>有了以上这个前提我们可以修改一下UEditor的源码，在生成video标签前，用文件的后缀名判断当前上传的文件类型，确定上传的是音频还是视频。根据不同的文件类型决定生成video标签还是audio标签。</p>
+<p>在ueditor.js中查找creatInsertStr方法,这个方法的作用是将上传文件后利用得到的url地址宽高等信息生成html字符串返回给调用者。这里我们只关心处理视频上传的部分，因为我们现在上传音频也要通过上传视频这里来实现。</p>
+<pre><code class="language-javascript">case 'video':
+    var ext = url.substr(url.lastIndexOf('.') + 1);
+    if(ext == 'ogv') ext = 'ogg';
+    str = '&lt;video' + (id ? ' id=&quot;' + id + '&quot;' : '') + ' class=&quot;' + classname + ' video-js&quot; ' + (align ? ' style=&quot;float:' + align + '&quot;': '') +
+        ' controls preload=&quot;none&quot; width=&quot;' + width + '&quot; height=&quot;' + height + '&quot; src=&quot;' + url + '&quot; data-setup=&quot;{}&quot;&gt;' +
+        '&lt;source src=&quot;' + url + '&quot; type=&quot;video/' + ext + '&quot; /&gt;&lt;/video&gt;';
+    break;
+</code></pre>
+<p>现在我们要根据后缀名来判断一下文件类型</p>
+<pre><code class="language-javascript">case 'video':
+    //这里修改实现上传MP3文件(2016.5.13---漫卷)
+    var ext = url.substr(url.lastIndexOf('.') + 1);
+    if (ext == &quot;mp3&quot;) {
+        str = '&lt;audio controls preload=&quot;none&quot; controlsList=&quot;nodownload&quot; src=&quot;' + url + '&quot;&gt;&quot; /&gt;&lt;/audio&gt;';
+    } else {
+        if (ext == 'ogv') ext = 'ogg';
+        str = '&lt;video' + (id ? ' id=&quot;' + id + '&quot;' : '') + (align ? ' style=&quot;float:' + align + '&quot;' : '') + 'controls width=&quot;' + width + '&quot; height=&quot;' + height + '&quot; src=&quot;' + url + '&quot; data-setup=&quot;{}&quot;&gt;' + '&lt;source src=&quot;' + url + '&quot; type=&quot;video/' + ext + '&quot; /&gt;&lt;/video&gt;';
+    }
+    break;
+</code></pre>
+<p>如果后缀名是MP3（当然你也可以是一些其他的音频格式），我们就创建一个audio标签的字符串。</p>
+<p>这里也可以加一些特殊的样式。比如向右对齐<code>style=&quot;float：right；&quot;</code>,不显示下载按钮<code>controlsList=&quot;nodownload&quot;</code></p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript" class="tag">
+                    js
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX" class="tag">
+                    前端
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">

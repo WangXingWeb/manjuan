@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>ES6笔记 | 漫卷</title>
+<title>js | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,76 +103,45 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">ES6笔记</h2>
-            <div class="post-date">2017-02-02</div>
-            
-            <div class="post-content">
-              <h1 id="class">class</h1>
-<ul>
-<li><code>class</code>只是一个语法糖，本质还是用构造函数和原型链实现的</li>
-<li>每个<code>class</code>类中都有一个构造器，每当<code>new</code>这个类时，必须先执行这个构造器函数。</li>
-<li>如果没有指定构造器函数会执行默认的构造器函数</li>
-<li>实例属性：通过实例访问的属性</li>
-<li>静态属性：通过<code>Class</code>类名直接访问的属性<br>
-通过<code>static</code>关键字指定</li>
-</ul>
-<pre><code class="language-javascript">class Animal {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-  sayHi() {
-    console.log(&quot;hello,I am&quot; + this.name)
-  }
-  static info = &quot;animal&quot;
-}
-</code></pre>
-<h1 id="extends">extends</h1>
-<pre><code class="language-javascript">class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-}
-class Chinese extends Person {}
-const a1 = new Chinese(&quot;张三&quot;, 22)
-console.log(a1)
-</code></pre>
-<h1 id="super">super</h1>
-<p>子类通过<code>extends</code>继承了父类，那么子类的<code>constructor</code>中必须先调用<code>super()</code>(父类构造器的引用)</p>
-<pre><code class="language-javascript">class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-}
-class Chinese extends Person {
-  constructor(name, age, nationality) {
-    super(name, age)
-    this.nationality = nationality
-  }
-}
-const a1 = new Chinese(&quot;张三&quot;, 22, &quot;蒙古族&quot;)
-console.log(a1)
-</code></pre>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/gridea">
-                  <h3 class="post-title">
-                    Gridea 博客搭建
-                  </h3>
+          <h2 class="current-tag">标签: js</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://iwangxing.cn/manjuan/post/syDRl9UIG">
+                  <h2 class="post-title">js中的for in和for of</h2>
                 </a>
+                <div class="post-date">
+                  2020-01-21
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
               </div>
-            
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://iwangxing.cn/manjuan/post/2vR9xTtVm">
+                  <h2 class="post-title">修改UEditor源码支持上传音频</h2>
+                </a>
+                <div class="post-date">
+                  2020-01-13
+                </div>
+                <div class="post-abstract">
+                  <p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
+<p>上传视频时是可以选择MP3这类的音频文件的，只不过这里上传后会生成video标签而不是audio标签。这样渲染后得到的是一个视频播放框，能播放音频但是有一个大黑框，不复合我们的要求。</p>
 
-            
+                </div>
+              </div>
+              
+            </article>
+          
 
-          </div>
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
       </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>ES6笔记 | 漫卷</title>
+<title>NaN | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,70 +104,17 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">ES6笔记</h2>
-            <div class="post-date">2017-02-02</div>
+            <h2 class="post-title">NaN</h2>
+            <div class="post-date">2016-05-20</div>
             
             <div class="post-content">
-              <h1 id="class">class</h1>
-<ul>
-<li><code>class</code>只是一个语法糖，本质还是用构造函数和原型链实现的</li>
-<li>每个<code>class</code>类中都有一个构造器，每当<code>new</code>这个类时，必须先执行这个构造器函数。</li>
-<li>如果没有指定构造器函数会执行默认的构造器函数</li>
-<li>实例属性：通过实例访问的属性</li>
-<li>静态属性：通过<code>Class</code>类名直接访问的属性<br>
-通过<code>static</code>关键字指定</li>
-</ul>
-<pre><code class="language-javascript">class Animal {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-  sayHi() {
-    console.log(&quot;hello,I am&quot; + this.name)
-  }
-  static info = &quot;animal&quot;
-}
-</code></pre>
-<h1 id="extends">extends</h1>
-<pre><code class="language-javascript">class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-}
-class Chinese extends Person {}
-const a1 = new Chinese(&quot;张三&quot;, 22)
-console.log(a1)
-</code></pre>
-<h1 id="super">super</h1>
-<p>子类通过<code>extends</code>继承了父类，那么子类的<code>constructor</code>中必须先调用<code>super()</code>(父类构造器的引用)</p>
-<pre><code class="language-javascript">class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-  }
-}
-class Chinese extends Person {
-  constructor(name, age, nationality) {
-    super(name, age)
-    this.nationality = nationality
-  }
-}
-const a1 = new Chinese(&quot;张三&quot;, 22, &quot;蒙古族&quot;)
-console.log(a1)
-</code></pre>
+              <p>NaN==NaN 的结果为什么是false</p>
+<p>NaN 属性是代表非数字值的特殊值。该属性用于指示某个值不是数字。可以把 Number 对象设置为该值，来指示其不是数字值。</p>
+<p>Number.NaN 是一个特殊值，说明某些算术运算（如求负数的平方根）的结果不是数字。方法 parseInt() 和 parseFloat() 在不能解析指定的字符串时就返回这个值。对于一些常规情况下返回有效数字的函数，也可以采用这种方法，用 Number.NaN 说明它的错误情况。</p>
+<p>请使用 isNaN() 来判断一个值是否是数字。原因是 NaN 与所有值都不相等，包括它自己。</p>
 
             </div>
             
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/gridea">
-                  <h3 class="post-title">
-                    Gridea 博客搭建
-                  </h3>
-                </a>
-              </div>
             
 
             
