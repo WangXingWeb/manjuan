@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580313356235">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580569076407">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580313356235" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580569076407" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -561,6 +561,37 @@ h1 {
     &quot;webpack-cli&quot;: &quot;^3.3.10&quot;,
     &quot;webpack-dev-server&quot;: &quot;^3.9.0&quot;
   }
+</code></pre>
+<h1 id="需改state中的值">需改state中的值</h1>
+<ul>
+<li>直接使用<code>this.state.num = 55</code> 不会触发视图更新</li>
+<li>想要触发视图更新可以使用<code>this.setState({num:55})</code></li>
+<li>this.setState只会修改你写明要修改的值。其他的值是不动的。</li>
+</ul>
+<blockquote>
+<p>这和微信小程序有点像，在微信小程序中也要使用this.setData()来更新数据。</p>
+</blockquote>
+<ul>
+<li>值得注意的是this.setState()是异步方法。在this.setState({})后直接使用this.state.num拿到的值可能不是最新的。想要设置后使用最新的state中的数据。最好是在this.setState({},callback)的callback中获取。<pre><code class="language-javascript"></code></pre>
+</li>
+</ul>
+<p>this.setState({num:55},function(){<br>
+console.log(this.state.num)<br>
+})</p>
+<pre><code>
+# 绑定文本框值
+- 文本框必须提供onChange处理函数否则该文本框会被当作只读处理readOnly
+
+
+
+
+
+
+
+
+
+
+
 </code></pre>
 
             </div>
