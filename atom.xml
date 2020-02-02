@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-02-02T15:03:00.210Z</updated>
+    <updated>2020-02-02T15:57:28.448Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://iwangxing.cn/manjuan/images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan/favicon.ico</icon>
     <rights>All rights reserved 2020, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[React组件默认参数即设定参数类型]]></title>
+        <id>https://iwangxing.cn/manjuan/post/kx7XfgZW7</id>
+        <link href="https://iwangxing.cn/manjuan/post/kx7XfgZW7">
+        </link>
+        <updated>2020-02-02T15:08:20.000Z</updated>
+        <summary type="html"><![CDATA[<p>我们要写一个比较健壮的组件，需要考虑的内容很多，比如说传递给组件的参数，参数是否为必传，参数的类型等</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我们要写一个比较健壮的组件，需要考虑的内容很多，比如说传递给组件的参数，参数是否为必传，参数的类型等</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React生命周期]]></title>
         <id>https://iwangxing.cn/manjuan/post/s5ArHhmqt</id>
@@ -90,12 +101,5 @@
         <link href="https://iwangxing.cn/manjuan/post/subtractArr">
         </link>
         <updated>2019-06-22T15:34:25.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[sass和less]]></title>
-        <id>https://iwangxing.cn/manjuan/post/sass_less</id>
-        <link href="https://iwangxing.cn/manjuan/post/sass_less">
-        </link>
-        <updated>2019-05-20T15:19:59.000Z</updated>
     </entry>
 </feed>
