@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580636538006">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580639174874">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580636538006" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580639174874" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -115,6 +115,25 @@
 </code></pre>
 <h1 id="vue生命周期">vue生命周期</h1>
 <figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1580636517418.png" alt="" loading="lazy"></figure>
+<h2 id="beforecreate">beforeCreate</h2>
+<ul>
+<li>第一个生命周期钩子函数</li>
+<li>这时data中的数据、methods中的方法、$el都获取不到</li>
+<li>用的很少</li>
+</ul>
+<h2 id="created">created</h2>
+<ul>
+<li>data中的数据和methods中方法能够获取到了，$el还没有，因为挂载还没有进行。</li>
+<li>我们经常在这个里面进行ajax请求。</li>
+</ul>
+<h2 id="beforemount">beforeMount</h2>
+<p>当模版编译完成会执行此函数<br>
+此时模版结构还没有真正渲染到页面上，看不到真实的数据<br>
+this.$el还是最基本也模版页面</p>
+<h2 id="mounted">mounted</h2>
+<p>挂载完成，是组件创建阶段最后一个生命周期钩子函数<br>
+这里用户就可以看到真正的页面数据结构了<br>
+如果用到第三方ui插件可以在这里初始化插件</p>
 
             </div>
             
