@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 漫卷</title>
+<title>React生命周期 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,20 +103,51 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">React生命周期</h2>
+            <div class="post-date">2020-02-02</div>
             
-              <a class="tag" href="https://iwangxing.cn/manjuan/tag/javascript">js</a>
+            <div class="post-content">
+              <figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1580648170141.jpg" alt="" loading="lazy"></figure>
+<h1 id="创建阶段">创建阶段</h1>
+<h2 id="componentwillmount">componentWillMount</h2>
+<p>组件将要被挂载，还没有开始渲染虚拟dom</p>
+<h2 id="render">render</h2>
+<p>第一次渲染虚拟dom，当render执行完，内存中就有了完整的虚拟com了</p>
+<h2 id="componentdidmount">componentDidMount</h2>
+<p>组件完成了挂载，此时组件已经显示到页面上了，进入到运行状态</p>
+<h1 id="运行阶段">运行阶段</h1>
+<h2 id="componentwillreciveprops">componentWillReciveProps</h2>
+<p>组件将要接收新属性，这要这个方法触发就证明父组件给当前自组件传递了新的属性</p>
+<h2 id="shouldcomponentupdate">shouldComponentUpdate</h2>
+<p>组件是否需要被更新，此时组件尚未被更新，但state和props肯定是新的。</p>
+<h2 id="componentwillupdate">componentWillUpdate</h2>
+<p>组件将要被更新，此时尚未更新，内存中的虚拟dom树还是旧的</p>
+<h2 id="render-2">render</h2>
+<p>使用最新的state和props重新虚拟dom树</p>
+<h2 id="componentdidupdate">componentDidupdate</h2>
+<p>此时页面已经被重新渲染了，state和虚拟dom以及页面已经同步</p>
+<h1 id="卸载阶段">卸载阶段</h1>
+<h2 id="componentwillunmount">componentWillUnmount</h2>
+<p>组件即将被卸载，此时组件还可以正常使用</p>
+
+            </div>
             
-              <a class="tag" href="https://iwangxing.cn/manjuan/tag/kRA19DhNX">前端</a>
             
-              <a class="tag" href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM">工具</a>
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/beH0lYHRG">
+                  <h3 class="post-title">
+                    箭头函数中的this
+                  </h3>
+                </a>
+              </div>
             
-              <a class="tag" href="https://iwangxing.cn/manjuan/tag/note">笔记</a>
+
             
-              <a class="tag" href="https://iwangxing.cn/manjuan/tag/css">css</a>
-            
+
           </div>
+
         </div>
       </div>
     </div>
