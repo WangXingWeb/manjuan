@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580639174874">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580647907801">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580639174874" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580647907801" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -134,6 +134,17 @@ this.$el还是最基本也模版页面</p>
 <p>挂载完成，是组件创建阶段最后一个生命周期钩子函数<br>
 这里用户就可以看到真正的页面数据结构了<br>
 如果用到第三方ui插件可以在这里初始化插件</p>
+<h2 id="beforeupdate">beforeUpdate</h2>
+<ul>
+<li>数据已经更新，视图还未更新。</li>
+<li>数据是新的，页面ui还是旧的。</li>
+</ul>
+<h2 id="updated">updated</h2>
+<p>页面已经完成更新，此时data和视图都是最新的。</p>
+<h2 id="beforedestroy">beforeDestroy</h2>
+<p>此时还未执行destroy，组件即将被销毁。组件还是可以正常使用的。</p>
+<h2 id="destroyed">destroyed</h2>
+<p>组件已经销毁，data，methods都不可用了</p>
 
             </div>
             
