@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580736218553">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580736721795">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580736218553" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580736721795" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -425,6 +425,20 @@ ReactDOM.render(
 );
 </code></pre>
 <h2 id="react样式">react样式</h2>
+<h3 id="内联样式">内联样式</h3>
+<pre><code class="language-html">&lt;h1  style={{ color: &quot;red&quot;, fontSize: &quot;18px&quot; }}&gt;
+</code></pre>
+<ul>
+<li>用双花括号包裹样式</li>
+<li>各样式之间用逗号隔开</li>
+<li>样式值加引号，纯数字的除外，例如<code>index：1</code>,<code>fontWeight:700</code></li>
+<li>样式名称使用类似驼峰命名的方式</li>
+</ul>
+<p>也可以将样式单独封装成对象</p>
+<pre><code class="language-javascript">const styleH = { color: &quot;red&quot;, fontSize: &quot;18px&quot;, textAlign: &quot;center&quot; };
+</code></pre>
+<pre><code class="language-html">&lt;h1 style={styleH}&gt;我的书单&lt;/h1&gt;
+</code></pre>
 <h3 id="使用css样式表">使用.css样式表</h3>
 <p>需要在webpack中配置<code>style-loader</code>,<code>css-loader</code><br>
 在webpack.json文件中module -&gt; rules 中加一项配置</p>
