@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1580737263265">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1581055930114">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1580737263265" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1581055930114" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -113,14 +113,21 @@
 <h2 id="componentwillmount">componentWillMount</h2>
 <p>组件将要被挂载，还没有开始渲染虚拟dom</p>
 <h2 id="render">render</h2>
-<p>第一次渲染虚拟dom，当render执行完，内存中就有了完整的虚拟com了</p>
+<p>第一次渲染虚拟dom，当render执行完，内存中就有了完整的虚拟dom了<br>
+此时不能获取到页面上的dom元素</p>
 <h2 id="componentdidmount">componentDidMount</h2>
 <p>组件完成了挂载，此时组件已经显示到页面上了，进入到运行状态</p>
 <h1 id="运行阶段">运行阶段</h1>
 <h2 id="componentwillreciveprops">componentWillReciveProps</h2>
 <p>组件将要接收新属性，这要这个方法触发就证明父组件给当前自组件传递了新的属性</p>
+<blockquote>
+<p>如果在这个生命周期函数中使用this.props拿到的还是就数据。在函数的参数nextProps中才是最近传入的新数据。</p>
+</blockquote>
 <h2 id="shouldcomponentupdate">shouldComponentUpdate</h2>
 <p>组件是否需要被更新，此时组件尚未被更新，但state和props肯定是新的。</p>
+<blockquote>
+<p>这里使用<code>this.state</code>和<code>this.props</code>获取到的也不是最新的数据。在函数的参数<code>nextProps</code>和<code>nextstate</code>中才是最新数据</p>
+</blockquote>
 <h2 id="componentwillupdate">componentWillUpdate</h2>
 <p>组件将要被更新，此时尚未更新，内存中的虚拟dom树还是旧的</p>
 <h2 id="render-2">render</h2>
