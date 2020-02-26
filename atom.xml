@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-02-07T06:12:13.482Z</updated>
+    <updated>2020-02-26T02:13:24.363Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://iwangxing.cn/manjuan/images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan/favicon.ico</icon>
     <rights>All rights reserved 2020, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[React-router]]></title>
+        <id>https://iwangxing.cn/manjuan/post/react-router</id>
+        <link href="https://iwangxing.cn/manjuan/post/react-router">
+        </link>
+        <updated>2020-02-08T02:15:21.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React组件默认参数即设定参数类型]]></title>
         <id>https://iwangxing.cn/manjuan/post/kx7XfgZW7</id>
@@ -94,12 +101,5 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>不定期更新，发现好东西就贴到下面。</p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[js中两个数组相减]]></title>
-        <id>https://iwangxing.cn/manjuan/post/subtractArr</id>
-        <link href="https://iwangxing.cn/manjuan/post/subtractArr">
-        </link>
-        <updated>2019-06-22T15:34:25.000Z</updated>
     </entry>
 </feed>

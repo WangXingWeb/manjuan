@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>TP-link无线网卡连接方法 | 漫卷</title>
+<title>React-router | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,22 +104,74 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">TP-link无线网卡连接方法</h2>
-            <div class="post-date">2019-02-08</div>
+            <h2 class="post-title">React-router</h2>
+            <div class="post-date">2020-02-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://iwangxing.cn/manjuan//post-images/react-router.jpeg')">
+              </div>
             
             <div class="post-content">
-              <ol>
-<li>插入网卡自动会弹出安装驱动的窗口</li>
-<li>如果没有自动弹出，则在计算机里手动打开TP-link标志的软盘，再安装驱动</li>
-<li>如果在计算机也没有找到TP-link软盘，则可能是以前安装过驱动，需要卸载此驱动，然后重启计算机。就能看到了。</li>
-</ol>
+              <p>依赖react-router-dom<br>
+先看基础app.jsx的代码</p>
+<pre><code class="language-javascript">import React from &quot;react&quot;;
+import { HashRouter, Link, Route } from &quot;react-router-dom&quot;;
+
+import Home from &quot;@/components/Home&quot;;
+import Movies from &quot;@/components/Movies&quot;;
+import About from &quot;@/components/About&quot;;
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    return (
+      &lt;HashRouter&gt;
+        &lt;div&gt;
+          &lt;div&gt;
+            &lt;Link to=&quot;/home&quot;&gt;首页&lt;/Link&gt;&amp;nbsp;
+            &lt;Link to=&quot;/movies&quot;&gt;电影&lt;/Link&gt;&amp;nbsp;
+            &lt;Link to=&quot;/about&quot;&gt;关于&lt;/Link&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;Route path=&quot;/home&quot;&gt;
+              &lt;Home&gt;&lt;/Home&gt;
+            &lt;/Route&gt;
+            &lt;Route path=&quot;/movies&quot;&gt;
+              &lt;Movies&gt;&lt;/Movies&gt;
+            &lt;/Route&gt;
+            &lt;Route path=&quot;/about&quot;&gt;
+              &lt;About&gt;&lt;/About&gt;
+            &lt;/Route&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/HashRouter&gt;
+    );
+  }
+}
+</code></pre>
+<p>上面你是最基础的react-router案例</p>
+<ul>
+<li>所有Link和Route必须包裹在<HasRouter>标签内部</li>
+<li>Link标签类似与vue-router中的router-link</li>
+<li>Route标签类似vue-router中的router-view</li>
+<li>如果Route中是一个指定的组件也可以这样写</li>
+</ul>
+<pre><code class="language-javascript">&lt;Route path=&quot;/home&quot; component={Home}&gt;&lt;/Route&gt;
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://iwangxing.cn/manjuan/tag/note" class="tag">
-                    笔记
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript" class="tag">
+                    js
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX" class="tag">
+                    前端
                   </a>
                 
               </div>
@@ -127,9 +179,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/tool">
+                <a href="https://iwangxing.cn/manjuan/post/kx7XfgZW7">
                   <h3 class="post-title">
-                    前端工具推荐
+                    React组件默认参数即设定参数类型
                   </h3>
                 </a>
               </div>
