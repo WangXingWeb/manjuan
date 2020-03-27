@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>笔记 | 漫卷</title>
+<title>js中的深拷贝和浅拷贝 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,28 +103,66 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 笔记</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/tp-link">
-                  <h2 class="post-title">TP-link无线网卡连接方法</h2>
-                </a>
-                <div class="post-date">
-                  2019-02-08
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">js中的深拷贝和浅拷贝</h2>
+            <div class="post-date">2019-03-14</div>
+            
+            <div class="post-content">
+              <h1 id="浅拷贝">浅拷贝</h1>
+<p>一般指的是把对象的第一层拷贝到一个新对象上去</p>
+<pre><code class="language-javascript">var a = { count: 1, deep: { count: 2 } }
+var b = Object.assign({}, a)
+// 或者
+var b = {...a}
+</code></pre>
+<h1 id="深拷贝">深拷贝</h1>
+<p>一般需要借助递归实现，如果对象的值还是个对象，要进一步的深入拷贝，完全替换掉每一个复杂类型的引用。</p>
+<pre><code class="language-javascript">var deepCopy = (obj) =&gt; {
+    var ret = {}
+    for (var key in obj) {
+        var value = obj[key]
+        ret[key] = typeof value === 'object' ? deepCopy(value) : value
+    }
+    return ret
+}
+</code></pre>
+<h1 id="浅拷贝和深拷贝的区别">浅拷贝和深拷贝的区别</h1>
+<pre><code class="language-javascript">// 浅拷贝
+var a = { count: 1, deep: { count: 2 } }
+var b = {...a}
 
-          <div class="pagination-container">
-  
-  
-</div>
+a.deep.count = 5
+b.deep.count // 5
+复制代码var a = { count: 1, deep: { count: 2 } }
+var b = deepCopy(a)
+a.deep.count = 5
+b.deep.count // 2
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript" class="tag">
+                    js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/snippet">
+                  <h3 class="post-title">
+                    VScode自定义代码块
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
