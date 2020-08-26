@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-03-27T14:38:13.362Z</updated>
+    <updated>2020-08-26T15:51:06.938Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -12,22 +12,22 @@
     <rights>All rights reserved 2020, 漫卷</rights>
     <entry>
         <title type="html"><![CDATA[微信小程序自定义组件]]></title>
-        <id>https://iwangxing.cn/manjuan/post/jqkIE_d6j</id>
-        <link href="https://iwangxing.cn/manjuan/post/jqkIE_d6j">
+        <id>https://iwangxing.cn/manjuan/post/jqkIE_d6j/</id>
+        <link href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
         </link>
         <updated>2020-02-26T02:17:01.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[React-router]]></title>
-        <id>https://iwangxing.cn/manjuan/post/react-router</id>
-        <link href="https://iwangxing.cn/manjuan/post/react-router">
+        <id>https://iwangxing.cn/manjuan/post/react-router/</id>
+        <link href="https://iwangxing.cn/manjuan/post/react-router/">
         </link>
         <updated>2020-02-08T02:15:21.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[React组件默认参数即设定参数类型]]></title>
-        <id>https://iwangxing.cn/manjuan/post/kx7XfgZW7</id>
-        <link href="https://iwangxing.cn/manjuan/post/kx7XfgZW7">
+        <id>https://iwangxing.cn/manjuan/post/kx7XfgZW7/</id>
+        <link href="https://iwangxing.cn/manjuan/post/kx7XfgZW7/">
         </link>
         <updated>2020-02-02T15:08:20.000Z</updated>
         <summary type="html"><![CDATA[<p>我们要写一个比较健壮的组件，需要考虑的内容很多，比如说传递给组件的参数，参数是否为必传，参数的类型等</p>
@@ -37,15 +37,15 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[React生命周期]]></title>
-        <id>https://iwangxing.cn/manjuan/post/s5ArHhmqt</id>
-        <link href="https://iwangxing.cn/manjuan/post/s5ArHhmqt">
+        <id>https://iwangxing.cn/manjuan/post/s5ArHhmqt/</id>
+        <link href="https://iwangxing.cn/manjuan/post/s5ArHhmqt/">
         </link>
         <updated>2020-02-02T12:55:15.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[箭头函数中的this]]></title>
-        <id>https://iwangxing.cn/manjuan/post/beH0lYHRG</id>
-        <link href="https://iwangxing.cn/manjuan/post/beH0lYHRG">
+        <id>https://iwangxing.cn/manjuan/post/beH0lYHRG/</id>
+        <link href="https://iwangxing.cn/manjuan/post/beH0lYHRG/">
         </link>
         <updated>2020-01-29T13:27:10.000Z</updated>
         <summary type="html"><![CDATA[<p>箭头函数看起来像一个匿名函数，但是也有一点和匿名函数很不哟样，就是箭头函数中的this并不指向函数的调用者，而是指向函数外部的this。</p>
@@ -55,15 +55,15 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[js中的for in和for of]]></title>
-        <id>https://iwangxing.cn/manjuan/post/syDRl9UIG</id>
-        <link href="https://iwangxing.cn/manjuan/post/syDRl9UIG">
+        <id>https://iwangxing.cn/manjuan/post/syDRl9UIG/</id>
+        <link href="https://iwangxing.cn/manjuan/post/syDRl9UIG/">
         </link>
         <updated>2020-01-21T14:58:14.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[修改UEditor源码支持上传音频]]></title>
-        <id>https://iwangxing.cn/manjuan/post/2vR9xTtVm</id>
-        <link href="https://iwangxing.cn/manjuan/post/2vR9xTtVm">
+        <id>https://iwangxing.cn/manjuan/post/2vR9xTtVm/</id>
+        <link href="https://iwangxing.cn/manjuan/post/2vR9xTtVm/">
         </link>
         <updated>2020-01-13T15:04:24.000Z</updated>
         <summary type="html"><![CDATA[<p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
@@ -75,22 +75,22 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[快捷键记录]]></title>
-        <id>https://iwangxing.cn/manjuan/post/FFr974k7U</id>
-        <link href="https://iwangxing.cn/manjuan/post/FFr974k7U">
+        <id>https://iwangxing.cn/manjuan/post/FFr974k7U/</id>
+        <link href="https://iwangxing.cn/manjuan/post/FFr974k7U/">
         </link>
         <updated>2020-01-06T14:00:26.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[js数组去重]]></title>
-        <id>https://iwangxing.cn/manjuan/post/rjxmp3mXX</id>
-        <link href="https://iwangxing.cn/manjuan/post/rjxmp3mXX">
+        <id>https://iwangxing.cn/manjuan/post/rjxmp3mXX/</id>
+        <link href="https://iwangxing.cn/manjuan/post/rjxmp3mXX/">
         </link>
         <updated>2020-01-04T13:57:58.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[js要不要加分号]]></title>
-        <id>https://iwangxing.cn/manjuan/post/4axM3Y-YL</id>
-        <link href="https://iwangxing.cn/manjuan/post/4axM3Y-YL">
+        <id>https://iwangxing.cn/manjuan/post/4axM3Y-YL/</id>
+        <link href="https://iwangxing.cn/manjuan/post/4axM3Y-YL/">
         </link>
         <updated>2019-12-29T11:28:58.000Z</updated>
         <summary type="html"><![CDATA[<p>这个问题曾经让很多程序员吵得不可开交（程序员真是一群特别喜欢撕逼的人，这么点小问题都能分成两派撕起来😂）</p>

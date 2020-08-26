@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>vue中watch某个对象的属性 | 漫卷</title>
+<title>微信小程序 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,52 +103,28 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">vue中watch某个对象的属性</h2>
-            <div class="post-date">2018-05-18</div>
-            
-            <div class="post-content">
-              <pre><code class="language-javascript">data:{
-	userInfo：{
-		name:'',
-		age:'',
-		...
-	}
-}
-</code></pre>
-<p>如果我们要监听<code>userInfo</code>中的<code>name</code>,如果我们监听整个<code>userInfo</code>当<code>userInfo</code>中数据很多时，占用很多资源，影响程序的性能。</p>
-<pre><code class="language-javascript">watch:{
-    userInfo(val,oldVal){
-        //do something about val.name
-    }
-}
-</code></pre>
-<p>上面的代码不论<code>userInfo</code>中的那个属性发生变化，都会执行这段代码。而本质上我们只想监听<code>userInfo</code>中的<code>name</code>,其它属性改变比如<code>age</code>是我们不关心的。这样就造成了额外开销。</p>
-<p>其实<code>vue</code>给我们提供了单独监听某个对象的某个属性的方法</p>
-<pre><code class="language-javascript">watch:{
-    &quot;userInfo.name&quot;(val){
-        //do something about val
-    }
-}
-</code></pre>
-<p>这样我们单独监听<code>userInfo</code>的<code>name</code>属性了</p>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/vuex_note/">
-                  <h3 class="post-title">
-                    vuex笔记
-                  </h3>
+          <h2 class="current-tag">标签: 微信小程序</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
+                  <h2 class="post-title">微信小程序自定义组件</h2>
                 </a>
+                <div class="post-date">
+                  2020-02-26
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
               </div>
-            
+              
+            </article>
+          
 
-            
-
-          </div>
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
       </div>
