@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>箭头函数中的this | 漫卷</title>
+<title>sass构建样式工具 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,66 +104,82 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">箭头函数中的this</h2>
-            <div class="post-date">2020-01-29</div>
+            <h2 class="post-title">sass构建样式工具</h2>
+            <div class="post-date">2020-08-28</div>
             
             <div class="post-content">
-              <p>箭头函数看起来像一个匿名函数，但是也有一点和匿名函数很不哟样，就是箭头函数中的this并不指向函数的调用者，而是指向函数外部的this。</p>
-<!-- more -->
-<pre><code class="language-javascript">onload = function() {
-    var btn = document.getElementById(&quot;btn&quot;);
-
-    btn.onclick = function() {
-        this.style.backgroundColor = &quot;red&quot;;
-    };
-};
+              <p>我们写页面样式时往往要求整个网站的配色统一，通常的做法是写一些颜色工具样式class。</p>
+<pre><code class="language-css">.text-primary{
+    color:$db9e3f;
+}
 </code></pre>
-<p>现在我们把绑定的函数换成箭头函数</p>
-<pre><code class="language-javascript">onload = function() {
-    var btn = document.getElementById(&quot;btn&quot;);
-
-    btn.onclick = () =&gt; {
-        this.style.backgroundColor = &quot;red&quot;;
-    };
-};
+<p>在需要使用的地方使用</p>
+<pre><code class="language-html">&lt;div class=&quot;text-primary&quot;&gt;&lt;/div&gt;
 </code></pre>
-<p>你会发现报错了。this指向出错了。<br>
-这里的this其实是箭头函数外部的this了，也就是window</p>
-<p>再比如我们的需求是点击后一秒在变红</p>
-<pre><code class="language-javascript">onload = function() {
-      var btn = document.getElementById(&quot;btn&quot;);
-
-      btn.onclick = function() {
-        setTimeout(function() {
-          this.style.backgroundColor = &quot;red&quot;;
-        }, 1000);
-      };
-    };
+<p>但这里又一个小问题，在我们配色比较多的情况下，写起来会很繁复，所以这里我们使用css变量就会简洁很多，利用sass的循环生成若干个样式class</p>
+<h2 id="配置颜色">配置颜色</h2>
+<pre><code class="language-css">$colors:(
+    &quot;primary&quot;:#db9e3f,
+    &quot;info&quot;:#4b67af,
+    &quot;blue&quot;:#4394e4,
+    &quot;blue-1&quot;:#1e3595,
+    &quot;danger&quot;:#781a16,
+    &quot;white&quot;:#fff,
+    &quot;white-1&quot;:#fcfcfc,
+    &quot;white-2&quot;:#eceef0,
+    &quot;black&quot;:#000, 
+    &quot;dark&quot;:#222,
+    &quot;dark-1&quot;:#343440,
+    &quot;grey-1&quot;:#666,
+    &quot;light&quot;:#f9f9f9,
+    &quot;light-1&quot;:#d4d9de,
+    &quot;grey&quot;:#999
+);
 </code></pre>
-<p>上面的代码又会报this指向的错误。<br>
-因为setTimeout的this是指向window的。<br>
-这是我们setTimeout中的方法换成箭头函数</p>
-<pre><code class="language-javascript">onload = function() {
-      var btn = document.getElementById(&quot;btn&quot;);
-
-      btn.onclick = function() {
-        setTimeout(() =&gt; {
-          this.style.backgroundColor = &quot;red&quot;;
-        }, 1000);
-      };
-    };
+<p>这样我们维护颜色配置会非常方便。如何网站的主题配色改变，我们只需要修改这里的色值就可以了。</p>
+<h2 id="循环生成样式">循环生成样式</h2>
+<pre><code class="language-css">@each $colorKey,$color in $colors {
+    .text-#{$colorKey}{
+        color:$color
+    }
+    .bg-#{$colorKey}{
+        background-color: $color
+    }
+}
 </code></pre>
-<p>这里却实现了我们的效果了。<br>
-因为这里的this是箭头函数外部的this，也就是btn所以this指向正确了。</p>
+<p>这样我们就很快生成的针对每个颜色的文本颜色和背景色2个class<br>
+代码非常简洁。<br>
+生成的css样式如下：</p>
+<h2 id="生成的样式">生成的样式</h2>
+<pre><code class="language-css">.text-primary{
+    color:#db9e3f;
+}
+.bg-primary{
+    background-color: #db9e3f;
+}
+...
+</code></pre>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/css/" class="tag">
+                    css
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/syDRl9UIG/">
+                <a href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
                   <h3 class="post-title">
-                    js中的for in和for of
+                    微信小程序自定义组件
                   </h3>
                 </a>
               </div>

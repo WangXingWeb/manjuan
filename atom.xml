@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-08-26T15:51:06.938Z</updated>
+    <updated>2020-08-28T16:23:28.432Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://iwangxing.cn/manjuan/images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan/favicon.ico</icon>
     <rights>All rights reserved 2020, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[sass构建样式工具]]></title>
+        <id>https://iwangxing.cn/manjuan/post/scsstool/</id>
+        <link href="https://iwangxing.cn/manjuan/post/scsstool/">
+        </link>
+        <updated>2020-08-28T14:54:33.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[微信小程序自定义组件]]></title>
         <id>https://iwangxing.cn/manjuan/post/jqkIE_d6j/</id>
@@ -86,16 +93,5 @@
         <link href="https://iwangxing.cn/manjuan/post/rjxmp3mXX/">
         </link>
         <updated>2020-01-04T13:57:58.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[js要不要加分号]]></title>
-        <id>https://iwangxing.cn/manjuan/post/4axM3Y-YL/</id>
-        <link href="https://iwangxing.cn/manjuan/post/4axM3Y-YL/">
-        </link>
-        <updated>2019-12-29T11:28:58.000Z</updated>
-        <summary type="html"><![CDATA[<p>这个问题曾经让很多程序员吵得不可开交（程序员真是一群特别喜欢撕逼的人，这么点小问题都能分成两派撕起来😂）</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>这个问题曾经让很多程序员吵得不可开交（程序员真是一群特别喜欢撕逼的人，这么点小问题都能分成两派撕起来😂）</p>
-]]></content>
     </entry>
 </feed>
