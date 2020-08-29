@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1598631804814">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1598714564535">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1598631804814" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1598714564535" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -108,7 +108,8 @@
             <div class="post-date">2020-08-28</div>
             
             <div class="post-content">
-              <p>我们写页面样式时往往要求整个网站的配色统一，通常的做法是写一些颜色工具样式class。</p>
+              <h2 id="配色">配色</h2>
+<p>我们写页面样式时往往要求整个网站的配色统一，通常的做法是写一些颜色工具样式class。</p>
 <pre><code class="language-css">.text-primary{
     color:$db9e3f;
 }
@@ -117,7 +118,7 @@
 <pre><code class="language-html">&lt;div class=&quot;text-primary&quot;&gt;&lt;/div&gt;
 </code></pre>
 <p>但这里又一个小问题，在我们配色比较多的情况下，写起来会很繁复，所以这里我们使用css变量就会简洁很多，利用sass的循环生成若干个样式class</p>
-<h2 id="配置颜色">配置颜色</h2>
+<h3 id="配置颜色">配置颜色</h3>
 <pre><code class="language-css">$colors:(
     &quot;primary&quot;:#db9e3f,
     &quot;info&quot;:#4b67af,
@@ -137,7 +138,7 @@
 );
 </code></pre>
 <p>这样我们维护颜色配置会非常方便。如何网站的主题配色改变，我们只需要修改这里的色值就可以了。</p>
-<h2 id="循环生成样式">循环生成样式</h2>
+<h3 id="循环生成样式">循环生成样式</h3>
 <pre><code class="language-css">@each $colorKey,$color in $colors {
     .text-#{$colorKey}{
         color:$color
@@ -150,7 +151,7 @@
 <p>这样我们就很快生成的针对每个颜色的文本颜色和背景色2个class<br>
 代码非常简洁。<br>
 生成的css样式如下：</p>
-<h2 id="生成的样式">生成的样式</h2>
+<h3 id="生成的样式">生成的样式</h3>
 <pre><code class="language-css">.text-primary{
     color:#db9e3f;
 }
@@ -159,6 +160,104 @@
 }
 ...
 </code></pre>
+<h2 id="边距">边距</h2>
+<p>同样一个成熟规范的网站每个页面中类似的组件的边距往往也是统一的。如果你有研究过bootstrap的源码你应该很容易理解这一点。<br>
+定义边距样式class可能要比配色class稍微复杂一点。</p>
+<h3 id="定义边距参数">定义边距参数</h3>
+<pre><code class="language-css">$spacing-types:(m:margin, p:padding);//边距类型外边距还是内边距
+$spacing-direction:(t:top, r:right, b:bottom, l:left);//边距的方向
+$spacing-base-size:1rem;//边距系数，实际的边距数值是它的倍数关系，我这里用rem，你用px和em也没关系
+$spacing-sizes:(0:0, 1:0.25, 2:0.5, 3:1, 4:1.6, 5:3);//边距是系数的几倍
+</code></pre>
+<h3 id="循环生成class">循环生成class</h3>
+<pre><code class="language-css">//边距margin,padding
+@each $typeKey,$type in $spacing-types {
+    //.m-0{margin:1rem;}
+    @each $sizeKey,$size in $spacing-sizes {
+        .#{$typeKey}-#{$sizeKey}{
+            #{$type}:$size * $spacing-base-size;
+        }
+    }
+
+    //.mx-1{margin:0}
+    @each $sizeKey,$size in $spacing-sizes {
+        .#{$typeKey}x-#{$sizeKey}{
+            #{$type}-left:$size * $spacing-base-size;
+            #{$type}-right:$size * $spacing-base-size;
+        }
+    }
+    @each $sizeKey,$size in $spacing-sizes {
+        .#{$typeKey}y-#{$sizeKey}{
+            #{$type}-top:$size * $spacing-base-size;
+            #{$type}-bottom:$size * $spacing-base-size;
+        }
+    }
+
+    //.mt-1{margin-top:1rem}
+    @each $directionKey,$direction in $spacing-direction {
+        @each $sizeKey,$size in $spacing-sizes {
+            .#{$typeKey}#{$directionKey}-#{$sizeKey}{
+                #{$type}-#{$direction}:$size * $spacing-base-size;
+            }
+        }
+    }
+}
+</code></pre>
+<p>这里用到了三重循环可能不好理解，如果你觉得有点绕，建议补充 <a href="https://www.sass.hk/"> sass </a> 的知识。</p>
+<h3 id="编译后的样式">编译后的样式</h3>
+<pre><code>.m-1{
+    margin:0.25rem;
+}
+.p-1{
+    padding:0.25rem;
+}
+...
+.mx-1{
+    margin-left:0.25rem;
+    margin-right:0.25rem;
+}
+..my-1{
+    margin-top:0.25rem;
+    margin-bottom:0.25rem;
+}
+...
+.mt-1{
+    margin-top:0.25rem;
+}
+.pt-1{
+    padding-top:0.25rem;
+}
+</code></pre>
+<p>初次之外我们还可以对文字对齐ext-align设置left、right、center进行循环输出特定class。</p>
+<h2 id="文字对齐">文字对齐</h2>
+<pre><code class="language-css">//文字对齐
+@each $var in (left,right,center) {
+    .text-#{$var}{
+        text-align: $var !important;
+    }
+}
+</code></pre>
+<p>再比如文字大小font-size</p>
+<pre><code class="language-css">//字体尺寸
+$base-font-size:1rem;
+$font-sizes:(
+    xxs:0.6154,//8px
+    xs:0.7692,//10px
+    sm:0.9231,//12px
+    md:1,//13px
+    lg:1.0769,//14px
+    xl:1.2308,//16px
+    xll:1.8462 //24px
+);
+
+//字体尺寸
+@each $sizeKey,$size in $font-sizes {
+    .fs-#{$sizeKey}{
+        font-size:$size*$base-font-size
+    }
+}
+</code></pre>
+<p>可以生成的工具样式还有很多，比如边框宽度、边框颜色、弹性布局的对齐方式等等，这里就不一一举例了。</p>
 
             </div>
             
