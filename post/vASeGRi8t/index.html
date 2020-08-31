@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>js中的for in和for of | 漫卷</title>
+<title>vue父组件触发子组件的事件 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,28 +104,66 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">js中的for in和for of</h2>
-            <div class="post-date">2020-01-21</div>
+            <h2 class="post-title">vue父组件触发子组件的事件</h2>
+            <div class="post-date">2018-09-01</div>
             
             <div class="post-content">
-              <p>for in 和for of 这两个方法很容易弄混。</p>
-<h1 id="for-in">for in</h1>
-<pre><code class="language-javascript">for(let item of arr){
-    console.log(item)  //item是数组下标或者对象key
-    console.log(arr[item]) //使用下标取出数组元素
-}
+              <p>父组件代码</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;clickParent&quot;&gt;点击&lt;/button&gt;
+    &lt;child ref=&quot;mychild&quot;&gt;&lt;/child&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+ 
+&lt;script&gt;
+  import Child from './child';
+  export default {
+    name: &quot;parent&quot;,
+    components: {
+      child: Child
+    },
+    methods: {
+      clickParent() {
+        this.$refs.mychild.$emit(&quot;childEvent&quot;,'发送的数据');
+      }
+    }
+  }
+&lt;/script&gt;
 </code></pre>
-<p>for in是<code>es5</code>语法,可以用来遍历数组和对象，取出key</p>
-<h1 id="for-of">for of</h1>
-<p>for of是<code>es6</code>语法，只能用来遍历数组，取出的是数组元素</p>
-<pre><code class="language-javascript">for(let item of arr){
-    console.log(item) //数组元素
-}
+<h2 id="关键在于使用-refs找到子组件然后使用-emit触发子组件绑定的事件">关键在于使用 <code>$refs</code>找到子组件然后使用 <code>$emit</code>触发子组件绑定的事件</h2>
+<p>子组件代码</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    child
+  &lt;/div&gt;
+&lt;/template&gt;
+ 
+&lt;script&gt;
+  export default {
+    name: &quot;child&quot;,
+    created() {
+      this.$on(&quot;ChildEvent&quot;, (res) =&gt; {
+        this.childFun(res);
+      });
+    },
+    methods: {
+      childFun(res) {
+        console.log(res)
+      }
+    }
+  }
+&lt;/script&gt;
 </code></pre>
+<p>子组件使用<code>$on</code>绑定事件</p>
 
             </div>
             
               <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
+                    vue
+                  </a>
                 
                   <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
                     js
@@ -140,9 +178,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/2vR9xTtVm/">
+                <a href="https://iwangxing.cn/manjuan/post/nodeJS/">
                   <h3 class="post-title">
-                    修改UEditor源码支持上传音频
+                    Node.js笔记
                   </h3>
                 </a>
               </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>js中的for in和for of | 漫卷</title>
+<title>vue监听props参数变化 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,28 +104,71 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">js中的for in和for of</h2>
-            <div class="post-date">2020-01-21</div>
+            <h2 class="post-title">vue监听props参数变化</h2>
+            <div class="post-date">2018-08-15</div>
             
             <div class="post-content">
-              <p>for in 和for of 这两个方法很容易弄混。</p>
-<h1 id="for-in">for in</h1>
-<pre><code class="language-javascript">for(let item of arr){
-    console.log(item)  //item是数组下标或者对象key
-    console.log(arr[item]) //使用下标取出数组元素
-}
+              <h2 id="父组件代码">父组件代码</h2>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;change&quot;&gt;change&lt;/button&gt;
+    &lt;Test :name=&quot;name&quot;&gt;&lt;/Test&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import Test from &quot;@/components/test/Test.vue&quot;;
+export default {
+  data() {
+    return {
+      name: &quot;漫卷&quot;,
+    };
+  },
+  methods: {
+    change() {
+      this.name = &quot;诗书&quot;;
+    },
+  },
+  components: {
+    Test,
+  },
+};
+&lt;/script&gt;
 </code></pre>
-<p>for in是<code>es5</code>语法,可以用来遍历数组和对象，取出key</p>
-<h1 id="for-of">for of</h1>
-<p>for of是<code>es6</code>语法，只能用来遍历数组，取出的是数组元素</p>
-<pre><code class="language-javascript">for(let item of arr){
-    console.log(item) //数组元素
-}
+<h2 id="子组件代码">子组件代码</h2>
+<p>子组件中利用watch监听props中的name,可以获取到name的最新值和之前的值，我们可以在这里做参数改变后的处理。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;{{ name }}&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    name: {
+      type: String,
+    },
+  },
+  watch: {
+    name(val,oldVal) {
+      this.fun();
+      console.log(val, &quot;监听变化&quot;);
+    },
+  },
+  methods: {
+    fun() {
+      console.log(&quot;调用方法&quot;);
+    },
+  },
+};
+&lt;/script&gt;
 </code></pre>
 
             </div>
             
               <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
+                    vue
+                  </a>
                 
                   <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
                     js
@@ -140,9 +183,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/2vR9xTtVm/">
+                <a href="https://iwangxing.cn/manjuan/post/HMktdZRhd/">
                   <h3 class="post-title">
-                    修改UEditor源码支持上传音频
+                    vue中watch某个对象的属性
                   </h3>
                 </a>
               </div>
