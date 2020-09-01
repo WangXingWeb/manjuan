@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>React组件默认参数即设定参数类型 | 漫卷</title>
+<title>Vue Router基本配置 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,21 +104,136 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">React组件默认参数即设定参数类型</h2>
-            <div class="post-date">2020-02-02</div>
+            <h2 class="post-title">Vue Router基本配置</h2>
+            <div class="post-date">2019-03-13</div>
             
             <div class="post-content">
-              <p>我们要写一个比较健壮的组件，需要考虑的内容很多，比如说传递给组件的参数，参数是否为必传，参数的类型等</p>
-<!-- more -->
+              <p>Vue Router 是 <a href="http://cn.vuejs.org/">Vue.js</a> 官方的路由管理器。</p>
+<p>下面是一个配置vue router的demo</p>
+<p>main.js中</p>
+<pre><code class="language-javascript">import Vue from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+
+import router from &quot;@/router/index.js&quot;;
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  render: (h) =&gt; h(App),
+}).$mount(&quot;#app&quot;);
+
+</code></pre>
+<p>通常我们会将router单独放到一个文件夹下，因为对于一个大型项目可能有很多个页面，全部放到一个js里会十分臃肿，可读性很差，不利于后期维护。所以建议分类或者分模块设置多个router，然后统一引入到一个router中统一调用。</p>
+<p>router/index.js中</p>
+<pre><code class="language-javascript">import Vue from &quot;vue&quot;;
+import VueRouter from &quot;vue-router&quot;;
+
+import homeRouter from &quot;@/router/homeRouter.js&quot;;
+
+Vue.use(VueRouter);
+
+const routes = [
+  homeRouter,
+  {
+    path: &quot;/login&quot;, //登录
+    name: &quot;Login&quot;,
+    component: () =&gt; import(&quot;@/views/Login.vue&quot;),
+    meta: { isPublic: true },
+  },
+  {
+    path: &quot;/chat&quot;, //聊天页面
+    name: &quot;Chat&quot;,
+    component: () =&gt; import(&quot;@/views/chat/Chat.vue&quot;),
+  },
+  {
+    path: &quot;/chatInfo&quot;, //聊天信息页面
+    name: &quot;ChatInfo&quot;,
+    component: () =&gt; import(&quot;@/views/chat/ChatInfo.vue&quot;),
+  },
+  {
+    path: &quot;/createGroupChat&quot;, //创建群聊
+    name: &quot;CreateGroupChat&quot;,
+    component: () =&gt; import(&quot;@/views/chat/CreateGroupChat.vue&quot;),
+  },
+  {
+    path: &quot;/viewMember&quot;, //查看联系人
+    name: &quot;ViewMember&quot;,
+    component: () =&gt; import(&quot;@/views/chat/ViewMember.vue&quot;),
+  },
+];
+
+const router = new VueRouter({
+  routes,
+});
+
+export default router;
+
+</code></pre>
+<p>router/homeRouter.js</p>
+<pre><code class="language-javascript">export default {
+  path: &quot;/&quot;, //主页面
+  name: &quot;Base&quot;,
+  component: () =&gt; import(&quot;@/views/Base.vue&quot;),
+  redirect: &quot;/home&quot;,
+  children: [
+    {
+      path: &quot;/home&quot;,
+      component: () =&gt; import(&quot;@/views/Home.vue&quot;),
+    },
+    {
+      path: &quot;/contacts&quot;,
+      component: () =&gt; import(&quot;@/views/Contacts.vue&quot;),
+    },
+    {
+      path: &quot;/workbench&quot;,
+      component: () =&gt; import(&quot;@/views/Workbench.vue&quot;),
+    },
+    {
+      path: &quot;/mine&quot;,
+      component: () =&gt; import(&quot;@/views/Mine.vue&quot;),
+    },
+  ],
+};
+</code></pre>
+<p>app.vue</p>
+<p>在app.vue中加入router-view就可以看到视图了。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &quot;App&quot;,
+  components: {},
+};
+&lt;/script&gt;
+</code></pre>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
+                    vue
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/s5ArHhmqt/">
+                <a href="https://iwangxing.cn/manjuan/post/tp-link/">
                   <h3 class="post-title">
-                    React生命周期
+                    TP-link无线网卡连接方法
                   </h3>
                 </a>
               </div>

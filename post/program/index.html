@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>微信小程序笔记 | 漫卷</title>
+<title>微信小程序生命周期 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1598885385231">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1598973378816">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1598885385231" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1598973378816" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,13 +104,57 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">微信小程序笔记</h2>
+            <h2 class="post-title">微信小程序生命周期</h2>
             <div class="post-date">2017-06-22</div>
             
             <div class="post-content">
-              <p>微信小程序</p>
+              <p>微信小程序生命周期分为三种小程序app生命周期、page页面生命周期和组件的生命周期。</p>
+<h2 id="小程序app生命周期">小程序app生命周期</h2>
+<p>onLnunch：小程序初始化<br>
+onShow：小程序启动或者切前台<br>
+onHide：小程序切后台<br>
+onError：错误监听<br>
+onPageNotFound：监听页面不存在<br>
+onUnhandledRejection：未处理的 Promise 拒绝事件监听函数。<br>
+onThemeChange：监听系统主题变化</p>
+<h2 id="page页面生命周期">page页面生命周期</h2>
+<p>onLoad：页面创建时执行<br>
+onShow：页面出现在前台时执行<br>
+onReady：页面首次渲染完毕时执行<br>
+onHide：页面从前台变为后台时执行<br>
+onUnload：页面销毁时执行<br>
+onPullDownRefresh：触发下拉刷新时执行<br>
+onReachBottom：页面触底时执行<br>
+onShareAppMessage：页面被用户分享时执行<br>
+onPageScorll：页面滚动时执行<br>
+onResize：页面尺寸变化时执行<br>
+onTabItemTap：tab点击时运行</p>
+<h2 id="组件生命周期">组件生命周期</h2>
+<p>created：在组件实例刚刚被创建时执行<br>
+attached：在组件实例进入页面节点树时执行<br>
+ready：在组件在视图层布局完成后执行<br>
+moved：在组件实例被移动到节点树另一个位置时执行<br>
+detached：在组件实例被从页面节点树移除时执行<br>
+error：每当组件方法抛出错误时执行</p>
+<p>自小程序基础库版本 2.2.3 起，组件的的生命周期也可以在 lifetimes 字段内进行声明（这是推荐的方式，其优先级最高）。</p>
+<p>还有一些特殊的生命周期，它们并非与组件有很强的关联，但有时组件需要获知，以便组件内部处理。这样的生命周期称为“组件所在页面的生命周期”，在 pageLifetimes 定义段中定义。其中可用的生命周期包括：<br>
+show：组件所在的页面被展示时执行<br>
+hide：组件所在的页面被隐藏时执行<br>
+resize：组件所在的页面尺寸变化时执行</p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/littleproject/" class="tag">
+                    微信小程序
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">

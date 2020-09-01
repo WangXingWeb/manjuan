@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>微信小程序 | 漫卷</title>
+<title>axios配置默认参数 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,43 +103,54 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 微信小程序</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
-                  <h2 class="post-title">微信小程序自定义组件</h2>
-                </a>
-                <div class="post-date">
-                  2020-02-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/program/">
-                  <h2 class="post-title">微信小程序生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-06-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">axios配置默认参数</h2>
+            <div class="post-date">2019-12-03</div>
+            
+            <div class="post-content">
+              <p>正常开发中很多请求都需要携带上用户的token等登录凭证才能够请求数据，每次发起ajax请求都写一次会非常麻烦。这里我们使用axiox拦截器，拦截请求注入token，这样每次发起的ajax就会默认带有token参数了。</p>
+<pre><code class="language-javascript">http.interceptors.request.use(function (config) {
+    if (localStorage.token) {
+        config.data += '&amp;token=' + localStorage.token
+    }
+    return config
+}, function (error) {
+    return Promise.reject(error)
+})
+</code></pre>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM/" class="tag">
+                    工具
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/Ts-5v0Fjg/">
+                  <h3 class="post-title">
+                    axios配置全局baseURl
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>

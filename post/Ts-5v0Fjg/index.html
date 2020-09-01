@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>微信小程序 | 漫卷</title>
+<title>axios配置全局baseURl | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,43 +103,47 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 微信小程序</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
-                  <h2 class="post-title">微信小程序自定义组件</h2>
-                </a>
-                <div class="post-date">
-                  2020-02-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/program/">
-                  <h2 class="post-title">微信小程序生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-06-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">axios配置全局baseURl</h2>
+            <div class="post-date">2019-12-03</div>
+            
+            <div class="post-content">
+              <pre><code class="language-javascript">const http = axios.create({
+    baseURL: process.env.VUE_APP_URL || &quot;https://xxx.com&quot;
+})
+</code></pre>
+<p>创建axios实例时配置baseURL，在开发环境中会使用<code>process.env.VUE_APP_URL</code>所指向的地址，这个地址在<code>.env.development</code>文件中配置,生产环境下会使用<code>https://xxx.com</code></p>
+<pre><code class="language-javascript">VUE_APP_URL=http://localhost
+</code></pre>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM/" class="tag">
+                    工具
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/subtractArr/">
+                  <h3 class="post-title">
+                    js中两个数组相减
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>

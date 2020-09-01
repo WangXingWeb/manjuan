@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>微信小程序 | 漫卷</title>
+<title>axios错误处理 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,43 +103,60 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 微信小程序</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
-                  <h2 class="post-title">微信小程序自定义组件</h2>
-                </a>
-                <div class="post-date">
-                  2020-02-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/program/">
-                  <h2 class="post-title">微信小程序生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-06-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">axios错误处理</h2>
+            <div class="post-date">2019-12-05</div>
+            
+            <div class="post-content">
+              <p>ajax请求的response经常会遇到token失效、权限不足、资源找不到等错误，如果在每个ajax请求中单独处理会非常繁琐，所以我们要做同一的错误处理。这里我们使用axios的response 拦截器，拦截响应，分析响应数据，处理完我们要处理的情况再让程序向下传递。</p>
+<pre><code class="language-javascript">const http = axios.create({
+    baseURL: process.env.VUE_APP_URL || &quot;https://ax126.cn&quot;
+})
+http.interceptors.response.use(res =&gt; {
+    if (res.data.code == 700) {
+        localStorage.token = '';
+        localStorage.userInfo = {};
+        //提示消息
+        Vue.prototype.$message.error({ content: res.data.msg, duration: 2 });
+        router.push('/login')
+    }
+    return res
+}, err =&gt; {
+    //提示消息
+    Vue.$message.error({ content: res.data.msg, duration: 2 });
+    //这里也可以针对情况做处理比如跳转404页面等
+    return Promise.reject(err)
+})
+</code></pre>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM/" class="tag">
+                    工具
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/GrYUupv6p/">
+                  <h3 class="post-title">
+                    axios配置默认参数
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>

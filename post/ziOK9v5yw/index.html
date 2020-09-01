@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>微信小程序 | 漫卷</title>
+<title>Vue Router导航守卫 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,43 +103,56 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 微信小程序</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/jqkIE_d6j/">
-                  <h2 class="post-title">微信小程序自定义组件</h2>
-                </a>
-                <div class="post-date">
-                  2020-02-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/program/">
-                  <h2 class="post-title">微信小程序生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-06-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">Vue Router导航守卫</h2>
+            <div class="post-date">2019-05-16</div>
+            
+            <div class="post-content">
+              <pre><code class="language-javascript">const router = new VueRouter({
+  routes
+})
 
-          <div class="pagination-container">
-  
-  
-</div>
+router.beforeEach((to, form, next) =&gt; {
+  if (!to.meta.isPublic &amp;&amp; !localStorage.token) {
+    return next('/login')
+  }
+  next()
+})
+</code></pre>
+<p>上面的代码我们在路由发生改变后在页面跳转前去验证localStorage是否有token，也就是验证用户是否已经登录，同时判断即将跳转的路由是否是开放的页面（公开的，用户不登录也能访问），如果目标路由不是可以公开访问的同时用户也没有登录则直接跳转到login页。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
+                    vue
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/vscode_extend/">
+                  <h3 class="post-title">
+                    VSCode中应该安装的几款插件
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
