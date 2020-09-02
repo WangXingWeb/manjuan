@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>前端 | 漫卷</title>
+<title>vue中组件样式表预防冲突 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,45 +103,33 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 前端</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/npm/">
-                  <h2 class="post-title">npm设置淘宝镜像</h2>
-                </a>
-                <div class="post-date">
-                  2017-05-18
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/ru-he-hua-chu-xiao-yu-1px-de-xian/">
-                  <h2 class="post-title">如何画出小于1px的线</h2>
-                </a>
-                <div class="post-date">
-                  2016-08-11
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">vue中组件样式表预防冲突</h2>
+            <div class="post-date">2018-12-05</div>
+            
+            <div class="post-content">
+              <p>在vue中我们会封装很多的组件，组件中的class难免会命名重复，如果不做处理不同的组件间的样式就存在互相污染的风险。为了避免不同的组件之间的样式互相污染，vue给我们提供了一个很方便的解决方案，在style上添加scoped，如下：</p>
+<pre><code class="language-html">&lt;style scoped&gt;&lt;/style&gt;
+</code></pre>
+<p>这样编译输出的class就带有不会重复的特定标示，这样即使命名相同，在打包后的引用其实也是特定class，不会重复。如下图：<br>
+<img src="https://iwangxing.cn/manjuan//post-images/1599056920819.webp" alt="" loading="lazy"></p>
 
-          <div class="pagination-container">
-  
-    <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/page/2/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/IExAp8GIM/">
+                  <h3 class="post-title">
+                    v-for中的key的作用
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
