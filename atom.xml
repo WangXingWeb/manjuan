@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-09-02T14:54:03.927Z</updated>
+    <updated>2020-09-02T15:12:20.306Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -39,31 +39,6 @@
         <updated>2020-02-26T02:17:01.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[React-router]]></title>
-        <id>https://iwangxing.cn/manjuan/post/react-router/</id>
-        <link href="https://iwangxing.cn/manjuan/post/react-router/">
-        </link>
-        <updated>2020-02-08T02:15:21.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[React组件默认参数即设定参数类型]]></title>
-        <id>https://iwangxing.cn/manjuan/post/kx7XfgZW7/</id>
-        <link href="https://iwangxing.cn/manjuan/post/kx7XfgZW7/">
-        </link>
-        <updated>2020-02-02T15:08:20.000Z</updated>
-        <summary type="html"><![CDATA[<p>我们要写一个比较健壮的组件，需要考虑的内容很多，比如说传递给组件的参数，参数是否为必传，参数的类型等</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我们要写一个比较健壮的组件，需要考虑的内容很多，比如说传递给组件的参数，参数是否为必传，参数的类型等</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[React生命周期]]></title>
-        <id>https://iwangxing.cn/manjuan/post/s5ArHhmqt/</id>
-        <link href="https://iwangxing.cn/manjuan/post/s5ArHhmqt/">
-        </link>
-        <updated>2020-02-02T12:55:15.000Z</updated>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[箭头函数中的this]]></title>
         <id>https://iwangxing.cn/manjuan/post/beH0lYHRG/</id>
         <link href="https://iwangxing.cn/manjuan/post/beH0lYHRG/">
@@ -93,5 +68,26 @@
         <content type="html"><![CDATA[<p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
 <p>上传视频时是可以选择MP3这类的音频文件的，只不过这里上传后会生成video标签而不是audio标签。这样渲染后得到的是一个视频播放框，能播放音频但是有一个大黑框，不复合我们的要求。</p>
 ]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[快捷键记录]]></title>
+        <id>https://iwangxing.cn/manjuan/post/FFr974k7U/</id>
+        <link href="https://iwangxing.cn/manjuan/post/FFr974k7U/">
+        </link>
+        <updated>2020-01-06T14:00:26.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue Router导航守卫]]></title>
+        <id>https://iwangxing.cn/manjuan/post/ziOK9v5yw/</id>
+        <link href="https://iwangxing.cn/manjuan/post/ziOK9v5yw/">
+        </link>
+        <updated>2020-01-06T13:49:33.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[js数组去重]]></title>
+        <id>https://iwangxing.cn/manjuan/post/rjxmp3mXX/</id>
+        <link href="https://iwangxing.cn/manjuan/post/rjxmp3mXX/">
+        </link>
+        <updated>2020-01-04T13:57:58.000Z</updated>
     </entry>
 </feed>
