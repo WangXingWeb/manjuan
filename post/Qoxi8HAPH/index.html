@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>axios配置全局baseURl | 漫卷</title>
+<title>微信小程序自定义组件 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,28 +104,144 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">axios配置全局baseURl</h2>
-            <div class="post-date">2019-12-03</div>
+            <h2 class="post-title">微信小程序自定义组件</h2>
+            <div class="post-date">2019-09-20</div>
             
             <div class="post-content">
-              <pre><code class="language-javascript">const http = axios.create({
-    baseURL: process.env.VUE_APP_URL || &quot;https://xxx.com&quot;
-})
+              <p><img src="https://iwangxing.cn/manjuan//post-images/1599140436151.png" alt="" loading="lazy"><br>
+如上图我们要自定义一个这样的组件，我们将这个组件再分为两个部分，第一个组件是：图表+名称（为了方便我把它叫做cube组件），在另一个组件中调用cube组件成为一个列表（把它叫做cube-list）；</p>
+<p>cube组件wxml</p>
+<pre><code class="language-html">&lt;view class=&quot;cube&quot; bindtap='tapCube' wx:if=&quot;{{item.name}}&quot;&gt;
+  &lt;view class=&quot;icon-container&quot; style=&quot;background-color:{{item.color}};&quot;&gt;
+    &lt;view class=&quot;icon {{item.icon}}&quot;  &gt;&lt;/view&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;cube-title&quot;&gt;{{item.name}}&lt;/view&gt;
+&lt;/view&gt;
 </code></pre>
-<p>创建axios实例时配置baseURL，在开发环境中会使用<code>process.env.VUE_APP_URL</code>所指向的地址，这个地址在<code>.env.development</code>文件中配置,生产环境下会使用<code>https://xxx.com</code></p>
-<pre><code class="language-javascript">VUE_APP_URL=http://localhost
+<p>cube组件js</p>
+<pre><code class="language-javascript">Component({
+  properties: {
+    'item':{
+      type:Object,
+      //验证父组件传过来的参数
+      observer:function(newVal,oldVal){
+        if (!newVal.color) {
+          newVal.color = getApp().globalData.defaultColor
+        }
+        this.setData({
+          item:newVal
+        });
+      }
+    }
+  },
+  data: {
+    item:{}
+  },
+  methods: {
+    tapCube: function () {
+      console.log(this.data.item.name);
+      if (this.data.item.fun){
+        this.data.item.fun();  
+      }else{
+        console.log('没有设定事件方法');
+      }
+    }
+  }
+})
+
+</code></pre>
+<p>cube-list组件json</p>
+<pre><code class="language-js">{
+  &quot;component&quot;: true,
+  &quot;usingComponents&quot;: {
+    &quot;cube&quot;:&quot;../cube/cube&quot;
+  }
+}
+</code></pre>
+<p>cube-list组件wxml</p>
+<pre><code class="language-html">&lt;view class=&quot;cube-box&quot;&gt;
+  &lt;view class=&quot;cube-row&quot; wx:for=&quot;{{list}}&quot; wx:key='index'&gt;
+    &lt;view class=&quot;cube-item&quot; wx:for=&quot;{{item}}&quot; wx:key='itemindex'  &gt;
+      &lt;cube item=&quot;{{item}}&quot;&gt;&lt;/cube&gt;
+    &lt;/view&gt;
+  &lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<p>cube-list组件 js</p>
+<pre><code class="language-javascript">Component({
+  properties: {
+    'list': {
+      type: Array
+    }
+  },
+  data: {
+  },
+  methods: {
+  }
+})
+
+</code></pre>
+<p>在页面中调用</p>
+<pre><code class="language-html">&lt;cubeList list=&quot;{{list}}&quot;&gt;&lt;/cubeList&gt;
+</code></pre>
+<p>传入的参数list</p>
+<pre><code class="language-javascript">list: [
+      [
+        {
+          name: '血压',
+          icon: 'icon-iconxy',
+          color: '#0cc4A9',
+          fun: function () {
+            app.axRouter('/pages/monitor/bloodPressure/bloodPressure')
+          }
+        },
+        {
+          name: '血糖',
+          icon: 'icon-xietang',
+          color:'#cc081a',
+          fun: function () {
+            app.axRouter('/pages/monitor/bloodGlucose/bloodGlucose')
+          }
+        },
+        {
+          name: '血脂',
+          icon: 'icon-icon',
+          color:'#e28a22',
+          fun: function () {
+            app.axRouter('/pages/monitor/bloodFat/bloodFat')
+          }
+        },
+        {
+          name: '体型',
+          icon: 'icon-tizhong1',
+          color:'#1a72c7',
+          fun: function () {
+            app.axRouter('/pages/monitor/somatotype/somatotype')
+          }
+        }
+      ],
+      [
+        {
+          name: '运动',
+          icon: 'icon-yundong',
+          color:'#0a7dc7',
+          fun: function () {
+            app.axRouter('/pages/monitor/movement/movement')
+          }
+        },
+        {},
+        {},
+        {}
+      ]
+    ]
 </code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM/" class="tag">
-                    工具
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
-                    前端
+                  <a href="https://iwangxing.cn/manjuan/tag/littleproject/" class="tag">
+                    微信小程序
                   </a>
                 
               </div>
@@ -133,9 +249,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/Qoxi8HAPH/">
+                <a href="https://iwangxing.cn/manjuan/post/subtractArr/">
                   <h3 class="post-title">
-                    微信小程序自定义组件
+                    js中两个数组相减
                   </h3>
                 </a>
               </div>
