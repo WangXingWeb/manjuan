@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-09-04T13:47:03.555Z</updated>
+    <updated>2020-09-04T14:09:31.581Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -50,7 +50,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[js中的for in和for of]]></title>
+        <title type="html"><![CDATA[js中容易搞混的循环]]></title>
         <id>https://iwangxing.cn/manjuan/post/syDRl9UIG/</id>
         <link href="https://iwangxing.cn/manjuan/post/syDRl9UIG/">
         </link>

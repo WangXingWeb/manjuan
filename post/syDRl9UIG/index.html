@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>js中的for in和for of | 漫卷</title>
+<title>js中容易搞混的循环 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1599227219037">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1599228566155">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1599227219037" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1599228566155" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,24 +104,29 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">js中的for in和for of</h2>
+            <h2 class="post-title">js中容易搞混的循环</h2>
             <div class="post-date">2020-01-21</div>
             
             <div class="post-content">
-              <p>for in 和for of 这两个方法很容易弄混。</p>
-<h1 id="for-in">for in</h1>
+              <h1 id="for-in-和for-of">for in 和for of</h1>
+<h2 id="for-in">for in</h2>
 <pre><code class="language-javascript">for(let item of arr){
     console.log(item)  //item是数组下标或者对象key
     console.log(arr[item]) //使用下标取出数组元素
 }
 </code></pre>
 <p>for in是<code>es5</code>语法,可以用来遍历数组和对象，取出key</p>
-<h1 id="for-of">for of</h1>
+<h2 id="for-of">for of</h2>
 <p>for of是<code>es6</code>语法，只能用来遍历数组，取出的是数组元素</p>
 <pre><code class="language-javascript">for(let item of arr){
     console.log(item) //数组元素
 }
 </code></pre>
+<h1 id="each和foreach">each和foreach</h1>
+<h2 id="each">each</h2>
+<p>each是jquery提供的方法，一般用来遍历jquery对象，非jquery对象不能使用。</p>
+<h2 id="foreach">foreach</h2>
+<p>ECMAscript自带的原生数组遍历函数。jquery选择器生成的伪数组是不能直接调用的。</p>
 
             </div>
             
