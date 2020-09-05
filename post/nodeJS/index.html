@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1599228566155">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1599277132585">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1599228566155" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1599277132585" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -108,9 +108,287 @@
             <div class="post-date">2018-08-23</div>
             
             <div class="post-content">
-              <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时。</p>
+              <h1 id="koa框架">koa框架</h1>
+<ul>
+<li>egg.js</li>
+<li>think.js</li>
+</ul>
+<h1 id="node三驾马车">node三驾马车</h1>
+<ul>
+<li>Express</li>
+<li>Koa</li>
+<li>Hapi</li>
+</ul>
+<h1 id="浏览器中的js">浏览器中的JS</h1>
+<ul>
+<li>BOM</li>
+<li>DOM</li>
+<li>EcmaScript</li>
+</ul>
+<h1 id="node基本介绍">node基本介绍</h1>
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。<br>
+Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</p>
+<ul>
+<li>
+<p>node.js不是一门语言</p>
+</li>
+<li>
+<p>node.js不是库、不是框架</p>
+</li>
+<li>
+<p>node.js是一个javascript运行环境</p>
+</li>
+<li>
+<p>node.js可以解析和执行javascript代码</p>
+</li>
+<li>
+<p>以前只有浏览器可以执行JavaScript代码</p>
+</li>
+<li>
+<p>没有bom和dom</p>
+</li>
+<li>
+<p>node为这个javascript提供了一些服务器级别的api，<br>
+例如文件读写<br>
+网络服务的构建<br>
+网络通信<br>
+http服务器<br>
+等处理</p>
+</li>
+<li>
+<p>代码只是具有特定格式的字符串</p>
+</li>
+<li>
+<p>引擎可以认识它，并帮你去解析和执行</p>
+</li>
+<li>
+<p>Google Chrome的V8引擎是目前公认的解析javascript代码最快的</p>
+</li>
+<li>
+<p>nodeJS的作者把Google Chrome中的V8引擎移植出来，开发了一个独立的javascript运行环境</p>
+</li>
+<li>
+<p>npm是世界上最大的开源生态系统</p>
+</li>
+<li>
+<p>绝大多数的javascript相关的包都放在了npm上，开发人员使用下载非常方便</p>
+</li>
+</ul>
+<h1 id="node能做什么">node能做什么</h1>
+<ul>
+<li>web服务器后台</li>
+<li>命令行工具 如npm hexo（构建github博客）</li>
+</ul>
+<h1 id="基本语法">基本语法</h1>
+<ul>
+<li>浏览器中的javascript是没有读写文件的功能的</li>
+<li>node环境中的javascript是可以读写文件的</li>
+<li>引入fs模块，来读取文件<br>
+<code>var fs=require('fs')</code></li>
+<li>readFile()</li>
+</ul>
+<pre><code class="language-javascript">fs.readFile('./data/hello.txt',function(err, data){
+    console.log(data);
+})
+</code></pre>
+<ul>
+<li>writeFile()</li>
+</ul>
+<pre><code class="language-javascript">fs.writeFile('./data/world.txt',data,function(errr){
+
+})
+</code></pre>
+<h1 id="node服务器">node服务器</h1>
+<ul>
+<li>几种写法</li>
+</ul>
+<pre><code class="language-javascript">const http=require('http');
+let server=http.createServer(function(request,response){
+    
+});
+server.listen(8000,function(){
+    console.log('Servrer running at http://127.0.0.1:8000/')
+});
+
+</code></pre>
+<pre><code class="language-javascript">const http=require('http');
+let server=http.sreateServer()
+server.on('request',function(){
+
+})
+server.listen(8000,function(){
+    console.log('Servrer running at http://127.0.0.1:8000/')
+})
+</code></pre>
+<pre><code class="language-javascript">const http=require('http');
+http.createServer(function(request,response){
+    
+}).listen(8000,function(){
+    console.log('Servrer running at http://127.0.0.1:8000/')
+};
+
+</code></pre>
+<h1 id="content-type">Content-Type</h1>
+<pre><code class="language-javascript">const http=require('http');
+let server=http.createServer(function(request,response){
+    request.setHeader('Content-Type','text/plain; charset=utf-8);
+    request.end('hello 世界');   
+});
+server.listen(8000,function(){
+    console.log('Servrer running at http://127.0.0.1:8000/')
+});
+</code></pre>
+<h2 id="art-template模板引擎">art-template模板引擎</h2>
+<h2 id="node测试api">node测试api</h2>
+<p>在命令行工具任意目录下输入node回车<br>
+就进入了node执行环境<br>
+在这个环境中核心模块可以直接使用不用require<br>
+类似浏览器调试工具的console<br>
+路径中的\需要转义两个算一个，如<br>
+<code>&quot;D:\\project\\learnnode\\test.md&quot;</code></p>
+<h2 id="node包加载机制">node包加载机制</h2>
+<ol>
+<li>优先从缓存加载</li>
+<li>当前目录的node_moudels目录中查找对应的包名<br>
+然后找到后找其中的package.json文件，获取其中的mian对应的文件索引<br>
+然后加载这个文件<br>
+如果找不到这个文件或者找不着对应的路径则默认加载这个包文件下的index.js</li>
+<li>如果都没找到会去上一级目录的node_moudels文件中找，知道磁盘根路径</li>
+<li>路径形式的模块<br>
+./ 当前目录，不可省略<br>
+../ 上一级目录，不可省略</li>
+</ol>
+<h2 id="node重定向">node重定向</h2>
+<pre><code class="language-javascript">res.statusCode = 302
+res.setHeader('Location' , '/')
+res.end()
+</code></pre>
+<ul>
+<li>302 永久重定向</li>
+<li>303 零时重定向</li>
+</ul>
+<h2 id="模块化">模块化</h2>
+<p>CommonJS模块规范</p>
+<ul>
+<li>某块作用域</li>
+<li>使用require方法来加载模块</li>
+<li>使用exports接口对象来导出模块中的成员</li>
+</ul>
+<h2 id="node路径中的">node路径中的/</h2>
+<ul>
+<li>读取文件中可以省略./，和加./一样都是去当前目录中找</li>
+<li>引入包是不能省略./，不然node会当做核心模块或者第三方模块来加载，找不到后报错</li>
+<li>读取文件省略.只用/会去当前文件所在的磁盘根目录中找，找不到也会报错</li>
+</ul>
+<h2 id="修改代码后自动重启服务">修改代码后自动重启服务</h2>
+<p>使用nodemon<br>
+需要全局安装</p>
+<pre><code class="language-javascript">npm install --global nodemon
+# 使用nodemon
+nodemon app.js
+</code></pre>
+<p>只要通过nodemon app.js启动的服务在ctrl+s后就会自动重启</p>
+<h2 id="express">express</h2>
+<pre><code class="language-javascript">const express=require('express')
+const bodyParser=require('body-parser')
+
+const app=express()
+// 开发静态资源
+app.use('/public/',express.static('./public/'))
+app.use('/static/',express.static('./node_modules'))
+//配置模板引擎
+app.engine('html', require('express-art-template'));
+//修改模板文件路径
+//app.set('views','./htmls/')
+
+// 配置body-parser中间件
+app.use(bodyParser.urlencoded({ extended: false }))
+// 将post参数转化为json
+app.use(bodyParser.json())
+
+app.get('/', function (req, res) {
+    res.render('index.html', {
+        user: {
+            name: 'aui',
+            tags: ['art', 'template', 'nodejs']
+        }
+    });
+});
+//重定向
+app.get('/redirect',function(req,res){
+    res.redirect('/')
+})
+
+app.listen(3000,()=&gt;console.log('service running at 127.0.0.1:3000'))
+</code></pre>
+<h3 id="修改模板路径">修改模板路径</h3>
+<pre><code class="language-javascript">app.set('views','./htmls/')
+</code></pre>
+<h3 id="重定向">重定向</h3>
+<pre><code class="language-javascript">res.redirect('/')
+</code></pre>
+<h2 id="packagejson-和-packagelockjson">package.json 和 package.lock.json</h2>
+<h2 id="mongodb">mongodb</h2>
+<ul>
+<li>启动mongddb</li>
+</ul>
+<pre><code class="language-cmd">mongod
+</code></pre>
+<ul>
+<li>连接mongodb</li>
+</ul>
+<pre><code>mongo
+</code></pre>
+<ul>
+<li>取消连接</li>
+</ul>
+<pre><code>exit
+</code></pre>
+<ul>
+<li>显示当前所用数据库</li>
+</ul>
+<pre><code>show dbs
+</code></pre>
+<ul>
+<li>显示当前正在使用的数据库</li>
+</ul>
+<pre><code>db
+</code></pre>
+<ul>
+<li>显示当前数据库中的集合</li>
+</ul>
+<pre><code>show collections
+</code></pre>
+<ul>
+<li>插入一条数据</li>
+</ul>
+<pre><code>db.mobile.insert({&quot;name&quot;:&quot;王星&quot;})
+</code></pre>
+<ul>
+<li>显示某集合中数据</li>
+</ul>
+<pre><code>db.mobile.find()
+</code></pre>
+<ul>
+<li>切换数据库</li>
+</ul>
+<pre><code>use goods
+</code></pre>
+<ul>
+<li>删除当前库</li>
+</ul>
+<pre><code>db.dropDatabase()
+</code></pre>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/node/" class="tag">
+                    node
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
