@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1599924597789">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1599927353716">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1599924597789" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1599927353716" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -105,19 +105,109 @@
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">vue组件插槽</h2>
-            <div class="post-date">2020-09-12</div>
+            <div class="post-date">2018-09-13</div>
             
             <div class="post-content">
               <p>我们编写组件是一般会将未知的内容当做参数传到组件当中，比如图片地址或者一段文本。但是如果这段内容的结构是未知的，也就是说我们不确定这段内容是一张图片还是一段文字或者一个按钮。这种情况下如果我们还是要强行通过props来实现，就只能够设定一个类型type然后通过判断type，在使用v-if指令，来区别使用那种结构渲染（结构只能是我们提前设定好的，不够灵活）。这种情况下我们是不推荐用props实现的。更好的实现方式是插槽。</p>
+<p>下面我们案例实现一个插槽案例</p>
+<figure data-type="image" tabindex="1"><img src="D:%5CUsers%5CDesktop%5Ccee163ee0c0204b8cb97e30fedb23c0.png" alt="cee163ee0c0204b8cb97e30fedb23c0" loading="lazy"></figure>
+<p>比如我们要实现一个右上角的弹出框组件</p>
+<p>组件代码</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div class=&quot;TR-popup text-white p-fixed bg-dark&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+    &lt;van-overlay
+      class-name=&quot;transparent-overlay&quot;
+      :show=&quot;overlayShow&quot;
+      z-index=&quot;2&quot;
+      @click=&quot;hidePopup&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import Vue from &quot;vue&quot;;
+import { Overlay } from &quot;vant&quot;;
+Vue.use(Overlay);
+
+export default {
+  data() {
+    return {
+      overlayShow: true,
+    };
+  },
+  methods: {
+    hidePopup() {
+      this.$emit(&quot;hidePopup&quot;);
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot; scoped&gt;
+@import &quot;@/assets/style/config.scss&quot;;
+.TR-popup {
+  top: 41px;
+  right: 12px;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+
+  &amp;::before {
+    content: &quot;&quot;;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    border: 5px solid transparent;
+    border-bottom: 5px solid map-get($map: $colors, $key: &quot;dark&quot;);
+  }
+}
+.transparent-overlay {
+  background-color: transparent;
+}
+&lt;/style&gt;
+
+</code></pre>
+<p>调用</p>
+<pre><code class="language-html">&lt;TRpopup v-show=&quot;isPopupShow&quot; @hidePopup=&quot;hidePopup&quot;&gt;
+    &lt;div&gt;
+        &lt;div class=&quot;popup-item&quot;&gt;
+            &lt;van-icon color=&quot;#fff&quot; name=&quot;add-o&quot; size=&quot;18&quot; /&gt;
+            发起群聊
+        &lt;/div&gt;
+        &lt;div class=&quot;popup-item&quot;&gt;
+            &lt;van-icon color=&quot;#fff&quot; name=&quot;add-o&quot; size=&quot;18&quot; /&gt;
+            邀请专家
+        &lt;/div&gt;
+        &lt;div class=&quot;popup-item&quot;&gt;
+            &lt;van-icon color=&quot;#fff&quot; name=&quot;add-o&quot; size=&quot;18&quot; /&gt;
+            添加用户
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/TRpopup&gt;
+</code></pre>
+<p>内部的这部分代码会替换到<slot></slot>中。</p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
+                    vue
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/RYoRKt5ud/">
+                <a href="https://iwangxing.cn/manjuan/post/vASeGRi8t/">
                   <h3 class="post-title">
-                    css画三角形一次性说清楚
+                    vue父组件触发子组件的事件
                   </h3>
                 </a>
               </div>
