@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>vue | 漫卷</title>
+<title>vue组件插槽 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,30 +103,29 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: vue</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/vue_note/">
-                  <h2 class="post-title">vue生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-12-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">vue组件插槽</h2>
+            <div class="post-date">2020-09-12</div>
+            
+            <div class="post-content">
+              <p>我们编写组件是一般会将未知的内容当做参数传到组件当中，比如图片地址或者一段文本。但是如果这段内容的结构是未知的，也就是说我们不确定这段内容是一张图片还是一段文字或者一个按钮。这种情况下如果我们还是要强行通过props来实现，就只能够设定一个类型type然后通过判断type，在使用v-if指令，来区别使用那种结构渲染（结构只能是我们提前设定好的，不够灵活）。这种情况下我们是不推荐用props实现的。更好的实现方式是插槽。</p>
 
-          <div class="pagination-container">
-  
-    <a href="https://iwangxing.cn/manjuan/tag/vue" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/RYoRKt5ud/">
+                  <h3 class="post-title">
+                    css画三角形一次性说清楚
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>

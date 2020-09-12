@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>vue | 漫卷</title>
+<title>a++和++a的区别 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,30 +103,55 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: vue</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/vue_note/">
-                  <h2 class="post-title">vue生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-12-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">a++和++a的区别</h2>
+            <div class="post-date">2016-09-16</div>
+            
+            <div class="post-content">
+              <pre><code class="language-javascript">let a = 1;
+let b = a++;
+console.log(b); //1
+</code></pre>
+<p>上面的代码可以看出<code>a++</code>是先返回后<code>+1</code>,也就是先将a的值赋值给b，然后<code>a=a+1</code></p>
+<pre><code class="language-javascript">let a = 1;
+let b = ++a;
+console.log(b);//2
+</code></pre>
+<p><code>++a</code>的过程是相反的，先执行<code>a=a+1</code>,然后将a的值赋值给b，所以得到的b的值为2</p>
+<p>同样<code>a--</code>和<code>–a</code>也是同样的情况</p>
+<pre><code class="language-javascript">let a = 1;
+let b = a--;
+console.log(b);//1
+</code></pre>
+<pre><code class="language-javascript">let a = 1;
+let b = --a;
+console.log(b);//0
+</code></pre>
 
-          <div class="pagination-container">
-  
-    <a href="https://iwangxing.cn/manjuan/tag/vue" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/ru-he-hua-chu-xiao-yu-1px-de-xian/">
+                  <h3 class="post-title">
+                    如何画出小于1px的线
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
