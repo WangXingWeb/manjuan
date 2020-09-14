@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>vue中watch某个对象的属性 | 漫卷</title>
+<title>sass混合器 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,49 +104,103 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">vue中watch某个对象的属性</h2>
-            <div class="post-date">2018-05-18</div>
+            <h2 class="post-title">sass混合器</h2>
+            <div class="post-date">2020-09-14</div>
             
             <div class="post-content">
-              <pre><code class="language-javascript">data:{
-	userInfo：{
-		name:'',
-		age:'',
-		...
-	}
+              <p>利用混合器，可以很容易地在样式表的不同地方共享样式。如果你发现自己在不停地重复一段样式，那就应该把这段样式构造成优良的混合器，尤其是这段样式本身就是一个逻辑单元。</p>
+<!-- more -->
+<h2 id="基本使用方法">基本使用方法</h2>
+<p>使用<code>@mixin</code>定义一个混合器<br>
+使用<code>@include</code>使用混合器，复用混合器中的代码</p>
+<pre><code class="language-css">@mixin border-default {
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+}
+.meber-info {
+  @include border-default();
+  background-color: #fff;
 }
 </code></pre>
-<p>如果我们要监听<code>userInfo</code>中的<code>name</code>,如果我们监听整个<code>userInfo</code>当<code>userInfo</code>中数据很多时，占用很多资源，影响程序的性能。</p>
-<pre><code class="language-javascript">watch:{
-    userInfo(val,oldVal){
-        //do something about val.name
-    }
+<p>边以后的代码如下</p>
+<pre><code class="language-css">.meber-info {
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  background-color: #fff;
 }
 </code></pre>
-<p>上面的代码不论<code>userInfo</code>中的那个属性发生变化，都会执行这段代码。而本质上我们只想监听<code>userInfo</code>中的<code>name</code>,其它属性改变比如<code>age</code>是我们不关心的。这样就造成了额外开销。</p>
-<p>其实<code>vue</code>给我们提供了单独监听某个对象的某个属性的方法</p>
-<pre><code class="language-javascript">watch:{
-    &quot;userInfo.name&quot;(val){
-        //do something about val
-    }
+<p>这里乍一看有点像继承，但混合器和继承是有很大的不同的，继承中被继承的对象本身也是一个选择器，他可以被单独使用，但混合器不是一个选择器，它本身不能被使用。像上面的代码编译后不会生成<code>.border-default</code>这样的css选择器。混合器唯一的作用就是被其他的选择器使用。</p>
+<h2 id="混合器中的嵌套规则">混合器中的嵌套规则</h2>
+<pre><code class="language-css">@mixin no-bullets {
+  list-style: none;
+  li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+  }
+}
+ul.plain {
+  color: #444;
+  @include no-bullets;
 }
 </code></pre>
-<p>这样我们单独监听<code>userInfo</code>的<code>name</code>属性了</p>
+<p>编译后生成的代码</p>
+<pre><code class="language-css">ul.plain {
+  color: #444;
+  list-style: none;
+}
+ul.plain li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+}
+</code></pre>
+<h2 id="混合器传参">混合器传参</h2>
+<pre><code class="language-css">@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+  &amp;:hover { color: $hover; }
+  &amp;:visited { color: $visited; }
+}
+
+a {
+  @include link-colors(blue, red, green);
+}
+</code></pre>
+<p>生成的代码是：</p>
+<pre><code class="language-css">a { color: blue; }
+a:hover { color: red; }
+a:visited { color: green; }
+</code></pre>
+<p>这里感觉混合器又很像一个<code>function</code>,给混合器传入对应的参数混合器处理过后返回对应的css代码块。</p>
+<p>当你@include混合器时，有时候可能会很难区分每个参数是什么意思，参数之间是一个什么样的顺序。为了解决这个问题，sass允许通过语法$name: value的形式指定每个参数的值。这种形式的传参，参数顺序就不必再在乎了，只需要保证没有漏掉参数即可：</p>
+<pre><code class="language-css">a {
+    @include link-colors(
+      $normal: blue,
+      $visited: green,
+      $hover: red
+  );
+}
+</code></pre>
+<h2 id="默认参数">默认参数</h2>
+<p>为了在@include混合器时不必传入所有的参数，我们可以给参数指定一个默认值。参数默认值使用$name: default-value的声明形式，默认值可以是任何有效的css属性值，甚至是其他参数的引用，如下代码：</p>
+<pre><code class="language-css">$green: green;
+@mixin color-set($color1: $green, $color2: $green) {
+  border: 1px solid $color1;
+  color: $color2;
+}
+.member-info {
+  @include color-set(red);
+  background-color: #fff;
+}
+</code></pre>
+<p>上面的代码<code>color1</code>设定了红色，生成的边框为红色，使用时没有传<code>color2</code>,所以生成的文本颜色使用的是默认的颜色绿色。</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
-                    vue
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
-                    前端
+                  <a href="https://iwangxing.cn/manjuan/tag/css/" class="tag">
+                    css
                   </a>
                 
               </div>
@@ -154,9 +208,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/vuex_note/">
+                <a href="https://iwangxing.cn/manjuan/post/TdY1kVomk/">
                   <h3 class="post-title">
-                    vuex
+                    微信小程序服务类目
                   </h3>
                 </a>
               </div>
