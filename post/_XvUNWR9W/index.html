@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>node | 漫卷</title>
+<title>ant-design中使用iconfont图标 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,28 +103,49 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: node</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/nodeJS/">
-                  <h2 class="post-title">Node.js笔记</h2>
-                </a>
-                <div class="post-date">
-                  2018-08-23
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">ant-design中使用iconfont图标</h2>
+            <div class="post-date">2019-02-05</div>
+            
+            <div class="post-content">
+              <p>ant-design中默认提供了很多图标，但是内置的图标毕竟有限，很多时候我们还是需要自己在iconfont中找一些图标，iconfont.cn和ant-design都是阿里的产品，所以ant-design给我们提供了使用iconfont的方法。<br>
+<img src="https://iwangxing.cn/manjuan//post-images/1600067215846.png" alt="" loading="lazy"></p>
+<pre><code class="language-javascript">import { Icon } from &quot;ant-design-vue&quot;;
+const IconFont = Icon.createFromIconfontCN({
+    scriptUrl: &quot;//at.alicdn.com/t/font_1750375_zlsnz3xoaaj.js&quot;
+});
+export default IconFont
+</code></pre>
+<p>需要注意的是我在scriptUrl中配置的是线上iconfont提供的地址，相当于iconfont将生成的图标js文件放到了iconfont的静态资源服务器上，我们直接应用这个地址就可以了。你也可以把它下载到本地，应用本地的js文件，应用本地的js文件需要每次添加或者修改图标后在下载图标文件到本地。直接应用地址只需要重新生成在线链接，替换scriptUrl就可以了，会方便一些。</p>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/s5ArHhmqt/">
+                  <h3 class="post-title">
+                    React生命周期
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
