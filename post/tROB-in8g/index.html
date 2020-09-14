@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>箭头函数中的this | 漫卷</title>
+<title>sass框架Compass | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,69 +104,15 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">箭头函数中的this</h2>
-            <div class="post-date">2020-01-29</div>
+            <h2 class="post-title">sass框架Compass</h2>
+            <div class="post-date">2020-09-14</div>
             
             <div class="post-content">
-              <p>箭头函数看起来像一个匿名函数，但是也有一点和匿名函数很不哟样，就是箭头函数中的this并不指向函数的调用者，而是指向函数外部的this。</p>
-<!-- more -->
-<pre><code class="language-javascript">onload = function() {
-    var btn = document.getElementById(&quot;btn&quot;);
-
-    btn.onclick = function() {
-        this.style.backgroundColor = &quot;red&quot;;
-    };
-};
-</code></pre>
-<p>现在我们把绑定的函数换成箭头函数</p>
-<pre><code class="language-javascript">onload = function() {
-    var btn = document.getElementById(&quot;btn&quot;);
-
-    btn.onclick = () =&gt; {
-        this.style.backgroundColor = &quot;red&quot;;
-    };
-};
-</code></pre>
-<p>你会发现报错了。this指向出错了。<br>
-这里的this其实是箭头函数外部的this了，也就是window</p>
-<p>再比如我们的需求是点击后一秒在变红</p>
-<pre><code class="language-javascript">onload = function() {
-      var btn = document.getElementById(&quot;btn&quot;);
-
-      btn.onclick = function() {
-        setTimeout(function() {
-          this.style.backgroundColor = &quot;red&quot;;
-        }, 1000);
-      };
-    };
-</code></pre>
-<p>上面的代码又会报this指向的错误。<br>
-因为setTimeout的this是指向window的。<br>
-这是我们setTimeout中的方法换成箭头函数</p>
-<pre><code class="language-javascript">onload = function() {
-      var btn = document.getElementById(&quot;btn&quot;);
-
-      btn.onclick = function() {
-        setTimeout(() =&gt; {
-          this.style.backgroundColor = &quot;red&quot;;
-        }, 1000);
-      };
-    };
-</code></pre>
-<p>这里却实现了我们的效果了。<br>
-因为这里的this是箭头函数外部的this，也就是btn所以this指向正确了。</p>
+              <p>Sass是一种&quot;CSS预处理器&quot;，可以让CSS的开发变得简单和可维护。但是，只有搭配Compass，它才能显出真正的威力。</p>
+<p>本文介绍Compass的用法。毫不夸张地说，学会了Compass，你的CSS开发效率会上一个台阶。</p>
 
             </div>
             
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/syDRl9UIG/">
-                  <h3 class="post-title">
-                    js中容易搞混的循环
-                  </h3>
-                </a>
-              </div>
             
 
             

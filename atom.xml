@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-09-14T09:59:12.121Z</updated>
+    <updated>2020-09-14T14:33:39.407Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -20,13 +20,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>利用混合器，可以很容易地在样式表的不同地方共享样式。如果你发现自己在不停地重复一段样式，那就应该把这段样式构造成优良的混合器，尤其是这段样式本身就是一个逻辑单元。</p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[微信小程序服务类目]]></title>
-        <id>https://iwangxing.cn/manjuan/post/TdY1kVomk/</id>
-        <link href="https://iwangxing.cn/manjuan/post/TdY1kVomk/">
-        </link>
-        <updated>2020-09-12T16:48:46.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[css画三角形一次性说清楚]]></title>
@@ -93,5 +86,12 @@
         <link href="https://iwangxing.cn/manjuan/post/FFr974k7U/">
         </link>
         <updated>2020-01-06T14:00:26.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue Router导航守卫]]></title>
+        <id>https://iwangxing.cn/manjuan/post/ziOK9v5yw/</id>
+        <link href="https://iwangxing.cn/manjuan/post/ziOK9v5yw/">
+        </link>
+        <updated>2020-01-06T13:49:33.000Z</updated>
     </entry>
 </feed>
