@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>js要不要加分号 | 漫卷</title>
+<title>css盒模型 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,51 +104,14 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">js要不要加分号</h2>
-            <div class="post-date">2019-12-29</div>
+            <h2 class="post-title">css盒模型</h2>
+            <div class="post-date">2020-09-15</div>
             
             <div class="post-content">
-              <p>这个问题曾经让很多程序员吵得不可开交（程序员真是一群特别喜欢撕逼的人，这么点小问题都能分成两派撕起来😂）</p>
-<!-- more -->
-<p>首先说一下那些情况下必须加分号：行首是： <code>[</code> <code>(</code> <code>+</code> <code>-</code> / 之一的情况下，上一行结尾必须加分号。<br>
-实际情况中用<code>/</code>、<code>+</code>、<code>-</code>作为行首非常少见，我目前没有见到过这种情况。<br>
-一行开头是<code>(</code>或者<code>[</code>的代码倒是有。比如下面的代码：</p>
-<pre><code class="language-javascript">a = b
-(function(){
-...
-})()
-</code></pre>
-<pre><code class="language-javascript">a = b
-[1,2,3].forEach(function(e){
-    console.log(e)
-})
-</code></pre>
-<p>上面的代码不加分号是会报错的。报错其实还好，就怕那种还能语句还能运行，那这种bug就很隐蔽了，调试起来会很头痛。所以遇到以<code>(</code> <code>[</code>开头的情况，在前面加<code>;</code>就可以了。</p>
-<pre><code class="language-javascript">a = b
-;(function(){
-...
-})()
-</code></pre>
-<pre><code class="language-javascript">a = b
-;[1,2,3].forEach(function(e){
-    console.log(e)
-})
-</code></pre>
-<p>如果你看着<code>;</code>不爽，加<code>void</code>也可以，让这行不是<code>(``[</code>开头就可以了。</p>
-<p>到这里我们发现，需要加的情况真的很少，所以驾驭不加纯属个人书写风格的问题。并无好坏区别。我最早是加分号的，因为我的领导是做java出身，不加分号令他很没有安全感，他提过这个问题所以为了照顾大家的代码习惯，我是一律末尾加分好的。后来看了很多js规范里面都是推荐不加分号的，为了更靠近主流风格也为了每行少敲一次键盘😅，就同一不加了。<br>
-另外，这个问题还可以通过工具解决，比如<code>eslint</code>,<code>prettier</code>都可以帮助你添加或者删除分号了。只需要稍微做一下配置就可以让你的代码匹配团队要求的风格了。</p>
+              <p>css盒模型</p>
 
             </div>
             
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/QVn7u_ebP/">
-                  <h3 class="post-title">
-                    前端资源积累
-                  </h3>
-                </a>
-              </div>
             
 
             
