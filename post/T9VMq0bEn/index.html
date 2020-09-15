@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1600130142482">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1600140752791">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1600130142482" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1600140752791" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -108,7 +108,43 @@
             <div class="post-date">2020-09-15</div>
             
             <div class="post-content">
-              <p>css盒模型</p>
+              <p>所谓盒子模型（Box Model）就是把HTML页面中的元素看作是一个矩形的盒子，也就是一个盛装内容的容器。每个矩形都由元素的内容(content)、内边距（padding）、边框（border）和外边距（margin）组成。</p>
+<!-- more -->
+<p>所有的文档元素（标签）都会生成一个矩形框，我们成为元素框（element box），它描述了一个文档元素再网页布局汇总所占的位置大小。因此，每个盒子除了有自己大小和位置外，还影响着其他盒子的大小和位置。</p>
+<p>盒子模型分为两种 第一种是W3c标准的盒子模型（标准盒模型） 、第二种IE标准的盒子模型（怪异盒模型）</p>
+<h2 id="标准盒模型">标准盒模型</h2>
+<p>标准盒模型中width指的是内容区域content的宽度；height指的是内容区域content的高度。<br>
+标准盒模型下盒子的大小  = content + padding + border + margin</p>
+<figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1600133228670.jpg" alt="" loading="lazy"></figure>
+<h2 id="怪异ie盒模型">怪异(IE)盒模型</h2>
+<p>怪异盒模型中的width指的是内容、边框、内边距总的宽度（content + padding + border）；height指的是内容、内边距、边框总的高度</p>
+<p>怪异盒模型下盒子的大小=width（content + padding + border) + margin</p>
+<figure data-type="image" tabindex="2"><img src="https://iwangxing.cn/manjuan//post-images/1600133247203.jpg" alt="" loading="lazy"></figure>
+<h2 id="box-sizing">box-sizing</h2>
+<p>box-sizing 属性定义如何计算一个元素的总宽度和总高度。<br>
+box-sizing的属性值又下面三个：</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content-box</td>
+<td>默认值，标准盒子模型。 width 与 height 只包括内容的宽和高， 不包括边框（border），内边距（padding），外边距（margin）。</td>
+</tr>
+<tr>
+<td>border-box</td>
+<td>width 和 height 属性包括内容，内边距和边框，但不包括外边距。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>指定 box-sizing 属性的值，应该从父元素继承</td>
+</tr>
+</tbody>
+</table>
 
             </div>
             
