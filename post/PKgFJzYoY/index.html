@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>TP-link无线网卡连接方法 | 漫卷</title>
+<title>递归函数 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,22 +104,66 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">TP-link无线网卡连接方法</h2>
-            <div class="post-date">2019-02-08</div>
+            <h2 class="post-title">递归函数</h2>
+            <div class="post-date">2016-12-23</div>
             
             <div class="post-content">
-              <ol>
-<li>插入网卡自动会弹出安装驱动的窗口</li>
-<li>如果没有自动弹出，则在计算机里手动打开TP-link标志的软盘，再安装驱动</li>
-<li>如果在计算机也没有找到TP-link软盘，则可能是以前安装过驱动，需要卸载此驱动，然后重启计算机。就能看到了。</li>
-</ol>
+              <p>如果一个函数在内部调用自身，这个函数就叫做递归函数</p>
+<p>举一个例子，我们需要计算一个集团公司的总人数，数据格式如下面的代码，每个单位下的num只代表自己直属人员的人数，children是他的下属单位。</p>
+<pre><code class="language-javascript">      let company = {
+        name: &quot;集团公司&quot;,
+        num: 100,
+        children: [
+          {
+            name: &quot;分公司1&quot;,
+            num: 23,
+            children: [
+              {
+                name: &quot;项目部1&quot;,
+                num: 10,
+              },
+              {
+                name: &quot;项目部2&quot;,
+                num: 14,
+              },
+            ],
+          },
+          {
+            name: &quot;分公司2&quot;,
+            num: 49,
+            children: [
+              {
+                name: &quot;项目部3&quot;,
+                num: 34,
+              },
+              {
+                name: &quot;项目部4&quot;,
+                num: 43,
+              },
+            ],
+          },
+        ],
+      };
+      let countNum = 0;
+      addNum(company);
+      console.log(countNum, &quot;总人数&quot;);//273
+      function addNum(company) {
+        countNum += company.num;
+        if (company.children) {
+          company.children.forEach((item) =&gt; {
+            addNum(item);
+          });
+        }
+      }
+</code></pre>
+<p>我们在addNum方法里将当前正在调用的单位的人数加到总人数中，然后判断它是否有children属性，如果存在children属性表明它存在子单位，我们循环调用addNum将每个子单位当作参数传过去。如果不存在children属性表明现在已经是最下级单位，停止递归。</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://iwangxing.cn/manjuan/tag/note/" class="tag">
-                    笔记
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
                   </a>
                 
               </div>
@@ -127,9 +171,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/_XvUNWR9W/">
+                <a href="https://iwangxing.cn/manjuan/post/gridea/">
                   <h3 class="post-title">
-                    ant-design中使用iconfont图标
+                    Gridea 博客搭建
                   </h3>
                 </a>
               </div>

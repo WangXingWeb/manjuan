@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1600141473897">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1600306943121">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1600141473897" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1600306943121" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -108,7 +108,28 @@
             <div class="post-date">2020-09-14</div>
             
             <div class="post-content">
-              <p>自己手动实现一个简单的响应式框架</p>
+              <p>自己手动实现一个简单的响应式框架<br>
+数据劫持<br>
+发布订阅模式</p>
+<h2 id="objectdefineproperty">Object.defineProperty</h2>
+<p>Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
+<pre><code class="language-javascript">const object1 = {};
+Object.defineProperty(object1, 'property1', {
+  value: 42,
+  writable: false
+});
+object1.property1 = 77;
+// throws an error in strict mode
+console.log(object1.property1);
+// expected output: 42
+</code></pre>
+<h3 id="语法">语法</h3>
+<blockquote>
+<p>Object.defineProperty(obj, prop, descriptor)</p>
+</blockquote>
+<p>obj:要定义属性的对象。<br>
+prop:要定义或修改的属性的名称或 Symbol 。<br>
+descriptor:要定义或修改的属性描述符。</p>
 
             </div>
             
