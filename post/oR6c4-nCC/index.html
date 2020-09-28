@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>vue父组件触发子组件的事件 | 漫卷</title>
+<title>css三栏布局的几种方法 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,73 +104,157 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">vue父组件触发子组件的事件</h2>
-            <div class="post-date">2018-09-01</div>
+            <h2 class="post-title">css三栏布局的几种方法</h2>
+            <div class="post-date">2018-03-05</div>
             
             <div class="post-content">
-              <p>父组件代码</p>
-<pre><code class="language-html">&lt;template&gt;
-  &lt;div&gt;
-    &lt;button @click=&quot;clickParent&quot;&gt;点击&lt;/button&gt;
-    &lt;child ref=&quot;mychild&quot;&gt;&lt;/child&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
- 
-&lt;script&gt;
-  import Child from './child';
-  export default {
-    name: &quot;parent&quot;,
-    components: {
-      child: Child
-    },
-    methods: {
-      clickParent() {
-        this.$refs.mychild.$emit(&quot;childEvent&quot;,'发送的数据');
-      }
-    }
-  }
-&lt;/script&gt;
+              <p>css中如何实现三栏布局，左右宽度固定中间自适应。如下图<br>
+<img src="https://iwangxing.cn/manjuan//post-images/1601303884539.jpg" alt="" loading="lazy"><br>
+下面介绍5种方法。</p>
+<h2 id="浮动">浮动</h2>
+<pre><code class="language-html">&lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
-<h2 id="关键在于使用-refs找到子组件然后使用-emit触发子组件绑定的事件">关键在于使用 <code>$refs</code>找到子组件然后使用 <code>$emit</code>触发子组件绑定的事件</h2>
-<p>子组件代码</p>
-<pre><code class="language-html">&lt;template&gt;
-  &lt;div&gt;
-    child
-  &lt;/div&gt;
-&lt;/template&gt;
- 
-&lt;script&gt;
-  export default {
-    name: &quot;child&quot;,
-    created() {
-      this.$on(&quot;ChildEvent&quot;, (res) =&gt; {
-        this.childFun(res);
-      });
-    },
-    methods: {
-      childFun(res) {
-        console.log(res)
-      }
-    }
-  }
-&lt;/script&gt;
+<blockquote>
+<p>这里的顺序很关键浮动的left和right在center上面。</p>
+</blockquote>
+<pre><code class="language-css">.layout div {
+    height: 100px;
+}
+.left {
+    float: left;
+    width: 300px;
+    background-color: red;
+}
+.center {
+    background-color: blue;
+}
+.right {
+    float: right;
+    width: 300px;
+    background-color: green;
+}
 </code></pre>
-<p>子组件使用<code>$on</code>绑定事件</p>
+<h2 id="绝对定位">绝对定位</h2>
+<pre><code class="language-html">&lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.layout {
+    position: relative;
+}
+.layout div {
+    position: absolute;
+    height: 100px;
+}
+.left {
+    left: 0;
+    width: 300px;
+    background-color: red;
+}
+.center {
+    left: 300px;
+    right: 300px;
+    background-color: blue;
+}
+.right {
+    right: 0;
+    width: 300px;
+    background-color: green;
+}
+</code></pre>
+<blockquote>
+<p>这里最关键的一步就是给center设置<code>left:300px;right:300px;</code>,这样就让center部分占满了距左侧300px，距右侧300px的空间，从而达到了中间部分自适应的目的。</p>
+</blockquote>
+<h2 id="弹性布局">弹性布局</h2>
+<p>学过css3的同学应该很清楚使用flex布局可以很轻松的实现自适应布局。</p>
+<pre><code class="language-html">&lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.layout {
+    display: flex;
+}
+.layout div {
+    height: 100px;
+}
+.left {
+    width: 300px;
+    background-color: red;
+}
+.center {
+    flex: 1;
+    background-color: blue;
+}
+.right {
+    width: 300px;
+    background-color: green;
+}
+</code></pre>
+<h2 id="表格布局">表格布局</h2>
+<pre><code class="language-html">&lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.layout {
+    display: table;
+    width: 100%;
+    height: 100px;
+}
+.layout div {
+    display: table-cell;
+}
+.left {
+    width: 300px;
+    background-color: red;
+}
+.center {
+    background-color: blue;
+}
+.right {
+    width: 300px;
+    background-color: green;
+}
+</code></pre>
+<h2 id="网格布局">网格布局</h2>
+<pre><code class="language-html">&lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.layout {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 100px;
+    grid-template-columns: 300px auto 300px;
+}
+.left {
+    background-color: red;
+}
+.center {
+    background-color: blue;
+}
+.right {
+    background-color: green;
+}
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
-                    vue
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
-                    前端
+                  <a href="https://iwangxing.cn/manjuan/tag/css/" class="tag">
+                    css
                   </a>
                 
               </div>
@@ -178,9 +262,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/nodeJS/">
+                <a href="https://iwangxing.cn/manjuan/post/vue_router_note/">
                   <h3 class="post-title">
-                    Node.js笔记
+                    vue-router笔记
                   </h3>
                 </a>
               </div>
