@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>vue生命周期 | 漫卷</title>
+<title>http | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,69 +104,16 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">vue生命周期</h2>
-            <div class="post-date">2017-12-26</div>
+            <h2 class="post-title">http</h2>
+            <div class="post-date">2020-09-28</div>
             
             <div class="post-content">
-              <figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1580636517418.png" alt="" loading="lazy"></figure>
-<h2 id="beforecreate">beforeCreate</h2>
-<ul>
-<li>第一个生命周期钩子函数</li>
-<li>这时data中的数据、methods中的方法、$el都获取不到</li>
-<li>用的很少</li>
-</ul>
-<h2 id="created">created</h2>
-<ul>
-<li>data中的数据和methods中方法能够获取到了，$el还没有，因为挂载还没有进行。</li>
-<li>我们经常在这个里面进行ajax请求。</li>
-</ul>
-<h2 id="beforemount">beforeMount</h2>
-<p>当模版编译完成会执行此函数<br>
-此时模版结构还没有真正渲染到页面上，看不到真实的数据<br>
-this.$el还是最基本也模版页面</p>
-<h2 id="mounted">mounted</h2>
-<p>挂载完成，是组件创建阶段最后一个生命周期钩子函数<br>
-这里用户就可以看到真正的页面数据结构了<br>
-如果用到第三方ui插件可以在这里初始化插件</p>
-<h2 id="beforeupdate">beforeUpdate</h2>
-<ul>
-<li>数据已经更新，视图还未更新。</li>
-<li>数据是新的，页面ui还是旧的。</li>
-</ul>
-<h2 id="updated">updated</h2>
-<p>页面已经完成更新，此时data和视图都是最新的。</p>
-<h2 id="beforedestroy">beforeDestroy</h2>
-<p>此时还未执行destroy，组件即将被销毁。组件还是可以正常使用的。</p>
-<h2 id="destroyed">destroyed</h2>
-<p>组件已经销毁，data，methods都不可用了</p>
+              <p>http协议的特点<br>
+无状态<br>
+无链接</p>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
-                    vue
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
-                    前端
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/react_note/">
-                  <h3 class="post-title">
-                    React笔记
-                  </h3>
-                </a>
-              </div>
             
 
             
