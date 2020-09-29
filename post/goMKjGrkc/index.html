@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>http | 漫卷</title>
+<title>http协议的特点 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1601361245060">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1601370850796">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1601361245060" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1601370850796" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,16 +104,36 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">http</h2>
-            <div class="post-date">2020-09-28</div>
+            <h2 class="post-title">http协议的特点</h2>
+            <div class="post-date">2017-10-12</div>
             
             <div class="post-content">
-              <p>http协议的特点<br>
-无状态<br>
-无链接</p>
+              <p>HTTP协议的主要特点可概括如下：</p>
+<p>1.支持客户/服务器模式。</p>
+<p>2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。</p>
+<p>3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type（Content-Type是HTTP包中用来表示内容类型的标识）加以标记。</p>
+<p>4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
+<p>5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
+                    前端
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/webpack/">
+                  <h3 class="post-title">
+                    webpack笔记
+                  </h3>
+                </a>
+              </div>
             
 
             
