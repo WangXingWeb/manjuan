@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>前端 | 漫卷</title>
+<title>table双边框问题 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,75 +103,66 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 前端</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/vue_note/">
-                  <h2 class="post-title">vue生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-12-26
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/program/">
-                  <h2 class="post-title">微信小程序生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2017-06-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/npm/">
-                  <h2 class="post-title">npm设置淘宝镜像</h2>
-                </a>
-                <div class="post-date">
-                  2017-05-18
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/ru-he-hua-chu-xiao-yu-1px-de-xian/">
-                  <h2 class="post-title">如何画出小于1px的线</h2>
-                </a>
-                <div class="post-date">
-                  2016-08-11
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">table双边框问题</h2>
+            <div class="post-date">2017-06-05</div>
+            
+            <div class="post-content">
+              <p>我们使用table标签时，往往会遇到双边框的问题。比如：<br>
+<img src="https://iwangxing.cn/manjuan//post-images/1601359183792.jpg" alt="" loading="lazy"><br>
+这种效果往往不是我们需要的，大多数情况下我们都是使用单边框表格，要如何才能将双边框变成单边框呢？<br>
+我们先来看一下为什么会出现双边框。<br>
+table标签上有这样两个属性</p>
+<blockquote>
+<p>cellspacing<br>
+这个属性（使用百分比或像素）定义了两个单元格之间空间的大小（从水平和垂直方向上），包括了表格的顶部与第一行的单元格，表的左边与第一列单元格，表的右边与最后一列的单元格，表的底部与最后一行单元格之间的空间</p>
+</blockquote>
+<p>由此可见两个td之间的间距就是由这个属性控制的，现在如果我们给这个属性设置为0，两个td之间没有间距了是不是也就没有边框了呢？</p>
+<figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1601360498269.jpg" alt="" loading="lazy"></figure>
+<p>貌似成功了，变成单边框了但是现在的边框变粗了，原因是我们并没有去掉双边框而是将两条边框紧紧挨在一起。这个效果目前还不够完美。</p>
+<p>table标签有一个css属性<code>border-collapse</code></p>
+<blockquote>
+<p>用来决定表格的边框是分开的还是合并的。在分隔模式下，相邻的单元格都拥有独立的边框。在合并模式下，相邻单元格共享边框。</p>
+</blockquote>
+<p>设置这个属性可以让相邻单元格使用一条边框。</p>
+<blockquote>
+<p>collapse<br>
+相邻的单元格共用同一条边框（采用 collapsed-border 表格渲染模型）。<br>
+separate<br>
+默认值。每个单元格拥有独立的边框（采用 separated-border 表格渲染模型）。</p>
+</blockquote>
+<p>给<code>table</code>标签添加css样式</p>
+<pre><code class="language-css">table{
+    border-collapse: collapse;
+}
+</code></pre>
+<p>这样就完美的解决了table双边框的问题。<br>
+<img src="https://iwangxing.cn/manjuan//post-images/1601361216678.jpg" alt="" loading="lazy"></p>
 
-          <div class="pagination-container">
-  
-    <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/page/2/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/css/" class="tag">
+                    css
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/npm/">
+                  <h3 class="post-title">
+                    npm设置淘宝镜像
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
