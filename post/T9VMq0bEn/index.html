@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1601370850796">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1601904337839">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1601370850796" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1601904337839" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -121,8 +121,10 @@
 <p>怪异盒模型中的width指的是内容、边框、内边距总的宽度（content + padding + border）；height指的是内容、内边距、边框总的高度</p>
 <p>怪异盒模型下盒子的大小=width（content + padding + border) + margin</p>
 <figure data-type="image" tabindex="2"><img src="https://iwangxing.cn/manjuan//post-images/1600133247203.jpg" alt="" loading="lazy"></figure>
-<h2 id="box-sizing">box-sizing</h2>
-<p>box-sizing 属性定义如何计算一个元素的总宽度和总高度。<br>
+<p>如何切换盒模型</p>
+<h1 id="box-sizing">box-sizing</h1>
+<p>css3新增的属性<br>
+box-sizing 属性定义如何计算一个元素的总宽度和总高度。<br>
 box-sizing的属性值有下面三个：</p>
 <table>
 <thead>
@@ -146,6 +148,19 @@ box-sizing的属性值有下面三个：</p>
 </tr>
 </tbody>
 </table>
+<h1 id="如何获取盒模型对应的宽高">如何获取盒模型对应的宽高</h1>
+<ol>
+<li>dom.style.width/height<br>
+只能拿到内联属性，局限性比较大</li>
+<li>dom.currentStyle.width/height<br>
+只有ie支持</li>
+<li>window.getComputedStyle(dom).width/height<br>
+🚩<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect">查看API详解</a></li>
+<li>dom.getBoundingClientRect().width/height<br>
+🚩<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect">查看API详解</a></li>
+</ol>
+<h1 id="边距重叠问题">边距重叠问题</h1>
+<h1 id="bfc">BFC</h1>
 
             </div>
             
