@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1601904337839">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1601909802816">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1601904337839" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1601909802816" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -105,13 +105,73 @@
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">BFC</h2>
-            <div class="post-date">2020-09-15</div>
+            <div class="post-date">2018-05-10</div>
             
             <div class="post-content">
-              <p>什么是BFC</p>
+              <p>BFC 即 Block Formatting Contexts (块级格式化上下文)，它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。</p>
+<p>具有 BFC 特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且 BFC 具有普通容器所没有的一些特性。</p>
+<p>通俗一点来讲，可以把 BFC 理解为一个封闭的大箱子，箱子内部的元素无论如何翻江倒海，都不会影响到外部。</p>
+<h1 id="如何创建bfc">如何创建BFC</h1>
+<ul>
+<li>根元素（<html>）</li>
+<li>浮动元素（元素的 float 不是 none）</li>
+<li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
+<li>行内块元素（元素的 display 为 inline-block）</li>
+<li>表格单元格（元素的 display 为 table-cell，HTML表格单元格默认为该值）</li>
+<li>表格标题（元素的 display 为 table-caption，HTML表格标题默认为该值）</li>
+<li>匿名表格单元格元素（元素的 display 为 table、table-row、 table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot 的默认属性）或 inline-table）</li>
+<li>overflow 值不为 visible 的块元素</li>
+<li>display 值为 flow-root 的元素</li>
+<li>contain 值为 layout、content 或 paint 的元素</li>
+<li>弹性元素（display 为 flex 或 inline-flex 元素的直接子元素）</li>
+<li>网格元素（display 为 grid 或 inline-grid 元素的直接子元素）</li>
+<li>多列容器（元素的 column-count 或 column-width 不为 auto，包括 column-count 为 1）<br>
+column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。</li>
+</ul>
+<h1 id="bfc规则">BFC规则</h1>
+<ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</li>
+</ol>
+<ul>
+<li>边距折叠只会发生在上下边距，左右边距是不会发生折叠的</li>
+<li>边距折叠只发生邻接的上下边距中，也即兄弟节点或者父子节点</li>
+<li>发生边距折叠的两个节点必须同处于一个bfc布局中</li>
+<li>发生边距折叠的两个父子节点没有border或者padding隔开</li>
+<li>只有普通文档流中块框的垂直外边距才会发生外边距合并，行内框、浮动框- 或绝对定位之间的外边距不会合并。</li>
+</ul>
+<ol start="3">
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+<h1 id="bfc使用场景">BFC使用场景</h1>
+<ol>
+<li>防止marin重叠</li>
+<li>清除内部浮动，防止父元素高度坍塌</li>
+<li>两栏布局（右边触发BFC）</li>
+</ol>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/css/" class="tag">
+                    css
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/oR6c4-nCC/">
+                  <h3 class="post-title">
+                    css三栏布局的几种方法
+                  </h3>
+                </a>
+              </div>
             
 
             
