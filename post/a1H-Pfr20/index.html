@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JS事件模型 | 漫卷</title>
+<meta name="description" content="躬行不言，默而成事">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602082057282">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602082057282" class="site-logo">
+        <h1 class="site-title">漫卷</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/manjuan/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/manjuan/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/manjuan/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/manjuan/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/WangXingWeb" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/2034080734/" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/iwangxing/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      躬行不言，默而成事
+    </div>
+    <div class="site-footer">
+      <a style="color:#ffb000;" href="https://iwangxing.cn" target="_blank">漫卷诗书喜欲狂</a></a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">JS事件模型</h2>
+            <div class="post-date">2018-10-11</div>
+            
+            <div class="post-content">
+              <h1 id="事件与事件流">事件与事件流</h1>
+<p>事件是与浏览器或文档交互的瞬间，如点击按钮，填写表格等，它是JS与HTML之间交互的桥梁。<br>
+DOM是树形结构，如果同时给父子节点都绑定事件时，当触发子节点的时候，这两个事件的发生顺序如何决定?这就涉及到事件流的概念，它描述的是页面中接受事件的顺序。</p>
+<p>事件流有两种:</p>
+<ul>
+<li>事件冒泡(Event Capturing): 是一种从下往上的传播方式。事件最开始由最具体的元素(文档中嵌套层次最深的那个节点接受, 也就是DOM最低层的子节点), 然后逐渐向上传播到最不具体的那个节点，也就是DOM中最高层的父节点。</li>
+<li>事件捕获(Event Bubbling): 与事件冒泡相反。事件最开始由不太具体的节点最早接受事件, 而最具体的节点最后接受事件。</li>
+</ul>
+<h1 id="事件模型">事件模型</h1>
+<h2 id="dom0级模型">DOM0级模型</h2>
+<p>又称为原始事件模型，在该模型中，事件不会传播，即没有事件流的概念。事件绑定监听函数比较简单, 有两种方式:<br>
+HTML代码中直接绑定:</p>
+<pre><code class="language-html">&lt;input type=&quot;button&quot; onclick=&quot;fun()&quot;&gt;
+</code></pre>
+<p>通过JS代码指定属性值:</p>
+<pre><code class="language-javascript">var btn = document.getElementById('.btn');
+btn.onclick = fun;
+</code></pre>
+<p>移除监听函数：</p>
+<pre><code class="language-javascript">btn.onclick = null;
+</code></pre>
+<p>这种方式所有浏览器都兼容，但是逻辑与显示并没有分离。</p>
+<h2 id="ie事件模型">IE事件模型</h2>
+<p>IE事件模型共有两个过程:</p>
+<ul>
+<li>事件处理阶段(target phase)。事件到达目标元素, 触发目标元素的监听函数。</li>
+<li>事件冒泡阶段(bubbling phase)。事件从目标元素冒泡到document, 依次检查经过的节点是否绑定了事件监听函数，如果有则执行。</li>
+</ul>
+<p>事件绑定监听函数的方式如下:</p>
+<pre><code class="language-javascript">attachEvent(eventType, handler)
+</code></pre>
+<p>事件移除监听函数的方式如下:</p>
+<pre><code class="language-javascript">detachEvent(eventType, handler)
+</code></pre>
+<p>参数说明:</p>
+<ul>
+<li>eventType指定事件类型(注意加on)</li>
+<li>handler是事件处理函数<br>
+Example:</li>
+</ul>
+<pre><code class="language-javascript">var btn = document.getElementById('.btn');
+btn.attachEvent(‘onclick’, showMessage);
+btn.detachEvent(‘onclick’, showMessage);
+</code></pre>
+<h2 id="dom2级模型">DOM2级模型</h2>
+<p>属于W3C标准模型，现代浏览器(除IE6-8之外的浏览器)都支持该模型。在该事件模型中，一次事件共有三个过程:</p>
+<ul>
+<li>事件捕获阶段(capturing phase)。事件从document一直向下传播到目标元素, 依次检查经过的节点是否绑定了事件监听函数，如果有则执行。</li>
+<li>事件处理阶段(target phase)。事件到达目标元素, 触发目标元素的监听函数。</li>
+<li>事件冒泡阶段(bubbling phase)。事件从目标元素冒泡到document, 依次检查经过的节点是否绑定了事件监听函数，如果有则执行。</li>
+</ul>
+<p>事件绑定监听函数的方式如下:</p>
+<pre><code class="language-javascript">addEventListener(eventType, handler, useCapture)
+</code></pre>
+<p>事件移除监听函数的方式如下:</p>
+<pre><code class="language-javascript">removeEventListener(eventType, handler, useCapture)
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-javascript">var btn = document.getElementById('.btn');
+btn.addEventListener(‘click’, showMessage, false);
+btn.removeEventListener(‘click’, showMessage, false);
+</code></pre>
+<p>参数说明:</p>
+<ul>
+<li>eventType指定事件类型(不要加on)</li>
+<li>handler是事件处理函数</li>
+<li>useCapture是一个boolean用于指定是否在捕获阶段进行处理，一般设置为false与IE浏览器保持一致。</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/css_counter/">
+                  <h3 class="post-title">
+                    css计数器
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
