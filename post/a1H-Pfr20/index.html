@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JS事件模型 | 漫卷</title>
+<title>JS事件模型及事件流 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602082057282">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602084795735">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602082057282" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602084795735" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,19 +104,11 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JS事件模型</h2>
+            <h2 class="post-title">JS事件模型及事件流</h2>
             <div class="post-date">2018-10-11</div>
             
             <div class="post-content">
-              <h1 id="事件与事件流">事件与事件流</h1>
-<p>事件是与浏览器或文档交互的瞬间，如点击按钮，填写表格等，它是JS与HTML之间交互的桥梁。<br>
-DOM是树形结构，如果同时给父子节点都绑定事件时，当触发子节点的时候，这两个事件的发生顺序如何决定?这就涉及到事件流的概念，它描述的是页面中接受事件的顺序。</p>
-<p>事件流有两种:</p>
-<ul>
-<li>事件冒泡(Event Capturing): 是一种从下往上的传播方式。事件最开始由最具体的元素(文档中嵌套层次最深的那个节点接受, 也就是DOM最低层的子节点), 然后逐渐向上传播到最不具体的那个节点，也就是DOM中最高层的父节点。</li>
-<li>事件捕获(Event Bubbling): 与事件冒泡相反。事件最开始由不太具体的节点最早接受事件, 而最具体的节点最后接受事件。</li>
-</ul>
-<h1 id="事件模型">事件模型</h1>
+              <h1 id="事件模型">事件模型</h1>
 <h2 id="dom0级模型">DOM0级模型</h2>
 <p>又称为原始事件模型，在该模型中，事件不会传播，即没有事件流的概念。事件绑定监听函数比较简单, 有两种方式:<br>
 HTML代码中直接绑定:</p>
@@ -176,6 +168,44 @@ btn.removeEventListener(‘click’, showMessage, false);
 <li>handler是事件处理函数</li>
 <li>useCapture是一个boolean用于指定是否在捕获阶段进行处理，一般设置为false与IE浏览器保持一致。</li>
 </ul>
+<h1 id="事件流">事件流</h1>
+<p>事件流有三个阶段： 事件捕获阶段，目标阶段，事件冒泡阶段。<br>
+<img src="https://iwangxing.cn/manjuan//post-images/1602082937017.jpg" alt="" loading="lazy"></p>
+<ul>
+<li>事件捕获阶段，事件将沿着DOM树向下转送，目标节点的每一个祖先节点，直至目标节点。例如，若用户单击了一个超链接，则该单击事件将从document节点转送到html元素，body元素以及包含该链接的p元素。<br>
+在此过程中，浏览器都会检测针对该事件的捕捉事件监听器，并且运行这件事件监听器。</li>
+<li>目标阶段，浏览器在查找到已经指定给目标事件的事件监听器之后，就会运行该事件监听器。目标节点就是触发事件的DOM节点。例如，如果用户单击一个超链接，那么该链接就是目标节点（此时的目标节点实际上是超链接内的文本节点）。</li>
+<li>事件冒泡阶段，事件将沿着DOM树向上转送，再次逐个访问目标元素的祖先节点到document节点。该过程中的每一步。浏览器都将检测那些不是捕捉事件监听器的事件监听器，并执行它们。</li>
+</ul>
+<h1 id="event对象常见应用">Event对象常见应用</h1>
+<ul>
+<li>
+<p>event.preventDefault()<br>
+阻止默认事件<br>
+🚩<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault">详细api</a></p>
+</li>
+<li>
+<p>event.stopPropagation()<br>
+阻止冒泡<br>
+🚩<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopPropagation">详细api</a></p>
+</li>
+<li>
+<p>event.stopImmediatePropagation()<br>
+阻止监听同一事件的其他事件监听器被调用。<br>
+🚩<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopImmediatePropagation">详细api</a><br>
+如果有多个相同类型事件的事件监听函数绑定到同一个元素，当该类型的事件触发时，它们会按照被添加的顺序执行。如果其中某个监听函数执行了 event.stopImmediatePropagation() 方法，则当前元素剩下的监听函数将不会被执行。</p>
+</li>
+<li>
+<p>event.currentTarget<br>
+当事件沿着 DOM 触发时事件的当前目标。它总是指向事件绑定的元素。</p>
+</li>
+<li>
+<p>event.target<br>
+事件触发的元素。</p>
+</li>
+</ul>
+<p>使用事件代理(委托)往往会用到这两个属性。<br>
+比如有十个按钮，我们不想给每个按钮都绑定一次click事件，我们可以给十个按钮的父容器绑定click事件，自父容器的click事件中currentTarget就是父容器，target就是被点击的按钮。</p>
 
             </div>
             
