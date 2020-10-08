@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JS事件模型及事件流 | 漫卷</title>
+<title>JS事件 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602084795735">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602124797068">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602084795735" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602124797068" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,7 +104,7 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JS事件模型及事件流</h2>
+            <h2 class="post-title">JS事件</h2>
             <div class="post-date">2018-10-11</div>
             
             <div class="post-content">
@@ -170,12 +170,11 @@ btn.removeEventListener(‘click’, showMessage, false);
 </ul>
 <h1 id="事件流">事件流</h1>
 <p>事件流有三个阶段： 事件捕获阶段，目标阶段，事件冒泡阶段。<br>
-<img src="https://iwangxing.cn/manjuan//post-images/1602082937017.jpg" alt="" loading="lazy"></p>
+<img src="https://iwangxing.cn/manjuan//post-images/1602124677157.png" alt="" loading="lazy"></p>
 <ul>
-<li>事件捕获阶段，事件将沿着DOM树向下转送，目标节点的每一个祖先节点，直至目标节点。例如，若用户单击了一个超链接，则该单击事件将从document节点转送到html元素，body元素以及包含该链接的p元素。<br>
-在此过程中，浏览器都会检测针对该事件的捕捉事件监听器，并且运行这件事件监听器。</li>
-<li>目标阶段，浏览器在查找到已经指定给目标事件的事件监听器之后，就会运行该事件监听器。目标节点就是触发事件的DOM节点。例如，如果用户单击一个超链接，那么该链接就是目标节点（此时的目标节点实际上是超链接内的文本节点）。</li>
-<li>事件冒泡阶段，事件将沿着DOM树向上转送，再次逐个访问目标元素的祖先节点到document节点。该过程中的每一步。浏览器都将检测那些不是捕捉事件监听器的事件监听器，并执行它们。</li>
+<li>捕获阶段是指事件响应从最外层的Window开始，逐级向内层前进，直到具体事件目标元素。在捕获阶段，不会处理响应元素注册的冒泡事件。</li>
+<li>目标阶段指触发事件的最底层的元素，如上图中的。</li>
+<li>冒泡阶段与捕获阶段相反，事件的响应是从最底层开始一层一层往外传递到最外层的Window。</li>
 </ul>
 <h1 id="event对象常见应用">Event对象常见应用</h1>
 <ul>
@@ -206,6 +205,49 @@ btn.removeEventListener(‘click’, showMessage, false);
 </ul>
 <p>使用事件代理(委托)往往会用到这两个属性。<br>
 比如有十个按钮，我们不想给每个按钮都绑定一次click事件，我们可以给十个按钮的父容器绑定click事件，自父容器的click事件中currentTarget就是父容器，target就是被点击的按钮。</p>
+<h1 id="事件类型">事件类型</h1>
+<ul>
+<li>
+<p>UI (User Interface) 事件，当用户与页面上的元素交互时触发<br>
+load、unload、error、select、resize、scroll</p>
+</li>
+<li>
+<p>焦点事件，在页面获得或失去焦点时触发<br>
+blur、focusout  失去焦点focus、focusin  获得焦点</p>
+</li>
+<li>
+<p>鼠标事件，用户通过鼠标在页面执行操作时触发<br>
+click、dbclick、mousedown、mouseup<br>
+mouseenter、mouserleave<br>
+mousemove<br>
+mouseout、mouseover</p>
+</li>
+<li>
+<p>点击和双击事件触发的顺序如下<br>
+mousedown mouseup click mousedown mouseup dbclick</p>
+</li>
+<li>
+<p>滚轮事件，当使用鼠标滚轮操作时触发<br>
+mousewheel</p>
+</li>
+<li>
+<p>文本事件，在文档中输入文本时触发<br>
+textInput 当用户在可编辑区域中输入字符时，就会触发这个事件</p>
+</li>
+<li>
+<p>键盘事件，当用户通过键盘在页面上执行操作时触发</p>
+<p>keydown 按下键盘任意键时触发，不松开，则一直触发keypress 按下键盘上的字符键时触发，不松开，则一直触发Keyup 用户释放键盘上的建时触发</p>
+</li>
+<li>
+<p>HTML5事件<br>
+contextmenu 事件：单价鼠标右键可以调出上下文菜单<br>
+beforeunload 事件：在浏览器卸载页面之前触发<br>
+DOMContentLoad 事件：在形成完整的DOM树之后就会触发。<br>
+readystatechange 事件：提供与文档加载状态有关的信息<br>
+pageshow和pagehide 事件：页面显示和隐藏时触发<br>
+hashchange 事件 : hash改变时触发</p>
+</li>
+</ul>
 
             </div>
             

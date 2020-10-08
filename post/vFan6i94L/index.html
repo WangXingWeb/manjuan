@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602084795735">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602124797068">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602084795735" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602124797068" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -108,7 +108,14 @@
             <div class="post-date">2020-10-07</div>
             
             <div class="post-content">
-              <p>事件委托</p>
+              <h1 id="什么是事件委托">什么是事件委托</h1>
+<p>事件委托是为了解决事件处理程序过多造成的内存和性能问题。那么什么是事件委托呢？<br>
+就是利用事件冒泡,只指定一个事件处理程序，就可以管理某一类型的所有事件。</p>
+<h1 id="事件委托的优点">事件委托的优点:</h1>
+<ul>
+<li>提高性能:每一个函数都会占用内存空间，只需添加一个事件处理程序代理所有事件,所占用的内存空间更少。</li>
+<li>动态监听:使用事件委托可以自动绑定动态添加的元素,即新增的节点不需要主动添加也可以一样具有和其他元素一样的事件。</li>
+</ul>
 
             </div>
             
