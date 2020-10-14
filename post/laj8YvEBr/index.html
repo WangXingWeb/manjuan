@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602124797068">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602677111504">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602124797068" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602677111504" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -105,13 +105,59 @@
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">js自定义事件</h2>
-            <div class="post-date">2020-10-07</div>
+            <div class="post-date">2017-08-08</div>
             
             <div class="post-content">
-              <p>js如何自定义事件</p>
+              <h1 id="创建事件">创建事件</h1>
+<p>JS中，最简单的创建事件方法，是使用Event构造器：</p>
+<pre><code class="language-javascript">var myEvent = new Event('event_name');
+</code></pre>
+<p>但是为了能够传递数据，就需要使用 CustomEvent 构造器：</p>
+<pre><code class="language-javascript">var myEvent = new CustomEvent('event_name', {
+    detail:{
+        // 将需要传递的数据写在detail中，以便在EventListener中获取
+        // 数据将会在event.detail中得到
+    },
+});
+</code></pre>
+<h1 id="事件的监听">事件的监听</h1>
+<p>JS的EventListener是根据事件的名称来进行监听的，比如我们在上文中已经创建了一个名称为‘event_name’ 的事件，那么当某个元素需要监听它的时候，就需要创建相应的监听器：</p>
+<pre><code class="language-javascript">var myDiv = document.getElementById(&quot;myDiv&quot;);
+myDiv.addEventListener(&quot;myEvent&quot;, function (e) {
+    console.log(e);
+     // 如果是CustomEvent，传入的数据在event.detail中
+    console.log('得到数据为：', event.detail);
+     // ...后续相关操作
+});
+</code></pre>
+<h1 id="事件的触发">事件的触发</h1>
+<p>使用 dispatchEvent 去触发（IE8低版本兼容，使用fireEvent）：</p>
+<pre><code class="language-javascript">if(myDiv.dispatchEvent) {  
+    myDiv.dispatchEvent(myEvent);
+} else {
+    myDiv.fireEvent(myEvent);
+}
+</code></pre>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/program/">
+                  <h3 class="post-title">
+                    微信小程序生命周期
+                  </h3>
+                </a>
+              </div>
             
 
             
