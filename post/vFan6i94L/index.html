@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602677111504">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602678385534">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602677111504" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602678385534" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -105,7 +105,7 @@
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">事件委托</h2>
-            <div class="post-date">2020-10-07</div>
+            <div class="post-date">2018-07-02</div>
             
             <div class="post-content">
               <h1 id="什么是事件委托">什么是事件委托</h1>
@@ -116,9 +116,51 @@
 <li>提高性能:每一个函数都会占用内存空间，只需添加一个事件处理程序代理所有事件,所占用的内存空间更少。</li>
 <li>动态监听:使用事件委托可以自动绑定动态添加的元素,即新增的节点不需要主动添加也可以一样具有和其他元素一样的事件。</li>
 </ul>
+<h1 id="demo">demo</h1>
+<pre><code class="language-html">&lt;ul id=&quot;item-list&quot;&gt;
+    &lt;li&gt;item1&lt;/li&gt;
+    &lt;li&gt;item2&lt;/li&gt;
+    &lt;li&gt;item3&lt;/li&gt;
+    &lt;li&gt;item4&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-javascript">var list = document.getElementById(&quot;item-list&quot;);
+list.addEventListener(&quot;click&quot;, function (event) {
+    //这里event.target是当前被点击的元素
+    //event/currentTarget是绑定事件的元素也就是list
+    console.log(event.target.innerHTML);
+});
+</code></pre>
+<p>现在我们给列表动态加一条</p>
+<pre><code class="language-javascript">var list = document.getElementById(&quot;item-list&quot;);
+list.addEventListener(&quot;click&quot;, function (event) {
+    console.log(event.target.innerHTML);
+});
+var newLI = document.createElement(&quot;li&quot;);
+newLI.innerHTML = &quot;item5&quot;;
+list.appendChild(newLI);
+</code></pre>
+<p>这里点击item5同样也可以也出发了事件，也就是实现了动态监听。</p>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/FEQVJGbwB/">
+                  <h3 class="post-title">
+                    vue项目更改打包输出路径
+                  </h3>
+                </a>
+              </div>
             
 
             
