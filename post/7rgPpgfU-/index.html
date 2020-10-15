@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602690527188">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1602763895412">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602690527188" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1602763895412" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -109,7 +109,8 @@
             
             <div class="post-content">
               <p>最新的ECMAScript标准定义了7中数据类型</p>
-<h1 id="原始类型">原始类型</h1>
+<h1 id="js数据类型">js数据类型</h1>
+<h2 id="原始类型">原始类型</h2>
 <ul>
 <li>Boolean</li>
 <li>Null</li>
@@ -119,10 +120,132 @@
 <li>Symbol<br>
 ES6新增</li>
 </ul>
-<h1 id="引用类型">引用类型</h1>
+<h2 id="引用类型">引用类型</h2>
 <ul>
-<li>Object<br>
-包含function、Array、Date</li>
+<li>Object</li>
+<li>Array</li>
+<li>Function</li>
+</ul>
+<p>需要注意的是Array和Function都是一种特殊的对象。</p>
+<h1 id="typeof-操作符">typeof 操作符</h1>
+<p>可以使用 typeof 操作符来查看 JavaScript 变量的数据类型。</p>
+<pre><code class="language-javascript">typeof &quot;John&quot;                 // 返回 string
+typeof 3.14                   // 返回 number
+typeof NaN                    // 返回 number
+typeof false                  // 返回 boolean
+typeof [1,2,3,4]              // 返回 object
+typeof {name:'John', age:34}  // 返回 object
+typeof new Date()             // 返回 object
+typeof function () {}         // 返回 function
+typeof myCar                  // 返回 undefined (如果 myCar 没有声明)
+typeof null                   // 返回 object
+</code></pre>
+<p>请注意：</p>
+<ul>
+<li>NaN 的数据类型是 number</li>
+<li>数组(Array)的数据类型是 object</li>
+<li>日期(Date)的数据类型为 object</li>
+<li>null 的数据类型是 object</li>
+<li>未定义变量的数据类型为 undefined</li>
+<li>如果对象是 JavaScript Array 或 JavaScript Date ，我们就无法通过 typeof 来判断他们的类型，因为都是 返回 object。</li>
+</ul>
+<h1 id="类型转化">类型转化</h1>
+<p>js并没有严格的数据类型，也就是说我们声明一个变量时并不需要去指定它是什么类型的数据。</p>
+<h2 id="显示类型转化">显示类型转化</h2>
+<ol>
+<li>Number函数</li>
+</ol>
+<ul>
+<li>原始类型转换为数字</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>原始值</th>
+<th>转化后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数值</td>
+<td>转换后还是原来的值</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>如果可以被解析为数值，则转换为相应的市值，否则得到NaN。空字符串转换为0</td>
+</tr>
+<tr>
+<td>布尔值</td>
+<td>true转成1，false转为0</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>转化为NaN</td>
+</tr>
+<tr>
+<td>null</td>
+<td>转化为0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>引用类型转换为数字类型<br>
+先调用对象自身的valueOf方法，如果该方法返回原始类型的值（数值、字符串和布尔值），则直接对该值使用Number方法，不再进行后续步骤。<br>
+如果valueOf方法返回复合类型的值，再调用对象自身的toString方法，如果toString方法返回原始类型的值，则对该值使用Number方法，不再进行后续步骤。<br>
+如果toString方法韩惠的是复合类型的值，则报错。</li>
+</ul>
+<ol start="2">
+<li>String函数</li>
+</ol>
+<ul>
+<li>原始类型转化为String</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>原始值</th>
+<th>转化后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数值</td>
+<td>转为相应的字符串</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>转化后还是原来的字符串</td>
+</tr>
+<tr>
+<td>布尔值</td>
+<td>true转成&quot;true&quot;,false转为&quot;false&quot;</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>转化为&quot;undefined&quot;</td>
+</tr>
+<tr>
+<td>null</td>
+<td>转化为&quot;null&quot;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>引用类型转换<br>
+先调用toString方法，如果toString方法返回的是原始类型的值，则对该值使用String方法，不再进行一下步骤。<br>
+如果toString方法返回的是复合类型的值，再调用valueOf方法，如果valueOf方法返回的是原始类型的值，则对该值使用String方法，不再进行一下步骤。<br>
+如果valueOf方法返回的是复合类型的值，则报错。</li>
+</ul>
+<p>3 Boolean函数</p>
+<ul>
+<li>原始类型转换<br>
+undefined、null、-0、+0、NaN、''(空字符串)转化为false，其它的一律为true</li>
+</ul>
+<h2 id="隐式类型转换">隐式类型转换</h2>
+<ul>
+<li>四则运算</li>
+<li>判断语句</li>
+<li>Native调用</li>
 </ul>
 
             </div>
