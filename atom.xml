@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-10-15T12:11:37.768Z</updated>
+    <updated>2020-10-23T07:30:20.816Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://iwangxing.cn/manjuan/images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan/favicon.ico</icon>
     <rights>All rights reserved 2020, 漫卷</rights>
+    <entry>
+        <title type="html"><![CDATA[如何提高页面性能]]></title>
+        <id>https://iwangxing.cn/manjuan/post/MUXxsDdTG/</id>
+        <link href="https://iwangxing.cn/manjuan/post/MUXxsDdTG/">
+        </link>
+        <updated>2020-10-23T00:32:30.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[sass混合器]]></title>
         <id>https://iwangxing.cn/manjuan/post/v1OVwCA7k/</id>
@@ -86,12 +93,5 @@
         <link href="https://iwangxing.cn/manjuan/post/FFr974k7U/">
         </link>
         <updated>2020-01-06T14:00:26.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue Router导航守卫]]></title>
-        <id>https://iwangxing.cn/manjuan/post/ziOK9v5yw/</id>
-        <link href="https://iwangxing.cn/manjuan/post/ziOK9v5yw/">
-        </link>
-        <updated>2020-01-06T13:49:33.000Z</updated>
     </entry>
 </feed>

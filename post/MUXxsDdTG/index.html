@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>如何提高页面性能 | 漫卷</title>
+<meta name="description" content="躬行不言，默而成事">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1603438217960">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1603438217960" class="site-logo">
+        <h1 class="site-title">漫卷</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/manjuan/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/manjuan/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/manjuan/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/manjuan/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/WangXingWeb" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/2034080734/" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/iwangxing/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      躬行不言，默而成事
+    </div>
+    <div class="site-footer">
+      <a style="color:#ffb000;" href="https://iwangxing.cn" target="_blank">漫卷诗书喜欲狂</a></a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">如何提高页面性能</h2>
+            <div class="post-date">2020-10-23</div>
+            
+            <div class="post-content">
+              <h1 id="网络加载方面">网络加载方面</h1>
+<h2 id="减少http资源请求次数">减少HTTP资源请求次数</h2>
+<ol>
+<li>合并JS文件和CSS文件。</li>
+<li>雪碧图，合并框架图片及相对变动较少的图片或成一张，通过CSS背景切割来完成渲染。</li>
+<li>合理使用本地Cache来缓存JS/CSS/IMAGE，已经缓存过的文件就不要发起http请求了。</li>
+</ol>
+<h2 id="减少http请求大小">减少HTTP请求大小</h2>
+<p>除了减少HTTP资源请求次数，也要尽量减少每个HTTP请求的大小，</p>
+<ol>
+<li>减少没必要的图片、JavaScript、CSS 及 HTML 代码。</li>
+<li>对文件进行压缩优化缩短网络传输等待时延，</li>
+<li>使用构建工具来压缩静态图片资源以及移除代码中的注释并压缩，</li>
+<li>上传图片前先压缩缩小图片体积</li>
+</ol>
+<h2 id="避免页面中空的href和src">避免页面中空的href和src</h2>
+<p>当<code>&lt;link&gt;</code>标签的<code>href</code>属性为空，或<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;iframe&gt;</code>标签的src属性为空时，浏览器在渲染过程中仍会将<code>href</code>属性或者<code>src</code>属性中的空内容进行加载，直至加载失败，这样就阻塞了页面中其他资源的下载进程，而且最终加载到的内容是无效的，因此要尽量避免。</p>
+<pre><code class="language-html">  &lt;!--不推荐--&gt;
+  &lt;img src=&quot;&quot; alt=&quot;photo&quot; &gt;
+  &lt;a href=&quot;&quot;&gt;点击链接&lt;/a&gt;
+</code></pre>
+<h2 id="图片懒加载">图片懒加载：</h2>
+<p>为了保证页面内容的最小化，加速页面的渲染，尽可能节省移动端网络流量，页面中的图片资源推荐使用懒加载实现，在页面滚动时动态载入图片；</p>
+<h2 id="把js文件移到html文件末尾css文件移到顶端">把js文件移到HTMl文件末尾，css文件移到顶端。</h2>
+<p>因为JavaScript在处理的过程中会阻塞后面的页面显示，并且也会使HTML请求被阻止。<br>
+CSS 放到最顶部，浏览器能够有针对性的对 HTML 页面从顶到下进行解析和渲染。</p>
+<h2 id="网址后加斜杠">网址后加斜杠</h2>
+<p>有些网址，比如<code>www.iwangxing.cn/manjuan</code>，当服务器收到这样一个地址，需要时间去确定这个地址的文件类型。如果<code>manjuan</code>是一个目录，则不妨在网址后多加一个斜杠，让其变成<code>www.iwangxing.cn/manjuan/</code>，这样服务器就一目了然地知道要访问该目录下的<code>index</code>或<code>default</code>文件，从而节省加载时间。</p>
+<h2 id="图片尽量标明高度和宽度">图片尽量标明高度和宽度</h2>
+<p>如果没有设置，则浏览器一边下载图片一边计算大小，如果图片很多，则浏览器就需要不断地调整页面，这不但影响速度，也影响浏览体验。当浏览器知道了高度和宽度后，即使图片无法显示，页面上也会腾出图片的空位，然后继续加载后面的内容。从而加载快了，浏览体验也更好了。</p>
+<h1 id="非核心代码异步加载异步加载的方式">非核心代码异步加载异步加载的方式</h1>
+<p>异步加载的三种方式——async和defer、动态脚本创建。</p>
+<ol>
+<li>async方式<br>
+async属性是HTML5新增属性，需要Chrome、FireFox、IE9+浏览器支持<br>
+async属性规定一旦脚本可用，则会异步执行<br>
+async属性仅适用于外部脚本<br>
+如果是多个脚本，该方法不能保证脚本按顺序执行</li>
+</ol>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;xxx.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>
+<p>defer方式<br>
+兼容所有浏览器<br>
+defer属性规定是否对脚本执行进行延迟，直到页面加载为止<br>
+如果是多个脚本，该方法可以确保所有设置了defer属性的脚本按顺序执行<br>
+如果脚本不会改变文档的内容，可将defer属性加入到script标签中，以便加快处理文档的速度</p>
+</li>
+<li>
+<p>动态创建script标签<br>
+在还没定义defer和async前，异步加载的方式是动态创建script，通过window.onload方法确保页面加载完毕再将script标签插入到DOM中,具体代码如下：</p>
+</li>
+</ol>
+<pre><code class="language-javascript">function addScriptTag(src){  
+    var script = document.createElement('script');  
+    script.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);  
+    script.src = src;  
+    document.body.appendChild(script);  
+}  
+window.onload = function(){  
+    addScriptTag(&quot;js/index.js&quot;);  
+}  
+</code></pre>
+<p>异步加载的区别<br>
+defer是在HTML解析完之后才会执行，如果是多个，按照加载的顺序依次执行<br>
+async是在加载完之后立即执行，如果是多个，执行顺序和加载顺序无关</p>
+<h1 id="利用浏览器缓存">利用浏览器缓存</h1>
+<p>除了上面所说的Cache-Control、Expires、Etag 和 Last-Modified来设置HTTP缓存外，在移动端还可以使用localStorage等来保存AJAX返回的数据，或者使用localStorage保存CSS或JavaScript静态资源内容，实现移动端的离线应用，尽可能减少网络请求，保证静态资源内容的快速加载；</p>
+<h1 id="使用cdn">使用CDN</h1>
+<p>大型Web应用对速度的追求并没有止步于仅仅利用浏览器缓存，因为浏览器缓存始终只是为了提升二次访问的速度，对于首次访问的加速，我们需要从网络层面进行优化，最常见的手段就是CDN（Content Delivery Network，内容分发网络）加速。通过将静态资源(例如javascript，css，图片等等）缓存到离用户很近的相同网络运营商的CDN节点上，不但能提升用户的访问速度，还能节省服务器的带宽消耗，降低负载。</p>
+<p>CDN是怎么做到加速的呢？<br>
+其实这是CDN服务商在全国各个省份部署计算节点，CDN加速将网站的内容缓存在网络边缘,不同地区的用户就会访问到离自己最近的相同网络线路上的CDN节点，当请求达到CDN节点后，节点会判断自己的内容缓存是否有效，如果有效，则立即响应缓存内容给用户，从而加快响应速度。如果CDN节点的缓存失效，它会根据服务配置去我们的内容源服务器获取最新的资源响应给用户，并将内容缓存下来以便响应给后续访问的用户。因此，一个地区内只要有一个用户先加载资源，在CDN中建立了缓存，该地区的其他后续用户都能因此而受益。</p>
+<h1 id="预解析dns">预解析DNS</h1>
+<p>源预加载是另一个性能优化技术，我们可以使用该技术来预先告知浏览器某些资源可能在将来会被使用到。<br>
+通过 DNS 预解析来告诉浏览器未来我们可能从某个特定的 URL 获取资源，当浏览器真正使用到该域中的某个资源时就可以尽快地完成 DNS 解析。例如，我们将来可从 example.com 获取图片或音频资源，那么可以在文档顶部的 标签中加入以下内容：</p>
+<pre><code class="language-html">&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//example.com&quot;&gt;
+</code></pre>
+<p>当我们从该 URL 请求一个资源时，就不再需要等待 DNS 的解析过程。该技术对使用第三方资源特别有用。通过简单的一行代码就可以告知那些兼容的浏览器进行 DNS 预解析，这意味着当浏览器真正请求该域中的某个资源时，DNS 的解析就已经完成了,从而节省了宝贵的时间。<br>
+另外需要注意的是，浏览器会对a标签的href自动启用DNS Prefetching，所以a标签里包含的域名不需要在head中手动设置link。但是在HTTPS下不起作用，需要meta来强制开启功能。这个限制的原因是防止窃听者根据DNS Prefetching推断显示在HTTPS页面中超链接的主机名。下面这句话作用是强制打开a标签域名解析</p>
+<pre><code class="language-html">&lt;meta http-equiv=&quot;x-dns-prefetch-control&quot; content=&quot;on&quot;&gt;
+</code></pre>
+<h1 id="页面元素尽量使用事件代理避免直接事件绑定">页面元素尽量使用事件代理，避免直接事件绑定：</h1>
+<p>使用事件代理可以避免对每个元素都进行绑定，并且可以避免出现内存泄露及需要动态添加元素的事件绑定问题，所以尽量不要直接使用事件绑定；</p>
+<h1 id="避免各种形式重排重绘">避免各种形式重排重绘：</h1>
+<p>页面的重排重绘很耗性能，所以一定要尽可能减少页面的重排重绘，例如页面图片大小变化，元素位置变化等这些情况都会导致重排重绘；</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/v1OVwCA7k/">
+                  <h3 class="post-title">
+                    sass混合器
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
