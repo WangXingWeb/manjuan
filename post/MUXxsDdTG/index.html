@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1603438217960">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1603520724094">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1603438217960" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1603520724094" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -190,10 +190,13 @@ async是在加载完之后立即执行，如果是多个，执行顺序和加载
 另外需要注意的是，浏览器会对a标签的href自动启用DNS Prefetching，所以a标签里包含的域名不需要在head中手动设置link。但是在HTTPS下不起作用，需要meta来强制开启功能。这个限制的原因是防止窃听者根据DNS Prefetching推断显示在HTTPS页面中超链接的主机名。下面这句话作用是强制打开a标签域名解析</p>
 <pre><code class="language-html">&lt;meta http-equiv=&quot;x-dns-prefetch-control&quot; content=&quot;on&quot;&gt;
 </code></pre>
-<h1 id="页面元素尽量使用事件代理避免直接事件绑定">页面元素尽量使用事件代理，避免直接事件绑定：</h1>
+<h1 id="页面渲染方面">页面渲染方面</h1>
+<h2 id="页面元素尽量使用事件代理避免直接事件绑定">页面元素尽量使用事件代理，避免直接事件绑定：</h2>
 <p>使用事件代理可以避免对每个元素都进行绑定，并且可以避免出现内存泄露及需要动态添加元素的事件绑定问题，所以尽量不要直接使用事件绑定；</p>
-<h1 id="避免各种形式重排重绘">避免各种形式重排重绘：</h1>
+<h2 id="避免各种形式重排重绘">避免各种形式重排重绘：</h2>
 <p>页面的重排重绘很耗性能，所以一定要尽可能减少页面的重排重绘，例如页面图片大小变化，元素位置变化等这些情况都会导致重排重绘；</p>
+<h2 id="使用css3动画开启gpu加速">使用CSS3动画，开启GPU加速</h2>
+<p>使用CSS3动画时可以设置transform:translateZ(0) 来开启移动设备浏览器的GPU图形处理加速，让动画过程更加流畅</p>
 
             </div>
             

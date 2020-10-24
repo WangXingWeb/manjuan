@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>漫卷</title>
+<title>http报文的组成 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -103,75 +103,79 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/sHWmepQ1m/">
-                  <h2 class="post-title">&amp;&amp; 和 ||</h2>
-                </a>
-                <div class="post-date">
-                  2016-09-12
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/ru-he-hua-chu-xiao-yu-1px-de-xian/">
-                  <h2 class="post-title">如何画出小于1px的线</h2>
-                </a>
-                <div class="post-date">
-                  2016-08-11
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/nan/">
-                  <h2 class="post-title">NaN</h2>
-                </a>
-                <div class="post-date">
-                  2016-05-20
-                </div>
-                <div class="post-abstract">
-                  <p>NaN==NaN 的结果为什么是false</p>
+          <div class="post-detail">
+            <h2 class="post-title">http报文的组成</h2>
+            <div class="post-date">2017-11-10</div>
+            
+            <div class="post-content">
+              <p>用于 HTTP 协议交互的信息被称为 HTTP 报文。请求端（客户端）的 HTTP 报文叫做请求报文，响应端（服务器端）的叫做响应报文。</p>
+<h1 id="请求报文">请求报文</h1>
+<p>请求报文包括</p>
+<ul>
+<li>请求行<br>
+请求行包括请求方法，url和协议版本</li>
+<li>请求头</li>
+<li>空行</li>
+<li>请求体(请求内容)</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1603520647006.jpeg" alt="" loading="lazy"></figure>
+<h1 id="响应报文">响应报文</h1>
+<ul>
+<li>
+<p>响应行<br>
+响应行包括服务器HTTP协议版本，响应状态码，状态码的文本描述<br>
+如<code>HTTP/1.1 200 OK</code></p>
+</li>
+<li>
+<p>响应头</p>
+</li>
+<li>
+<p>空行</p>
+</li>
+<li>
+<p>响应体(响应内容)</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://iwangxing.cn/manjuan//post-images/1603520638804.jpeg" alt="" loading="lazy"></figure>
+<h1 id="常见的状态吗">常见的状态吗</h1>
+<p>状态码由3位数字组成，第一位标识响应的类型，常用的5大类状态码如下：</p>
+<p>1xx：表示服务器已接收了客户端的请求，客户端可以继续发送请求</p>
+<p>2xx：表示服务器已成功接收到请求并进行处理</p>
+<p>3xx：表示服务器要求客户端重定向</p>
+<p>4xx：表示客户端的请求有<mark>非法内容</mark></p>
+<p>5xx：标识服务器未能正常处理客户端的请求而出现意外错误</p>
+<p>常见状态码说明：</p>
+<p>200 OK： 表示客户端请求成功</p>
+<p>400 Bad Request： 表示客户端请求有语法错误，不能被服务器端解析</p>
+<p>401 Unauthonzed： 表示请求未经授权，该状态码必须与WWW-Authenticate报文头一起使用</p>
+<p>404 Not Found：请求的资源不存在，例如输入了错误的url</p>
+<p>500 Internal Server Error： 表示服务器发生了不可预期的错误，导致无法完成客户端的请求</p>
+<p>503 Service Unavailable：表示服务器当前不能处理客户端的请求，在一段时间后服务器可能恢复正常</p>
 
-                </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
+                    js
+                  </a>
+                
               </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://iwangxing.cn/manjuan/post/7rgPpgfU-/">
-                  <h2 class="post-title">js数据类型</h2>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iwangxing.cn/manjuan/post/react_note/">
+                  <h3 class="post-title">
+                    React笔记
+                  </h3>
                 </a>
-                <div class="post-date">
-                  2016-04-06
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
               </div>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-    <a href="https://iwangxing.cn/manjuan/page/6/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
