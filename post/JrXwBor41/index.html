@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>修改UEditor源码支持上传音频 | 漫卷</title>
+<title>git配置忽略文件 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,58 +104,63 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">修改UEditor源码支持上传音频</h2>
-            <div class="post-date">2020-01-13</div>
+            <h2 class="post-title">git配置忽略文件</h2>
+            <div class="post-date">2017-11-24</div>
             
             <div class="post-content">
-              <p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
-<p>上传视频时是可以选择MP3这类的音频文件的，只不过这里上传后会生成video标签而不是audio标签。这样渲染后得到的是一个视频播放框，能播放音频但是有一个大黑框，不复合我们的要求。</p>
-<!-- more -->
-<p>有了以上这个前提我们可以修改一下UEditor的源码，在生成video标签前，用文件的后缀名判断当前上传的文件类型，确定上传的是音频还是视频。根据不同的文件类型决定生成video标签还是audio标签。</p>
-<p>在ueditor.js中查找creatInsertStr方法,这个方法的作用是将上传文件后利用得到的url地址宽高等信息生成html字符串返回给调用者。这里我们只关心处理视频上传的部分，因为我们现在上传音频也要通过上传视频这里来实现。</p>
-<pre><code class="language-javascript">case 'video':
-    var ext = url.substr(url.lastIndexOf('.') + 1);
-    if(ext == 'ogv') ext = 'ogg';
-    str = '&lt;video' + (id ? ' id=&quot;' + id + '&quot;' : '') + ' class=&quot;' + classname + ' video-js&quot; ' + (align ? ' style=&quot;float:' + align + '&quot;': '') +
-        ' controls preload=&quot;none&quot; width=&quot;' + width + '&quot; height=&quot;' + height + '&quot; src=&quot;' + url + '&quot; data-setup=&quot;{}&quot;&gt;' +
-        '&lt;source src=&quot;' + url + '&quot; type=&quot;video/' + ext + '&quot; /&gt;&lt;/video&gt;';
-    break;
+              <p>在仓库根目录下创建<code>.gitignore</code>文件，用来配置git忽略文件。<br>
+.gitignore文件对其所在的目录及所在目录的全部子目录均有效。通过将.gitignore文件添加到仓库，其他开发者更新该文件到本地仓库，以共享同一套忽略规则。</p>
+<h1 id="gitignore规则">gitignore规则</h1>
+<p>下面我们看看常用的规则：</p>
+<ol>
+<li><code>/mtk/</code>             过滤整个文件夹</li>
+<li><code>*.zip</code>             过滤所有.zip文件</li>
+<li><code>/mtk/do.c</code>        过滤某个具体文件</li>
+</ol>
+<p>gitignore还可以指定要将哪些文件添加到版本管理中：</p>
+<ol>
+<li><code>!*.zip</code></li>
+<li><code>!/mtk/one.txt</code></li>
+</ol>
+<p>唯一的区别就是规则开头多了一个感叹号，Git会将满足这类规则的文件添加到版本管理中。<br>
+为什么要有两种规则呢？想象一个场景：假如我们只需要管理/mtk/目录中的one.txt文件，这个目录中的其他文件都不需要管理，那么我们就需要使用：</p>
+<pre><code>/mtk/
+!/mtk/one.txt
 </code></pre>
-<p>现在我们要根据后缀名来判断一下文件类型</p>
-<pre><code class="language-javascript">case 'video':
-    //这里修改实现上传MP3文件(2016.5.13---漫卷)
-    var ext = url.substr(url.lastIndexOf('.') + 1);
-    if (ext == &quot;mp3&quot;) {
-        str = '&lt;audio controls preload=&quot;none&quot; controlsList=&quot;nodownload&quot; src=&quot;' + url + '&quot;&gt;&quot; /&gt;&lt;/audio&gt;';
-    } else {
-        if (ext == 'ogv') ext = 'ogg';
-        str = '&lt;video' + (id ? ' id=&quot;' + id + '&quot;' : '') + (align ? ' style=&quot;float:' + align + '&quot;' : '') + 'controls width=&quot;' + width + '&quot; height=&quot;' + height + '&quot; src=&quot;' + url + '&quot; data-setup=&quot;{}&quot;&gt;' + '&lt;source src=&quot;' + url + '&quot; type=&quot;video/' + ext + '&quot; /&gt;&lt;/video&gt;';
-    }
-    break;
-</code></pre>
-<p>如果后缀名是MP3（当然你也可以是一些其他的音频格式），我们就创建一个audio标签的字符串。</p>
-<p>这里也可以加一些特殊的样式。比如向右对齐<code>style=&quot;float：right；&quot;</code>,不显示下载按钮<code>controlsList=&quot;nodownload&quot;</code></p>
+<p>假设我们只有过滤规则，而没有添加规则，那么我们就需要把/mtk/目录下除了one.txt以外的所有文件都写出来！</p>
+<p>这里需要强调的一点是，如果你不慎在创建.gitignore文件之前就push了项目，那么即使你在.gitignore文件中写入新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。<br>
+简单来说，出现这种问题的原因就是Git已经开始管理这些文件了，所以你无法再通过过滤规则过滤它们。因此一定要养成在项目开始就创建.gitignore文件的习惯，否则一旦push，处理起来会非常麻烦。</p>
+<h1 id="配置语法">配置语法</h1>
+<ul>
+<li>以斜杠“/”开头表示目录；</li>
+<li>以星号“*”通配多个字符；</li>
+<li>以问号“?”通配单个字符</li>
+<li>以方括号“[]”包含单个字符的匹配列表；</li>
+<li>以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；</li>
+</ul>
+<p>此外，git 对于 .ignore 配置文件是按行从上到下进行规则匹配的，意味着如果前面的规则匹配的范围更大，则后面的规则将不会生效；</p>
+<h2 id="示例说明">示例说明</h2>
+<ol>
+<li>规则：fd1/*<br>
+说明：忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，还是某个子目录 /child/fd1/ 目录，都会被忽略；</li>
+<li>规则：/fd1/*<br>
+说明：忽略根目录下的 /fd1/ 目录的全部内容；</li>
+<li>规则：<br>
+/*<br>
+!.gitignore<br>
+!/fw/bin/<br>
+!/fw/sf/<br>
+说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；</li>
+</ol>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
-                    前端
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/FFr974k7U/">
+                <a href="https://iwangxing.cn/manjuan/post/OujcsqYC1/">
                   <h3 class="post-title">
-                    快捷键整理
+                    http报文
                   </h3>
                 </a>
               </div>
