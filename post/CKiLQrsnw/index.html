@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>get和post区别 | 漫卷</title>
+<title>js原型链 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,40 +104,23 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">get和post区别</h2>
-            <div class="post-date">2016-10-28</div>
+            <h2 class="post-title">js原型链</h2>
+            <div class="post-date">2020-10-24</div>
             
             <div class="post-content">
-              <ul>
-<li>get在浏览器的回退时是无害的，而post会再次提交请求</li>
-<li>get产生的url地址可以被收藏，而post不可以</li>
-<li>get请求会被浏览器主动缓存，而post不会，除非手动设置</li>
-<li>get请求只能进行URL编码，而post支持多种编码方式</li>
-<li>get请求参数会被完整保留在浏览器历史记录里，post不会</li>
-<li>get在url传递参数的长度是有限的，post没有限制</li>
-<li>get比post更不安全，因为参数直接暴露在url上，所以不能用来传递敏感信息。</li>
-<li>get参数通过url传递，post放在request body中</li>
-</ul>
+              <h1 id="js如何创建对象">js如何创建对象</h1>
+<pre><code class="language-javascript">var o1 = {name:'o1'}
+var o11 = new Object({name:'o11'})
+</code></pre>
+<pre><code class="language-javascript">var M = function(){this.name='o2'}
+var o2 = new M()
+</code></pre>
+<pre><code class="language-javascript">var P = {name:'o3'}
+var o3 = Object.create(P)
+</code></pre>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/d8eEexi2P/">
-                  <h3 class="post-title">
-                    a++和++a的区别
-                  </h3>
-                </a>
-              </div>
             
 
             

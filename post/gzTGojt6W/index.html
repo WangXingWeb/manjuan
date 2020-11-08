@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>get和post区别 | 漫卷</title>
+<title>前端安全 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,37 +104,35 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">get和post区别</h2>
-            <div class="post-date">2016-10-28</div>
+            <h2 class="post-title">前端安全</h2>
+            <div class="post-date">2020-10-25</div>
             
             <div class="post-content">
-              <ul>
-<li>get在浏览器的回退时是无害的，而post会再次提交请求</li>
-<li>get产生的url地址可以被收藏，而post不可以</li>
-<li>get请求会被浏览器主动缓存，而post不会，除非手动设置</li>
-<li>get请求只能进行URL编码，而post支持多种编码方式</li>
-<li>get请求参数会被完整保留在浏览器历史记录里，post不会</li>
-<li>get在url传递参数的长度是有限的，post没有限制</li>
-<li>get比post更不安全，因为参数直接暴露在url上，所以不能用来传递敏感信息。</li>
-<li>get参数通过url传递，post放在request body中</li>
+              <h1 id="csrf">CSRF</h1>
+<p>通常称为跨站请求伪造，英文名 Cross-site request forgery</p>
+<p>新浪微博出现过一次这样的漏洞，导致很多用户被莫名添加了很多关注。</p>
+<h2 id="攻击原理">攻击原理</h2>
+<figure data-type="image" tabindex="1"><img src="https://iwangxing.cn/manjuan//post-images/1603638639562.png" alt="" loading="lazy"></figure>
+<p>这种攻击的前提是用户在别攻击的网站上是真实登录的，网站B诱导用户点击某个链接该链接使用A网站下发的cookie访问A网站的接口，这时A网站的服务器会当作用户的正常操作处理。</p>
+<h2 id="如何防御">如何防御</h2>
+<ul>
+<li>token验证<br>
+浏览器发起请求会默认携带cookie但不会携带token</li>
+<li>Referer验证<br>
+来源验证，服务器验证这个请求是否是自己的站点发出，不是自己站点一律拦截</li>
+<li>隐藏令牌</li>
 </ul>
+<h1 id="xss">XSS</h1>
+<p>跨域脚本攻击，英文全称cross-site scripting</p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/d8eEexi2P/">
+                <a href="https://iwangxing.cn/manjuan/post/MUXxsDdTG/">
                   <h3 class="post-title">
-                    a++和++a的区别
+                    如何提高页面性能
                   </h3>
                 </a>
               </div>
