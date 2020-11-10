@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1604841613595">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1605020973426">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1604841613595" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1605020973426" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -108,19 +108,89 @@
             <div class="post-date">2017-01-02</div>
             
             <div class="post-content">
-              <p>git add .<br>
-放到暂存区<br>
-git commit<br>
-创建版本<br>
-git push<br>
-提交到远程仓库<br>
-git status<br>
-查看当前项目有那些改动<br>
-git log<br>
-查看提交记录<br>
-键盘<code>Q</code>退出查看<br>
-git restore<br>
-撤销修改,将文件从暂存区撤回</p>
+              <h1 id="git-add">git add</h1>
+<p>放到暂存区</p>
+<h1 id="git-commit">git commit</h1>
+<p>创建版本</p>
+<h1 id="git-push">git push</h1>
+<p>提交到远程仓库</p>
+<h1 id="git-status">git status</h1>
+<p>查看当前项目有那些改动</p>
+<h1 id="git-log-查看提交记录">git log 查看提交记录</h1>
+<p>查看提交记录<br>
+键盘<code>Q</code>退出查看</p>
+<ol>
+<li>git log 查看提交历史记录</li>
+<li>git log --oneline 或者 git log --pretty=oneline 以精简模式显示<br>
+如<code>git log --pretty=oneline index.html</code></li>
+<li>git log --graph 以图形模式显示版本路线</li>
+<li>git log --stat 显示文件更改列表</li>
+<li>git log --author= 'name' 显示某个作者的日志</li>
+<li>git log -p filepath 查看某个文件的详细修改</li>
+<li>git log -L start,end:filepath 查看某个文件某几行范围内的修改记录</li>
+<li>git log --stat commitId 或者 git show --stat commitId 查看某一次提交的文件修改列表</li>
+</ol>
+<h1 id="git-restore">git restore</h1>
+<p>撤销修改,将文件从暂存区撤回</p>
+<h1 id="git-config配置信息">git config配置信息</h1>
+<ul>
+<li>git config --global user.name '星仔'</li>
+<li>git config --global user.email 'wx1620@163.com'</li>
+<li>git config --global --list</li>
+</ul>
+<h1 id="git-rm删除文件">git rm删除文件</h1>
+<ul>
+<li>git rm index.html</li>
+</ul>
+<h1 id="git-mv重命名">git mv重命名</h1>
+<ul>
+<li>git mv oldFileName newFileName<br>
+git mv命令也可以移动文件位置<br>
+如<code>git mv index.html home/index.html</code><br>
+将index.html移动到home文件夹下</li>
+</ul>
+<h1 id="git-show显示更改信息">git show显示更改信息</h1>
+<ul>
+<li>
+<p>git show commitId显示一次commit的修改信息</p>
+<h1 id="git-checkout">git checkout</h1>
+<ul>
+<li>git checkout -- index.html</li>
+<li>git checkout commitId -- index.html</li>
+</ul>
+<h1 id="git-reset">git reset</h1>
+<ul>
+<li>git reset HEAD index.html</li>
+<li>git reset --hard HEAD^  恢复到上一个版本</li>
+<li>git reset --hard commitId 恢复到指定版本<br>
+commitId可以是全部的id也可以是前几位</li>
+</ul>
+</li>
+</ul>
+<h1 id="git-push推送">git push推送</h1>
+<ul>
+<li>git push origin master</li>
+</ul>
+<h1 id="git-tag创建标签">git tag创建标签</h1>
+<ul>
+<li>git tag v1.0</li>
+<li>git tag</li>
+<li>git tag v0.5 commitId</li>
+<li>git tag -d v0.5  删除标签</li>
+<li>git push origin v1.0提交标签</li>
+</ul>
+<h1 id="git-branch分支">git branch分支</h1>
+<ul>
+<li>git branch dev创建一个名字为dev的分支</li>
+<li>git branch查看分支</li>
+<li>git checkout dev切换到dev分支</li>
+<li>git branch -d dev删除dev分支(不能删除当前所在分支，不能删除有commit的分支)</li>
+<li>git branch -D dev强制删除dev分支，即使有过commit也可以删除</li>
+<li>git checkout -b test 创建test分支并切换到test分支</li>
+<li>git merge dev 合并分支dev</li>
+<li>git merge --abort处理冲突保留当前分支中的代码</li>
+<li>git push origin --delete summer 删除summer分支</li>
+</ul>
 
             </div>
             
