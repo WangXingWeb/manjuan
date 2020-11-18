@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>axios配置默认参数 | 漫卷</title>
+<title>vue-router路由原理以及hash模式与history模式的区别 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,35 +104,46 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">axios配置默认参数</h2>
-            <div class="post-date">2020-03-25</div>
+            <h2 class="post-title">vue-router路由原理以及hash模式与history模式的区别</h2>
+            <div class="post-date">2019-03-10</div>
             
             <div class="post-content">
-              <p>正常开发中很多请求都需要携带上用户的token等登录凭证才能够请求数据，每次发起ajax请求都写一次会非常麻烦。这里我们使用axiox拦截器，拦截请求注入token，这样每次发起的ajax就会默认带有token参数了。</p>
-<pre><code class="language-javascript">http.interceptors.request.use(function (config) {
-    if (localStorage.token) {
-        config.data += '&amp;token=' + localStorage.token
-    }
-    return config
-}, function (error) {
-    return Promise.reject(error)
-})
+              <p>随着前端应用的业务功能越来越复杂、用户对于使用体验的要求越来越高，单页应用（SPA）成为前端应用的主流形式。大型单页应用最显著特点之一就是采用前端路由系统，通过改变URL，在不重新请求页面的情况下，更新页面视图。</p>
+<p>“更新视图但不重新请求页面”是前端路由原理的核心之一，目前在浏览器环境中这一功能的实现主要有两种方式：</p>
+<ul>
+<li>
+<p>利用URL中的hash（“#”）</p>
+</li>
+<li>
+<p>利用History interface在 HTML5中新增的方法</p>
+</li>
+</ul>
+<h1 id="hash模式">hash模式</h1>
+<p>hash（“#”）符号的本来作用是加在URL中指示网页中的位置：</p>
+<pre><code class="language-javascript">www.iwangxing.cn/index.html#aboutme
 </code></pre>
+<p>#符号本身以及它后面的字符称之为hash，可通过window.location.hash属性读取。它具有如下特点：</p>
+<ul>
+<li>hash虽然出现在URL中，但不会被包括在HTTP请求中。它是用来指导浏览器动作的，对服务器端完全无用，因此，改变hash不会重新加载页面</li>
+<li>可以为hash的改变添加监听事件：</li>
+</ul>
+<pre><code class="language-javascript">window.addEventListener(&quot;hashchange&quot;, funcRef, false)
+</code></pre>
+<ul>
+<li>每一次改变hash（window.location.hash），都会在浏览器的访问历史中增加一个记录</li>
+</ul>
+<p>利用hash的以上特点，就可以来实现前端路由“更新视图但不重新请求页面”的功能了。</p>
+<h1 id="history模式">history模式</h1>
+<p>我们先介绍一下H5新推出的两个api：pushState与replaceState</p>
+<p>作用就是可以将url替换并且不刷新页面，好比挂羊头卖狗肉，http并没有去请求服务器该路径下的资源，一旦刷新就会暴露这个实际不存在的“羊头”，显示404。</p>
+<p>那么如何去解决history模式下刷新报404的弊端呢，这就需要服务器端做点手脚，将不存在的路径请求重定向到入口文件（index.html），前后端联手，齐心协力做好“挂羊头卖狗肉”的完美特效。</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://iwangxing.cn/manjuan/tag/javascript/" class="tag">
-                    js
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/Lrc4i79jM/" class="tag">
-                    工具
-                  </a>
-                
-                  <a href="https://iwangxing.cn/manjuan/tag/kRA19DhNX/" class="tag">
-                    前端
+                  <a href="https://iwangxing.cn/manjuan/tag/vue/" class="tag">
+                    vue
                   </a>
                 
               </div>
@@ -140,9 +151,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://iwangxing.cn/manjuan/post/beH0lYHRG/">
+                <a href="https://iwangxing.cn/manjuan/post/react-router/">
                   <h3 class="post-title">
-                    箭头函数中的this
+                    React-router
                   </h3>
                 </a>
               </div>
