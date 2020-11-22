@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>ES6中的Class | 漫卷</title>
+<title>ES6笔记 | 漫卷</title>
 <meta name="description" content="躬行不言，默而成事">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1606044527509">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1606045488603">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1606044527509" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1606045488603" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,11 +104,16 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">ES6中的Class</h2>
+            <h2 class="post-title">ES6笔记</h2>
             <div class="post-date">2017-02-02</div>
             
             <div class="post-content">
-              <h1 id="class">class</h1>
+              <h1 id="let和var">let和var</h1>
+<ul>
+<li>var 可以重复声明，let不可以重复声明，可以防止变量被污染</li>
+<li>let块级作用域，var存在变量提升</li>
+</ul>
+<h1 id="class">class</h1>
 <ul>
 <li><code>class</code>只是一个语法糖，本质还是用构造函数和原型链实现的</li>
 <li>每个<code>class</code>类中都有一个构造器，每当<code>new</code>这个类时，必须先执行这个构造器函数。</li>
@@ -128,7 +133,7 @@
   static info = &quot;animal&quot;
 }
 </code></pre>
-<h1 id="extends">extends</h1>
+<h2 id="extends">extends</h2>
 <pre><code class="language-javascript">class Person {
   constructor(name, age) {
     this.name = name
