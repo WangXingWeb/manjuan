@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-11-22T11:28:33.212Z</updated>
+    <updated>2020-11-22T11:28:50.768Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
@@ -16,6 +16,13 @@
         <link href="https://iwangxing.cn/manjuan/post/gzTGojt6W/">
         </link>
         <updated>2020-10-25T15:04:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[访问一个网址中间发生了什么]]></title>
+        <id>https://iwangxing.cn/manjuan/post/8ZggwGnxI/</id>
+        <link href="https://iwangxing.cn/manjuan/post/8ZggwGnxI/">
+        </link>
+        <updated>2020-10-25T14:24:39.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[如何提高页面性能]]></title>
@@ -80,18 +87,5 @@
         <link href="https://iwangxing.cn/manjuan/post/syDRl9UIG/">
         </link>
         <updated>2020-01-21T14:58:14.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[修改UEditor源码支持上传音频]]></title>
-        <id>https://iwangxing.cn/manjuan/post/2vR9xTtVm/</id>
-        <link href="https://iwangxing.cn/manjuan/post/2vR9xTtVm/">
-        </link>
-        <updated>2020-01-13T15:04:24.000Z</updated>
-        <summary type="html"><![CDATA[<p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
-<p>上传视频时是可以选择MP3这类的音频文件的，只不过这里上传后会生成video标签而不是audio标签。这样渲染后得到的是一个视频播放框，能播放音频但是有一个大黑框，不复合我们的要求。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>UEditor上传音乐只能从网络上搜索音频，不能上传本地音频。而我们的项目中就涉及到了在富文本在本地上传音频的需求。其实UEditor是支持本地上传视频的。</p>
-<p>上传视频时是可以选择MP3这类的音频文件的，只不过这里上传后会生成video标签而不是audio标签。这样渲染后得到的是一个视频播放框，能播放音频但是有一个大黑框，不复合我们的要求。</p>
-]]></content>
     </entry>
 </feed>
