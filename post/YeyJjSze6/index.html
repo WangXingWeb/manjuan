@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1606229176874">
+<link rel="shortcut icon" href="https://iwangxing.cn/manjuan//favicon.ico?v=1606232661773">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://iwangxing.cn/manjuan//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://iwangxing.cn/manjuan/">
-        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1606229176874" class="site-logo">
+        <img src="https://iwangxing.cn/manjuan//images/avatar.png?v=1606232661773" class="site-logo">
         <h1 class="site-title">漫卷</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -111,6 +111,10 @@
               <h1 id="git-add">git add</h1>
 <p>放到暂存区</p>
 <h1 id="git-commit">git commit</h1>
+<ul>
+<li>git commit -m '修改说明'</li>
+<li>git commit --amend 修改最近一次提交</li>
+</ul>
 <p>创建版本</p>
 <h1 id="git-push">git push</h1>
 <p>提交到远程仓库</p>
@@ -124,9 +128,12 @@
 <li>git log --oneline 或者 git log --pretty=oneline 以精简模式显示<br>
 如<code>git log --pretty=oneline index.html</code></li>
 <li>git log --graph 以图形模式显示版本路线</li>
+<li>git log --name-only 现实文件名修改</li>
+<li>git log --name-status</li>
 <li>git log --stat 显示文件更改列表</li>
 <li>git log --author= 'name' 显示某个作者的日志</li>
 <li>git log -p filepath 查看某个文件的详细修改</li>
+<li>git log -p -1 查看最近一次提交的修改记录</li>
 <li>git log -L start,end:filepath 查看某个文件某几行范围内的修改记录</li>
 <li>git log --stat commitId 或者 git show --stat commitId 查看某一次提交的文件修改列表</li>
 </ol>
@@ -152,8 +159,8 @@ git mv命令也可以移动文件位置<br>
 </ul>
 <h1 id="git-show显示更改信息">git show显示更改信息</h1>
 <ul>
-<li>
-<p>git show commitId显示一次commit的修改信息</p>
+<li>git show commitId显示一次commit的修改信息</li>
+</ul>
 <h1 id="git-checkout">git checkout</h1>
 <ul>
 <li>git checkout -- index.html</li>
@@ -165,8 +172,6 @@ git mv命令也可以移动文件位置<br>
 <li>git reset --hard HEAD^  恢复到上一个版本</li>
 <li>git reset --hard commitId 恢复到指定版本<br>
 commitId可以是全部的id也可以是前几位</li>
-</ul>
-</li>
 </ul>
 <h1 id="git-push推送">git push推送</h1>
 <ul>
