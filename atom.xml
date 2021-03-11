@@ -2,21 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iwangxing.cn/manjuan/</id>
     <title>漫卷</title>
-    <updated>2020-11-24T15:44:26.951Z</updated>
+    <updated>2021-03-11T03:19:18.973Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iwangxing.cn/manjuan/"/>
     <link rel="self" href="https://iwangxing.cn/manjuan/atom.xml"/>
     <subtitle>躬行不言，默而成事</subtitle>
     <logo>https://iwangxing.cn/manjuan/images/avatar.png</logo>
     <icon>https://iwangxing.cn/manjuan/favicon.ico</icon>
-    <rights>All rights reserved 2020, 漫卷</rights>
-    <entry>
-        <title type="html"><![CDATA[css权重]]></title>
-        <id>https://iwangxing.cn/manjuan/post/boz1xoWQd/</id>
-        <link href="https://iwangxing.cn/manjuan/post/boz1xoWQd/">
-        </link>
-        <updated>2020-11-22T11:45:21.000Z</updated>
-    </entry>
+    <rights>All rights reserved 2021, 漫卷</rights>
     <entry>
         <title type="html"><![CDATA[前端安全]]></title>
         <id>https://iwangxing.cn/manjuan/post/gzTGojt6W/</id>
@@ -87,5 +80,12 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>箭头函数看起来像一个匿名函数，但是也有一点和匿名函数很不哟样，就是箭头函数中的this并不指向函数的调用者，而是指向函数外部的this。</p>
 ]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[js中容易搞混的循环]]></title>
+        <id>https://iwangxing.cn/manjuan/post/syDRl9UIG/</id>
+        <link href="https://iwangxing.cn/manjuan/post/syDRl9UIG/">
+        </link>
+        <updated>2020-01-21T14:58:14.000Z</updated>
     </entry>
 </feed>
